@@ -52,7 +52,7 @@ export const SCENTS = [
     functions: ["Everyday centering", "Steady focus", "Daily ritual"],
     ingredients: ["Original Samunprai Blend"],
     description:
-      "The classic Thai yadom formula — authentic samunprai herbal blend carried unchanged through a thousand years of tradition. Your daily anchor.",
+      "The classic Thai yadom formula: an authentic samunprai herbal blend carried unchanged through a thousand years of tradition. Your daily anchor.",
     accentColor: "#5A8060",
     accentBg: "rgba(90, 128, 96, 0.08)",
     price: 20,
@@ -67,7 +67,7 @@ export const SCENTS = [
     functions: ["Morning lift", "Pre-workout focus", "Mental clarity"],
     ingredients: ["Mint Flakes", "Thai Royal Basil"],
     description:
-      "A sharp, cool aromatherapy inhaler that cuts straight through fatigue. Mint and Thai Royal Basil — trusted by fighters, built for anyone who needs to show up hard.",
+      "A sharp, cool aromatherapy inhaler that cuts straight through fatigue. Mint and Thai Royal Basil, trusted by fighters and built for anyone who needs to show up hard.",
     accentColor: "#308858",
     accentBg: "rgba(48, 136, 88, 0.08)",
     price: 20,
@@ -82,7 +82,7 @@ export const SCENTS = [
     functions: ["Deep focus", "Mental coolness", "Breath clarity"],
     ingredients: ["Borneol"],
     description:
-      "Single-origin Borneol — the purest natural focus inhaler in the line. Crystalline cool that sharpens every thought and clears every breath.",
+      "Single-origin Borneol, the purest natural focus inhaler in the line. Crystalline cool that sharpens every thought and clears every breath.",
     accentColor: "#4080C0",
     accentBg: "rgba(64, 128, 192, 0.08)",
     price: 20,
@@ -114,7 +114,7 @@ export const YADOM_OIL = {
   functions: ["Maximum intensity", "Deep absorption", "Premium ritual"],
   ingredients: ["Premium Thai Herbal Blend"],
   description:
-    "The premium variant — a concentrated oil for those who want maximum intensity and depth in their herbal aromatherapy ritual. Same Thai heritage, fully amplified.",
+      "The premium variant: a concentrated oil for those who want maximum intensity and depth in their herbal aromatherapy ritual. Same Thai heritage, fully amplified.",
   accentColor: "#C9940A",
   accentBg: "rgba(201, 148, 10, 0.12)",
   price: 35,

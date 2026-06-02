@@ -43,7 +43,7 @@ export default function Navbar() {
           <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
             <p className="flex-1 text-center text-xs font-sans text-tiger-muted leading-snug">
               <span className="mr-1.5" aria-hidden="true">🚧</span>
-              Under construction —{" "}
+              Under construction,{" "}
               <span className="text-tiger-cream/80">
                 checkout and product pages coming soon.
               </span>
@@ -72,7 +72,7 @@ export default function Navbar() {
         <Link
           href="/"
           className="flex items-center gap-2.5 cursor-pointer"
-          aria-label="Tom Yam Yadom — home"
+          aria-label="Tom Yam Yadom home"
         >
           <TigerMark size={34} />
           <span className="font-heading font-bold text-tiger-cream text-xs tracking-[0.15em] uppercase leading-tight hidden sm:block">

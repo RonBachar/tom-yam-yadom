@@ -34,7 +34,7 @@ export const metadata = {
     "Koh Samui",
   ],
   openGraph: {
-    title: "Tom Yam Yadom — Smiling Tiger Thai Herbal Inhaler",
+    title: "Tom Yam Yadom | Smiling Tiger Thai Herbal Inhaler",
     description:
       "Premium handcrafted yadom from Koh Samui. 7 scents. Organic ingredients. 12+ month shelf life.",
     type: "website",

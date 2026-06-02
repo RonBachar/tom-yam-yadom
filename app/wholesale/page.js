@@ -1,7 +1,7 @@
 import WholesaleForm from "./WholesaleForm";
 
 export const metadata = {
-  title: "Wholesale — Tom Yam Yadom",
+  title: "Wholesale | Tom Yam Yadom",
   description:
     "Wholesale program for gyms, smoke shops, wellness retailers, and lifestyle stores. Four-tier pricing with low minimums.",
 };

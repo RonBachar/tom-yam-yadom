@@ -130,9 +130,9 @@ function ScentCard({ scent, isSelected, onSelect }) {
               backgroundColor: scent.accentColor,
               color: "#0D0B08",
             }}
-            aria-label={`Add ${scent.name} to cart — $${20}`}
+            aria-label={`Add ${scent.name} to cart, $${20}`}
           >
-            Add to Cart — $20
+            Add to Cart · $20
           </button>
           <Link
             href={`/products/${scent.slug}`}

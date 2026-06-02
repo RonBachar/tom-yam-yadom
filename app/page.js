@@ -137,7 +137,7 @@ function HeroSection() {
           className="text-tiger-muted text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed mb-10"
           style={{ animation: "fade-up 0.7s ease-out 0.45s both" }}
         >
-          Organic yadom — a{" "}
+          Organic yadom, a{" "}
           <span className="text-tiger-cream font-medium">
             natural focus inhaler
           </span>{" "}
@@ -389,7 +389,7 @@ function ScentSelectorSection() {
           </h2>
           <p className="text-tiger-muted text-lg font-sans max-w-xl mx-auto leading-relaxed">
             Every inhaler is an identity. Tap a scent to explore the mood,
-            function, and ingredients — then add to cart.
+            function, and ingredients. Tap a card to add to cart.
           </p>
         </AnimateIn>
 
@@ -444,7 +444,7 @@ function YadomOilCard() {
         <span className="font-heading font-bold text-tiger-gold text-2xl">$35</span>
         <button
           className="bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-xs tracking-[0.14em] uppercase px-6 py-3 rounded-full transition-colors duration-200 cursor-pointer whitespace-nowrap"
-          aria-label="Add Yadom Oil to cart — $35"
+          aria-label="Add Yadom Oil to cart, $35"
         >
           Add to Cart
         </button>
@@ -479,7 +479,7 @@ function TraditionSection() {
             />
             <p className="text-tiger-muted font-sans text-base leading-relaxed">
               Yadom is the daily breath ritual of Thailand. Used by ~72 million
-              people every single day — in temples, street markets, gyms, and
+              people every single day, in temples, street markets, gyms, and
               offices across the country.
             </p>
           </div>
@@ -492,12 +492,12 @@ function TraditionSection() {
           </span>
           <h2 className="font-heading font-bold text-tiger-cream uppercase leading-tight mb-6"
             style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)" }}>
-            Thailand&rsquo;s oldest breathing practice — rebuilt for modern life.
+            Thailand&rsquo;s oldest breathing practice, rebuilt for modern life.
           </h2>
           <div className="space-y-4 text-tiger-muted font-sans text-base leading-relaxed">
             <p>
-              The <strong className="text-tiger-cream font-medium">Thai herbal inhaler</strong> — known as{" "}
-              <em className="text-tiger-cream">ya-dom</em> — is a compressed blend
+              The <strong className="text-tiger-cream font-medium">Thai herbal inhaler</strong>, known as{" "}
+              <em className="text-tiger-cream">ya-dom</em>, is a compressed blend
               of aromatic herbs carried in a small tube. It has been used for
               respiratory clarity, focus, and ritual grounding for over a
               thousand years.
@@ -508,7 +508,7 @@ function TraditionSection() {
               <strong className="text-tiger-cream font-medium">
                 herbal nasal inhaler
               </strong>{" "}
-              made in Koh Samui — the same island where the tradition is still
+              made in Koh Samui, the same island where the tradition is still
               lived every day.
             </p>
             <p>
@@ -584,7 +584,7 @@ function FounderSection() {
             <p>
               Tyler is a professional Muay Thai fighter who has lived and trained
               between Thailand and the United States for years. He started
-              Smiling Tiger because he was tired of what was on the market —
+              Smiling Tiger because he was tired of what was on the market:
               short shelf life, synthetic fragrances, no cultural connection.
             </p>
             <p>
@@ -607,7 +607,7 @@ function FounderSection() {
               <strong className="text-tiger-gold font-semibold">
                 10% of every sale
               </strong>{" "}
-              goes to youth Muay Thai training at Jackie Gym, Koh Samui — so the
+              goes to youth Muay Thai training at Jackie Gym, Koh Samui, so the
               next generation can train like champions.
             </p>
           </div>
@@ -733,7 +733,7 @@ function SocialProofSection() {
             Smiling Tiger Inhalers Sold
           </p>
           <p className="text-tiger-muted text-sm font-sans mt-2">
-            From Koh Samui to Coachella — and still counting.
+            From Koh Samui to Coachella, and still counting.
           </p>
         </AnimateIn>
 

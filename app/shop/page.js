@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ALL_PRODUCTS } from "../data/products";
 
 export const metadata = {
-  title: "Shop — Tom Yam Yadom | Thai Herbal Inhaler",
+  title: "Shop | Tom Yam Yadom | Thai Herbal Inhaler",
   description:
     "Shop all 7 Smiling Tiger Thai herbal inhaler scents and Yadom Oil. Organic yadom handcrafted in Koh Samui.",
 };
@@ -32,7 +32,7 @@ export default function ShopPage() {
               key={product.slug}
               href={`/products/${product.slug}`}
               className="block rounded-2xl border border-tiger-border hover:border-tiger-gold/50 bg-tiger-surface transition-all duration-200 overflow-hidden cursor-pointer group"
-              aria-label={`${product.name} — ${product.tagline}`}
+              aria-label={`${product.name}: ${product.tagline}`}
             >
               {/* Accent bar */}
               <div

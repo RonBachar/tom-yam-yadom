@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
   const product = ALL_PRODUCTS.find((p) => p.slug === slug);
   if (!product) return {};
   return {
-    title: `${product.name} — Tom Yam Yadom`,
+    title: `${product.name} | Tom Yam Yadom`,
     description: product.description,
   };
 }
@@ -139,7 +139,7 @@ export default async function ProductPage({ params }) {
               <button
                 className="flex-1 font-heading font-bold text-sm tracking-[0.14em] uppercase py-4 rounded-full transition-all duration-200 cursor-pointer active:scale-95"
                 style={{ backgroundColor: product.accentColor, color: "#0D0B08" }}
-                aria-label={`Add ${product.name} to cart — $${product.price}`}
+                aria-label={`Add ${product.name} to cart, $${product.price}`}
               >
                 Add to Cart
               </button>

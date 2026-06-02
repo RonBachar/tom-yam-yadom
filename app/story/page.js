@@ -2,7 +2,7 @@ import Link from "next/link";
 import TigerMark from "../components/TigerMark";
 
 export const metadata = {
-  title: "Our Story — Tom Yam Yadom | Smiling Tiger",
+  title: "Our Story | Tom Yam Yadom, Smiling Tiger",
   description:
     "Tyler's story: a professional Muay Thai fighter who built a premium Thai herbal inhaler from Koh Samui. 10% of every sale goes to Jackie Gym youth Muay Thai.",
 };
@@ -33,7 +33,7 @@ export default function StoryPage() {
               The Founder
             </h2>
             <p>
-              Tyler is a professional Muay Thai fighter who has lived and trained between Thailand and the United States for over a decade. He found yadom — the compressed Thai herbal inhaler — on his first trip to Koh Samui, and it never left his fight kit.
+              Tyler is a professional Muay Thai fighter who has lived and trained between Thailand and the United States for over a decade. He found yadom, the compressed Thai herbal inhaler, on his first trip to Koh Samui, and it never left his fight kit.
             </p>
             <p className="mt-4">
               He got tired of what was on the market: mass-produced inhalers with 30-day shelf lives, synthetic fragrance, and zero cultural connection. So he built his own.
@@ -47,7 +47,7 @@ export default function StoryPage() {
             <p className="text-tiger-cream text-xl italic font-sans">
               &ldquo;I wanted something that earned its place in the kit bag. Organic. Long shelf life. Made the way Thai people actually make it.&rdquo;
             </p>
-            <p className="text-tiger-muted text-sm mt-3">— Tyler, Founder</p>
+            <p className="text-tiger-muted text-sm mt-3">Tyler, Founder</p>
           </div>
 
           <section>
@@ -55,7 +55,7 @@ export default function StoryPage() {
               Koh Samui Sourcing
             </h2>
             <p>
-              Every Smiling Tiger inhaler is formulated and hand-assembled in Koh Samui using Thai-sourced organic ingredients. No outsourcing, no synthetic carriers, no shortcuts. The shelf life exceeds 12 months — compared to the 30-day window of most mass-market inhalers.
+              Every Smiling Tiger inhaler is formulated and hand-assembled in Koh Samui using Thai-sourced organic ingredients. No outsourcing, no synthetic carriers, no shortcuts. The shelf life exceeds 12 months, compared to the 30-day window of most mass-market inhalers.
             </p>
           </section>
 
@@ -64,7 +64,7 @@ export default function StoryPage() {
               Jackie Gym Giveback
             </h2>
             <p>
-              10% of every sale goes directly to youth Muay Thai training at Jackie Gym, Koh Samui. The gym trains the next generation of fighters — kids who might not otherwise have access to the discipline, mentorship, and physical practice that Muay Thai provides.
+              10% of every sale goes directly to youth Muay Thai training at Jackie Gym, Koh Samui. The gym trains the next generation of fighters, kids who might not otherwise have access to the discipline, mentorship, and physical practice that Muay Thai provides.
             </p>
             <div
               className="mt-6 p-5 rounded-xl"
