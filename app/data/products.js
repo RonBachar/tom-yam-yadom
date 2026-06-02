@@ -12,7 +12,7 @@ export const SCENTS = [
     accentBg: "rgba(192, 104, 128, 0.08)",
     price: 20,
     isOil: false,
-    badge: null,
+    badge: "Heart Opener",
   },
   {
     slug: "vitality",
@@ -42,7 +42,7 @@ export const SCENTS = [
     accentBg: "rgba(212, 128, 26, 0.08)",
     price: 20,
     isOil: false,
-    badge: null,
+    badge: "Uplifting",
   },
   {
     slug: "balance",
@@ -87,7 +87,7 @@ export const SCENTS = [
     accentBg: "rgba(64, 128, 192, 0.08)",
     price: 20,
     isOil: false,
-    badge: null,
+    badge: "Focus",
   },
   {
     slug: "serenity",
@@ -102,7 +102,7 @@ export const SCENTS = [
     accentBg: "rgba(104, 88, 168, 0.08)",
     price: 20,
     isOil: false,
-    badge: null,
+    badge: "Calming",
   },
 ];
 
