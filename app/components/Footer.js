@@ -144,6 +144,21 @@ export default function Footer() {
             Thai herbal inhaler &middot; Organic yadom &middot; Natural focus inhaler
           </p>
         </div>
+
+        {/* Studio credit */}
+        <div className="mt-4 pt-4 border-t border-tiger-border/50 text-center">
+          <p className="text-tiger-muted/50 text-xs font-sans">
+          Design & Development{" "}
+            <a
+              href="https://www.matara.studio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-tiger-muted/70 hover:text-tiger-gold transition-colors duration-200 cursor-pointer"
+            >
+              Matara Studio
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
