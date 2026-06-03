@@ -23,8 +23,8 @@ export const SCENTS = [
     ingredients: ["Cinnamon", "Ginger", "Fuji Pear"],
     description:
       "A spiced, warming organic yadom built for Muay Thai training, morning routines, and long days. Cinnamon and ginger fire the focus; pear softens the edge.",
-    accentColor: "#C87830",
-    accentBg: "rgba(200, 120, 48, 0.08)",
+    accentColor: "#CC2020",
+    accentBg: "rgba(204, 32, 32, 0.08)",
     price: 20,
     isOil: false,
     badge: "Best Seller",
@@ -38,8 +38,8 @@ export const SCENTS = [
     ingredients: ["Kaffir Lime", "Tangerine Zest", "Orange Blossom Tea"],
     description:
       "Citrus-forward herbal nasal inhaler with the brightness of kaffir lime and tangerine. Clears your head and brings festival energy anywhere you carry it.",
-    accentColor: "#D4801A",
-    accentBg: "rgba(212, 128, 26, 0.08)",
+    accentColor: "#D4681A",
+    accentBg: "rgba(212, 104, 26, 0.08)",
     price: 20,
     isOil: false,
     badge: "Uplifting",
@@ -68,8 +68,8 @@ export const SCENTS = [
     ingredients: ["Mint Flakes", "Thai Royal Basil"],
     description:
       "A sharp, cool aromatherapy inhaler that cuts straight through fatigue. Mint and Thai Royal Basil, trusted by fighters and built for anyone who needs to show up hard.",
-    accentColor: "#308858",
-    accentBg: "rgba(48, 136, 88, 0.08)",
+    accentColor: "#3880C8",
+    accentBg: "rgba(56, 128, 200, 0.08)",
     price: 20,
     isOil: false,
     badge: "Fighter's Choice",
@@ -83,8 +83,8 @@ export const SCENTS = [
     ingredients: ["Borneol"],
     description:
       "Single-origin Borneol, the purest natural focus inhaler in the line. Crystalline cool that sharpens every thought and clears every breath.",
-    accentColor: "#4080C0",
-    accentBg: "rgba(64, 128, 192, 0.08)",
+    accentColor: "#C8B800",
+    accentBg: "rgba(200, 184, 0, 0.08)",
     price: 20,
     isOil: false,
     badge: "Focus",
@@ -107,14 +107,14 @@ export const SCENTS = [
 ];
 
 export const YADOM_OIL = {
-  slug: "yadom-oil",
-  name: "Yadom Oil",
+  slug: "crown-blend",
+  name: "Crown Blend",
   tagline: "The concentrated ritual. Stronger. Deeper.",
   emotion: "Intense",
   functions: ["Maximum intensity", "Deep absorption", "Premium ritual"],
   ingredients: ["Premium Thai Herbal Blend"],
   description:
-      "The premium variant: a concentrated oil for those who want maximum intensity and depth in their herbal aromatherapy ritual. Same Thai heritage, fully amplified.",
+    "The premium formula: concentrated for those who want maximum intensity and depth in their herbal aromatherapy ritual. Same Thai heritage, fully amplified.",
   accentColor: "#C9940A",
   accentBg: "rgba(201, 148, 10, 0.12)",
   price: 35,

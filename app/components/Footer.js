@@ -8,7 +8,7 @@ const LINKS = [
   { href: "/shop",      label: "Shop All Scents"     },
   { href: "/story",     label: "Our Story"           },
   { href: "/wholesale", label: "Wholesale"           },
-  { href: "/products/yadom-oil", label: "Yadom Oil"  },
+  { href: "/products/crown-blend", label: "Crown Blend" },
 ];
 
 export default function Footer() {
@@ -77,11 +77,8 @@ export default function Footer() {
                 <p className="font-sans text-tiger-muted text-xs">Smiling Tiger</p>
               </div>
             </div>
-            <p className="text-tiger-muted text-sm font-sans leading-relaxed mb-5">
+            <p className="text-tiger-muted text-sm font-sans leading-relaxed">
               Premium handcrafted Thai herbal inhalers. Made small-batch in Koh Samui from Thai-sourced organic ingredients.
-            </p>
-            <p className="text-tiger-gold text-xs font-sans font-semibold leading-relaxed">
-              10% of every sale supports youth Muay Thai at Jackie Gym, Koh Samui.
             </p>
           </div>
 

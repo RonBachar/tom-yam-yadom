@@ -4,7 +4,7 @@ import TigerMark from "../components/TigerMark";
 export const metadata = {
   title: "Our Story | Tom Yam Yadom, Smiling Tiger",
   description:
-    "Tyler's story: a professional Muay Thai fighter who built a premium Thai herbal inhaler from Koh Samui. 10% of every sale goes to Jackie Gym youth Muay Thai.",
+    "Tyler's story: a professional Muay Thai fighter who built a premium Thai herbal inhaler from Koh Samui. Organic ingredients, small-batch, Thai-sourced.",
 };
 
 export default function StoryPage() {
@@ -59,22 +59,6 @@ export default function StoryPage() {
             </p>
           </section>
 
-          <section>
-            <h2 className="font-heading font-bold text-tiger-cream text-2xl uppercase tracking-wide mb-4">
-              Jackie Gym Giveback
-            </h2>
-            <p>
-              10% of every sale goes directly to youth Muay Thai training at Jackie Gym, Koh Samui. The gym trains the next generation of fighters, kids who might not otherwise have access to the discipline, mentorship, and physical practice that Muay Thai provides.
-            </p>
-            <div
-              className="mt-6 p-5 rounded-xl"
-              style={{ backgroundColor: "rgba(201,148,10,0.08)", border: "1px solid rgba(201,148,10,0.25)" }}
-            >
-              <p className="text-tiger-gold font-heading font-bold text-lg uppercase tracking-wide">
-                10% of every Smiling Tiger sale → Jackie Gym
-              </p>
-            </div>
-          </section>
         </div>
 
         <div className="mt-16 flex flex-col sm:flex-row gap-4">

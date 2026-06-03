@@ -173,7 +173,7 @@ function HeroSection() {
           {[
             { icon: <LeafIcon />, text: "100% Organic" },
             { icon: <FlagIcon />, text: "Thai-Sourced" },
-            { icon: <HeartIcon />, text: "10% to Jackie Gym" },
+            { icon: <StarIcon />, text: "Small-Batch Koh Samui" },
           ].map(({ icon, text }) => (
             <div
               key={text}
@@ -396,7 +396,7 @@ function ScentSelectorSection() {
         {/* Interactive grid */}
         <ScentSelector />
 
-        {/* Yadom Oil feature card */}
+        {/* Crown Blend feature card */}
         <AnimateIn delay={200} className="mt-8">
           <YadomOilCard />
         </AnimateIn>
@@ -405,7 +405,7 @@ function ScentSelectorSection() {
   );
 }
 
-/* Yadom Oil premium feature */
+/* Crown Blend premium feature */
 function YadomOilCard() {
   return (
     <div
@@ -426,8 +426,8 @@ function YadomOilCard() {
       <div className="flex-1">
         <div className="flex items-center gap-3 mb-1.5">
           <h3 className="font-heading font-bold text-2xl text-tiger-cream uppercase tracking-wide">
-            Yadom Oil
-          </h3>
+              Crown Blend
+            </h3>
           <span
             className="text-xs font-heading font-bold tracking-[0.12em] uppercase px-3 py-1 rounded-full"
             style={{ backgroundColor: "rgba(201,148,10,0.2)", color: "#C9940A" }}
@@ -444,7 +444,7 @@ function YadomOilCard() {
         <span className="font-heading font-bold text-tiger-gold text-2xl">$35</span>
         <button
           className="bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-xs tracking-[0.14em] uppercase px-6 py-3 rounded-full transition-colors duration-200 cursor-pointer whitespace-nowrap"
-          aria-label="Add Yadom Oil to cart, $35"
+          aria-label="Add Crown Blend to cart, $35"
         >
           Add to Cart
         </button>
@@ -591,24 +591,6 @@ function FounderSection() {
               Every Smiling Tiger inhaler is formulated the way Thai fighters
               and healers have always done it: organic herbs, sourced in Thailand,
               blended by hand in Koh Samui.
-            </p>
-          </div>
-
-          {/* Giveback callout */}
-          <div
-            className="flex items-start gap-4 p-5 rounded-xl mb-8"
-            style={{
-              backgroundColor: "rgba(201,148,10,0.08)",
-              border: "1px solid rgba(201,148,10,0.25)",
-            }}
-          >
-            <HeartIcon className="text-tiger-gold w-5 h-5 flex-shrink-0 mt-0.5" />
-            <p className="text-tiger-cream text-sm font-sans leading-relaxed">
-              <strong className="text-tiger-gold font-semibold">
-                10% of every sale
-              </strong>{" "}
-              goes to youth Muay Thai training at Jackie Gym, Koh Samui, so the
-              next generation can train like champions.
             </p>
           </div>
 

@@ -147,8 +147,7 @@ export default async function ProductPage({ params }) {
 
             {/* Trust note */}
             <p className="text-tiger-muted text-xs font-sans">
-              Handcrafted in Koh Samui &middot; 12+ month shelf life &middot; 10%
-              to Jackie Gym
+              Handcrafted in Koh Samui &middot; 12+ month shelf life &middot; Thai-sourced ingredients
             </p>
           </div>
         </div>
