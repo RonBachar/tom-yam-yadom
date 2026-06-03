@@ -1,0 +1,142 @@
+---
+description: SEO standards for every page and product in this Next.js App Router project
+globs: app/**/page.js, app/data/products.js, app/sitemap.js
+alwaysApply: false
+---
+
+# SEO Standards — Tom Yam Yadom
+
+Apply every rule below whenever creating or editing any page or product in this project.
+
+---
+
+## 1. Metadata (every page)
+
+Every `page.js` must export a `metadata` object or `generateMetadata` function.
+Required fields on every page — all values must be unique to that page:
+
+```js
+export const metadata = {
+  title: "Page Title | Tom Yam Yadom",
+  description: "Under 160 chars. Specific to this page, not recycled from home.",
+  alternates: { canonical: "https://www.tomyamyadomherbals.com/page-path" },
+};
+```
+
+- `description` must be **≤ 160 characters** — check length before saving.
+- `alternates.canonical` must be the page's own full URL (with www).
+- Never reuse the homepage description on any other page.
+
+---
+
+## 2. Open Graph (every page)
+
+Include `openGraph` in every `metadata` export. Values must be page-specific:
+
+```js
+openGraph: {
+  title: "Page-specific OG title",
+  description: "Page-specific OG description (≤ 160 chars)",
+  url: "https://www.tomyamyadomherbals.com/page-path",
+  siteName: "Tom Yam Yadom",
+  locale: "en_US",
+  type: "website", // or "product" for product pages
+},
+```
+
+Never copy the homepage `openGraph` block onto another page.
+
+---
+
+## 3. Sitemap sync
+
+Whenever a new page or product slug is added, **also update `app/sitemap.js`**:
+- Static pages: add a new entry to `staticRoutes`.
+- Products: add the slug string to the `PRODUCT_SLUGS` array.
+
+If you know the slug, make the edit automatically without asking.
+
+---
+
+## 4. Structured data — JSON-LD
+
+**Product pages** (`app/products/[slug]/page.js`) must render a `<script type="application/ld+json">` with Product schema:
+
+```js
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: product.name,
+  description: product.description,
+  // image is CONDITIONAL — only include when product.image exists in products.js.
+  // Never hardcode a placeholder or non-existent path into JSON-LD.
+  ...(product.image ? { image: product.image } : {}),
+  brand: { "@type": "Brand", name: "Tom Yam Yadom" },
+  category: "Herbal Inhaler",
+  offers: {
+    "@type": "Offer",
+    price: product.price,          // numeric, no currency symbol
+    priceCurrency: "USD",
+    // PreOrder until Stripe checkout is connected and products are purchasable.
+    // Switch to "https://schema.org/InStock" once checkout is live.
+    availability: "https://schema.org/PreOrder",
+    url: `https://www.tomyamyadomherbals.com/products/${product.slug}`,
+    priceValidUntil: /* ISO date string, one year from build date */ "YYYY-MM-DD",
+  },
+};
+// Render as:
+// <script type="application/ld+json"
+//   dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+```
+
+> **TODO (keep until done):** Product photos are currently placeholders.
+> Once real product photos exist:
+> 1. Add an `image` field with the real absolute URL to each product in `app/data/products.js`.
+> 2. Verify each product page in [Google's Rich Results Test](https://search.google.com/test/rich-results).
+>
+> Until then, the schema intentionally omits the `image` field.
+
+**Standard pages** (Home, Story, Shop) should include `Organization` or `WebSite` schema where appropriate.
+
+---
+
+## 5. Images
+
+Always use Next.js `<Image>` — never a bare `<img>` tag.
+`alt` text must be descriptive and include relevant keywords:
+
+```jsx
+// ❌ BAD
+<img src="/inhaler.jpg" />
+<Image src="/inhaler.jpg" alt="inhaler" ... />
+
+// ✅ GOOD
+<Image
+  src="/inhaler.jpg"
+  alt="Tom Yam Yadom Thai herbal inhaler — Vitality scent"
+  width={600}
+  height={600}
+/>
+```
+
+- `width` and `height` must always be explicit.
+- Keywords to include where natural: "Thai herbal inhaler", scent name, "Koh Samui", "aromatherapy".
+
+---
+
+## 6. Heading hierarchy
+
+Each page must have **exactly one `<h1>`**, typically the main page title.
+Heading levels must not skip (h1 → h2 → h3, never h1 → h3).
+
+```jsx
+// ❌ BAD — two h1s, skipped level
+<h1>Shop</h1>
+<h1>All Inhalers</h1>
+<h3>Vitality</h3>
+
+// ✅ GOOD
+<h1>Shop All Thai Herbal Inhalers</h1>
+<h2>Scent Collection</h2>
+<h3>Vitality</h3>
+```

@@ -6,13 +6,24 @@ export function generateStaticParams() {
   return ALL_PRODUCTS.map((p) => ({ slug: p.slug }));
 }
 
+const BASE_URL = "https://www.tomyamyadomherbals.com";
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const product = ALL_PRODUCTS.find((p) => p.slug === slug);
   if (!product) return {};
+  const url = `${BASE_URL}/products/${slug}`;
   return {
-    title: `${product.name} | Tom Yam Yadom`,
+    title: `${product.name} Thai Herbal Inhaler | Tom Yam Yadom`,
     description: product.description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${product.name} | Tom Yam Yadom Thai Herbal Inhaler`,
+      description: product.description,
+      url,
+      siteName: "Tom Yam Yadom",
+      type: "product",
+    },
   };
 }
 
@@ -25,8 +36,33 @@ export default async function ProductPage({ params }) {
     (p) => p.slug !== product.slug && !p.isOil
   ).slice(0, 3);
 
+  const priceValidUntil = new Date();
+  priceValidUntil.setFullYear(priceValidUntil.getFullYear() + 1);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    ...(product.image ? { image: product.image } : {}),
+    brand: { "@type": "Brand", name: "Tom Yam Yadom" },
+    category: "Herbal Inhaler",
+    offers: {
+      "@type": "Offer",
+      price: product.price,
+      priceCurrency: "USD",
+      availability: "https://schema.org/PreOrder",
+      url: `${BASE_URL}/products/${product.slug}`,
+      priceValidUntil: priceValidUntil.toISOString().split("T")[0],
+    },
+  };
+
   return (
     <div className="pt-32 pb-24 px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="max-w-5xl mx-auto">
         {/* Breadcrumb */}
         <nav
