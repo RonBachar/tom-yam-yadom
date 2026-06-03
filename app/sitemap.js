@@ -1,3 +1,5 @@
+import { getAllPosts, CATEGORIES } from "../lib/blog";
+
 const BASE_URL = "https://www.tomyamyadomherbals.com";
 
 const PRODUCT_SLUGS = [
@@ -28,6 +30,12 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
+      url: `${BASE_URL}/blog`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/story`,
       lastModified,
       changeFrequency: "monthly",
@@ -48,5 +56,27 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...productRoutes];
+  // Blog posts — derived from actual files in content/blog/
+  const posts = getAllPosts();
+  const blogPostRoutes = posts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: post.updatedAt ? new Date(post.updatedAt) : lastModified,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  // Category archive pages — one per defined category
+  const categoryRoutes = Object.keys(CATEGORIES).map((category) => ({
+    url: `${BASE_URL}/blog/category/${category}`,
+    lastModified,
+    changeFrequency: "weekly",
+    priority: 0.6,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...productRoutes,
+    ...blogPostRoutes,
+    ...categoryRoutes,
+  ];
 }

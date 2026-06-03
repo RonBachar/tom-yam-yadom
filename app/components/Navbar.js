@@ -6,6 +6,7 @@ import TigerMark from "./TigerMark";
 
 const NAV_LINKS = [
   { href: "/shop",      label: "Shop"       },
+  { href: "/blog",      label: "Journal"    },
   { href: "/story",     label: "Our Story"  },
   { href: "/wholesale", label: "Wholesale"  },
 ];
