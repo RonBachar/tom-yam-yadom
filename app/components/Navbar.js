@@ -30,32 +30,32 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Under-construction banner */}
+      {/* Announcement strip */}
       {banner && (
         <div
-          role="banner"
-          className="w-full border-b px-4 py-2"
+          role="status"
+          className="relative w-full"
           style={{
-            background: "linear-gradient(90deg, rgba(201,148,10,0.08) 0%, rgba(212,104,26,0.10) 50%, rgba(201,148,10,0.08) 100%)",
-            borderColor: "rgba(201,148,10,0.18)",
+            background: "rgba(13,11,8,0.92)",
+            borderBottom: "1px solid rgba(201,148,10,0.14)",
           }}
         >
-          <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
-            <p className="flex-1 text-center text-xs font-sans text-tiger-muted leading-snug">
-              <span className="mr-1.5" aria-hidden="true">🚧</span>
-              Under construction,{" "}
-              <span className="text-tiger-cream/80">
-                checkout and product pages coming soon.
-              </span>
-            </p>
-            <button
-              onClick={() => setBanner(false)}
-              aria-label="Dismiss notice"
-              className="flex-shrink-0 text-tiger-muted hover:text-tiger-cream transition-colors duration-200 cursor-pointer p-0.5 rounded"
-            >
-              <DismissIcon />
-            </button>
-          </div>
+          <p
+            className="text-center px-10 font-sans text-tiger-muted/80 tracking-wide"
+            style={{ fontSize: "13px", lineHeight: 1, paddingTop: "9px", paddingBottom: "9px" }}
+          >
+            Checkout coming soon{" "}
+            <span className="text-tiger-gold/60 mx-1" aria-hidden="true">·</span>{" "}
+            browse the collection and{" "}
+            <span className="text-tiger-cream/60">join the list for 10% off your first order.</span>
+          </p>
+          <button
+            onClick={() => setBanner(false)}
+            aria-label="Dismiss notice"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-tiger-muted/40 hover:text-tiger-cream/70 transition-colors duration-200 cursor-pointer p-1 rounded"
+          >
+            <DismissIcon />
+          </button>
         </div>
       )}
 
