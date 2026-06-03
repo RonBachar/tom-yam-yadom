@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
       description: product.description,
       url,
       siteName: "Tom Yam Yadom",
-      type: "product",
+      type: "website",
     },
   };
 }

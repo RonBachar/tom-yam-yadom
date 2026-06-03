@@ -40,7 +40,7 @@ openGraph: {
   url: "https://www.tomyamyadomherbals.com/page-path",
   siteName: "Tom Yam Yadom",
   locale: "en_US",
-  type: "website", // or "product" for product pages
+  type: "website", // always "website" — "product" is NOT a valid OG type and will crash the Next.js build
 },
 ```
 
