@@ -70,14 +70,22 @@ html  {
    * Adjust if navbar height changes.
    */
   scroll-padding-top: 100px;
+  /*
+   * Setting font-size here shifts the rem base used by all Tailwind text-*
+   * utilities (text-xs, text-sm, text-base, etc.) proportionally.
+   * text-xs  0.75rem → 14.25px
+   * text-sm  0.875rem → 16.6px
+   * text-base 1rem  → 19px
+   * Headlines use clamp() with vw so they are not materially affected.
+   */
+  font-size: 19px;
 }
 
 body  {
   background-color: #0D0B08;
   color: #F2E6C4;
   font-family: var(--font-sans);
-  font-size: 17px;
-  line-height: 1.65;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
