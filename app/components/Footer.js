@@ -109,10 +109,10 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 list-none p-0 m-0">
               <li>
                 <a
-                  href="mailto:hello@tomyamyadom.com"
+                  href="mailto:info@tomyamyadomherbals.com"
                   className="text-tiger-muted hover:text-tiger-cream text-sm font-sans transition-colors duration-200 cursor-pointer"
                 >
-                  hello@tomyamyadom.com
+                  info@tomyamyadomherbals.com
                 </a>
               </li>
               <li>
@@ -132,8 +132,33 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Legal links */}
+        <nav
+          className="mt-14 pt-6 border-t border-tiger-border flex flex-wrap justify-center gap-x-6 gap-y-2"
+          aria-label="Legal"
+        >
+          <Link
+            href="/privacy"
+            className="text-tiger-muted hover:text-tiger-cream text-xs font-sans transition-colors duration-200 cursor-pointer"
+          >
+            Privacy Policy
+          </Link>
+          <Link
+            href="/terms"
+            className="text-tiger-muted hover:text-tiger-cream text-xs font-sans transition-colors duration-200 cursor-pointer"
+          >
+            Terms of Service
+          </Link>
+          <Link
+            href="/shipping"
+            className="text-tiger-muted hover:text-tiger-cream text-xs font-sans transition-colors duration-200 cursor-pointer"
+          >
+            Shipping &amp; Returns
+          </Link>
+        </nav>
+
         {/* Bottom bar */}
-        <div className="mt-14 pt-6 border-t border-tiger-border flex flex-col sm:flex-row justify-between items-center gap-3">
+        <div className="mt-6 pt-6 border-t border-tiger-border flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-tiger-muted text-xs font-sans">
             &copy; 2024 Tom Yam Yadom. Handcrafted in Koh Samui, Thailand.
           </p>

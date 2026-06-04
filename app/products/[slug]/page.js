@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ALL_PRODUCTS } from "../../data/products";
+import AddToCartButton from "../../components/AddToCartButton";
 
 export function generateStaticParams() {
   return ALL_PRODUCTS.map((p) => ({ slug: p.slug }));
@@ -172,13 +173,14 @@ export default async function ProductPage({ params }) {
               <span className="font-heading font-bold text-tiger-gold text-4xl">
                 ${product.price}
               </span>
-              <button
+              <AddToCartButton
+                product={product}
                 className="flex-1 font-heading font-bold text-sm tracking-[0.14em] uppercase py-4 rounded-full transition-all duration-200 cursor-pointer active:scale-95"
                 style={{ backgroundColor: product.accentColor, color: "#0D0B08" }}
                 aria-label={`Add ${product.name} to cart, $${product.price}`}
               >
                 Add to Cart
-              </button>
+              </AddToCartButton>
             </div>
 
             {/* Trust note */}

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import TigerMark from "./TigerMark";
+import { useCart } from "../context/CartContext";
 
 const NAV_LINKS = [
   { href: "/shop",      label: "Shop"       },
@@ -97,13 +98,7 @@ export default function Navbar() {
 
         {/* Desktop right */}
         <div className="hidden md:flex items-center gap-3">
-          <Link
-            href="/shop"
-            aria-label="Cart"
-            className="text-tiger-muted hover:text-tiger-cream transition-colors duration-200 p-1.5 cursor-pointer"
-          >
-            <CartIcon />
-          </Link>
+          <CartNavLink className="text-tiger-muted hover:text-tiger-cream transition-colors duration-200 p-1.5 cursor-pointer" />
           <Link
             href="/shop"
             className="bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-xs tracking-[0.15em] uppercase px-5 py-2.5 rounded-full transition-colors duration-200 cursor-pointer"
@@ -114,13 +109,7 @@ export default function Navbar() {
 
         {/* Mobile controls */}
         <div className="md:hidden flex items-center gap-2">
-          <Link
-            href="/shop"
-            aria-label="Cart"
-            className="text-tiger-muted hover:text-tiger-cream transition-colors p-1.5 cursor-pointer"
-          >
-            <CartIcon />
-          </Link>
+          <CartNavLink className="text-tiger-muted hover:text-tiger-cream transition-colors p-1.5 cursor-pointer" />
           <button
             onClick={() => setOpen(!open)}
             aria-expanded={open}
@@ -165,6 +154,35 @@ export default function Navbar() {
       )}
       </div>
     </header>
+  );
+}
+
+function CartNavLink({ className }) {
+  const { cartCount } = useCart();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const showBadge = mounted && cartCount > 0;
+
+  return (
+    <Link
+      href="/cart"
+      aria-label={showBadge ? `Cart, ${cartCount} items` : "Cart"}
+      className={`relative inline-flex ${className}`}
+    >
+      <CartIcon />
+      {showBadge && (
+        <span
+          className="absolute -top-0.5 -right-0.5 min-w-[1.125rem] h-[1.125rem] flex items-center justify-center rounded-full bg-tiger-gold text-tiger-bg font-heading font-bold text-[10px] leading-none px-0.5"
+          aria-hidden="true"
+        >
+          {cartCount > 99 ? "99+" : cartCount}
+        </span>
+      )}
+    </Link>
   );
 }
 

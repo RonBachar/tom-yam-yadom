@@ -121,10 +121,10 @@ export default function WholesalePage() {
             <p className="text-tiger-muted text-sm font-sans">
               Questions?{" "}
               <a
-                href="mailto:wholesale@tomyamyadom.com"
+                href="mailto:info@tomyamyadomherbals.com"
                 className="text-tiger-gold hover:text-tiger-gold-light transition-colors duration-200 cursor-pointer"
               >
-                wholesale@tomyamyadom.com
+                info@tomyamyadomherbals.com
               </a>
             </p>
           </div>

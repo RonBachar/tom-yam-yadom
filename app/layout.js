@@ -2,6 +2,7 @@ import { Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { CartProvider } from "./context/CartContext";
 
 const barlow = Barlow({
   weight: ["300", "400", "500", "600", "700"],
@@ -48,9 +49,11 @@ export default function RootLayout({ children }) {
       className={`${barlow.variable} ${barlowCondensed.variable}`}
     >
       <body className="min-h-screen flex flex-col bg-tiger-bg text-tiger-cream">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <CartProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

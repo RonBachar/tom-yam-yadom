@@ -5,6 +5,8 @@ import Image from "next/image";
 import ScentSelector from "./components/ScentSelector";
 import AnimateIn from "./components/AnimateIn";
 import TigerMark from "./components/TigerMark";
+import AddToCartButton from "./components/AddToCartButton";
+import { YADOM_OIL } from "./data/products";
 
 /* ─────────────────────────────────────────────────────────
    Home page — cold-traffic conversion engine
@@ -348,12 +350,13 @@ function YadomOilCard() {
       </div>
       <div className="flex items-center gap-4 flex-shrink-0">
         <span className="font-heading font-bold text-tiger-gold text-2xl">$35</span>
-        <button
+        <AddToCartButton
+          product={YADOM_OIL}
           className="bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-xs tracking-[0.14em] uppercase px-6 py-3 rounded-full transition-colors duration-200 cursor-pointer whitespace-nowrap"
           aria-label="Add Crown Blend to cart, $35"
         >
           Add to Cart
-        </button>
+        </AddToCartButton>
       </div>
     </div>
   );

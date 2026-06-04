@@ -47,6 +47,24 @@ export default function sitemap() {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${BASE_URL}/privacy`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/terms`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/shipping`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
   ];
 
   const productRoutes = PRODUCT_SLUGS.map((slug) => ({

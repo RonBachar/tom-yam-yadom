@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { SCENTS } from "../data/products";
+import AddToCartButton from "./AddToCartButton";
 
 export default function ScentSelector() {
   const [selected, setSelected] = useState(null);
@@ -120,20 +121,18 @@ function ScentCard({ scent, isSelected, onSelect }) {
 
         {/* Actions */}
         <div className="flex gap-2.5 mt-auto">
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              // Cart hook — wire to Stripe/WooCommerce later
-            }}
+          <AddToCartButton
+            product={scent}
+            stopPropagation
             className="flex-1 font-heading font-bold text-xs tracking-[0.12em] uppercase py-3 rounded-full transition-all duration-200 cursor-pointer active:scale-95"
             style={{
               backgroundColor: scent.accentColor,
               color: "#0D0B08",
             }}
-            aria-label={`Add ${scent.name} to cart, $${20}`}
+            aria-label={`Add ${scent.name} to cart, $${scent.price}`}
           >
-            Add to Cart · $20
-          </button>
+            Add to Cart · ${scent.price}
+          </AddToCartButton>
           <Link
             href={`/products/${scent.slug}`}
             onClick={(e) => e.stopPropagation()}
