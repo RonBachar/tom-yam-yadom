@@ -32,7 +32,7 @@ export default function ShippingPage() {
       lastUpdated="June 2026"
     >
       <div
-        className="rounded-xl px-5 py-4 border border-tiger-gold/40 bg-tiger-gold/10 text-tiger-cream text-sm font-sans"
+        className="min-w-0 rounded-xl px-5 py-4 border border-tiger-gold/40 bg-tiger-gold/10 text-tiger-cream text-sm font-sans break-words"
         role="note"
       >
         <p>
@@ -51,10 +51,10 @@ export default function ShippingPage() {
           <li>
             Standard Shipping: <Placeholder>[STANDARD SHIPPING COST]</Placeholder> — estimated delivery in <Placeholder>[X–X BUSINESS DAYS]</Placeholder>
           </li>
-          <li>
+          <li className="min-w-0 break-words">
             Expedited Shipping: <Placeholder>[EXPEDITED SHIPPING COST]</Placeholder> — estimated delivery in <Placeholder>[X–X BUSINESS DAYS]</Placeholder>
           </li>
-          <li>
+          <li className="min-w-0 break-words">
             Free shipping on orders over <Placeholder>[FREE SHIPPING THRESHOLD, e.g. $45]</Placeholder>
           </li>
         </ul>
@@ -89,14 +89,14 @@ export default function ShippingPage() {
 
         <LegalSubheading>Conditions for return</LegalSubheading>
         <p>To be eligible for a return, items must meet all of the following:</p>
-        <ul className="list-disc pl-6 space-y-2 my-4">
-          <li>
+        <ul className="list-disc pl-6 space-y-2 my-4 min-w-0">
+          <li className="min-w-0 break-words">
             <Placeholder>[CONDITION 1 — e.g. Unopened and unused, seal intact]</Placeholder>
           </li>
-          <li>
+          <li className="min-w-0 break-words">
             <Placeholder>[CONDITION 2 — e.g. In original packaging with label undamaged]</Placeholder>
           </li>
-          <li>
+          <li className="min-w-0 break-words">
             <Placeholder>[CONDITION 3 — e.g. Returned within the return window from delivery date]</Placeholder>
           </li>
         </ul>
@@ -143,48 +143,48 @@ export default function ShippingPage() {
       </LegalSection>
 
       <LegalSection title="Placeholders Checklist (Shipping & Returns page)">
-        <ul className="list-none pl-0 space-y-2 my-4">
-          <li className="flex items-start gap-2">
+        <ul className="list-none pl-0 space-y-2 my-4 min-w-0">
+          <li className="flex items-start gap-2 min-w-0">
             <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
             <span>Standard shipping cost</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-2 min-w-0">
             <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
             <span>Expedited shipping cost</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-2 min-w-0">
             <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
             <span>Free shipping threshold</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-2 min-w-0">
             <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
             <span>Processing time (business days)</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-2 min-w-0">
             <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
             <span>Return window (days)</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-2 min-w-0">
             <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
             <span>Return conditions (3 bullet points)</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-2 min-w-0">
             <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
             <span>Damaged item report window (days)</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-2 min-w-0">
             <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
             <span>Who pays return shipping</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-2 min-w-0">
             <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
             <span>Refund processing time (business days)</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-2 min-w-0">
             <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
             <span>Restocking fee decision</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-2 min-w-0">
             <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
             <span>Exchange policy</span>
           </li>
