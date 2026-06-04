@@ -1,4 +1,7 @@
+import fs from "fs";
+import path from "path";
 import Link from "next/link";
+import Image from "next/image";
 import ScentSelector from "./components/ScentSelector";
 import AnimateIn from "./components/AnimateIn";
 import TigerMark from "./components/TigerMark";
@@ -21,39 +24,51 @@ export default function HomePage() {
   );
 }
 
+/** Bust cache when hero.png is replaced (same filename) */
+function getHeroImageSrc() {
+  const filePath = path.join(process.cwd(), "public", "images", "hero", "hero.png");
+  try {
+    const { mtimeMs } = fs.statSync(filePath);
+    return `/images/hero/hero.png?v=${Math.floor(mtimeMs)}`;
+  } catch {
+    return "/images/hero/hero.png";
+  }
+}
+
 /* ── 1. HERO ─────────────────────────────────────────────── */
 function HeroSection() {
+  const heroSrc = getHeroImageSrc();
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative h-[100svh] min-h-[480px] max-h-[100svh] flex flex-col overflow-hidden"
       aria-label="Hero"
     >
-      {/* Background radial glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 55% at 50% 80%, rgba(201,148,10,0.13) 0%, transparent 70%)",
-          animation: "hero-glow-pulse 5s ease-in-out infinite",
-        }}
-      />
-      {/* Subtle top-to-bottom gradient overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(13,11,8,0.3) 0%, transparent 40%, rgba(13,11,8,0.5) 100%)",
-        }}
-      />
+      {/* Hero background image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={heroSrc}
+          alt="Tom Yam Yadom Thai herbal inhaler, Koh Samui botanicals and Muay Thai tradition"
+          fill
+          priority
+          unoptimized
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
 
-      {/* Steam SVG decorations */}
-      <SteamBackground />
+      {/* Subtle top edge only — nav blend, center stays clear */}
+      <div
+        className="absolute inset-x-0 top-0 h-28 md:h-32 pointer-events-none z-[1]"
+        aria-hidden="true"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(13,11,8,0.82) 0%, rgba(13,11,8,0.35) 55%, transparent 100%)",
+        }}
+      />
 
       {/* Corner frame brackets */}
       <div
-        className="absolute inset-6 md:inset-12 pointer-events-none"
+        className="absolute inset-6 md:inset-12 pointer-events-none z-10"
         aria-hidden="true"
       >
         {/* Top-left */}
@@ -90,28 +105,28 @@ function HeroSection() {
         />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-24 text-center">
+      {/* Content — fits in viewport below fixed nav */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 flex-1 flex flex-col items-center justify-center gap-2.5 sm:gap-3.5 text-center min-h-0 pt-[7.5rem] pb-5 sm:pt-28 sm:pb-6">
         {/* Eyebrow */}
         <div
-          className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full border"
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border shrink-0"
           style={{
             borderColor: "rgba(201,148,10,0.35)",
             backgroundColor: "rgba(201,148,10,0.08)",
             animation: "fade-up 0.6s ease-out 0.1s both",
           }}
         >
-          <TigerMark size={18} />
-          <span className="text-tiger-gold text-xs font-heading font-bold tracking-[0.18em] uppercase">
+          <TigerMark size={16} />
+          <span className="text-tiger-gold text-[10px] sm:text-xs font-heading font-bold tracking-[0.16em] uppercase">
             Handcrafted in Koh Samui · Small-Batch
           </span>
         </div>
 
         {/* Main headline */}
         <h1
-          className="font-heading font-bold uppercase leading-none mb-6"
+          className="font-heading font-bold uppercase leading-[0.92] shrink-0"
           style={{
-            fontSize: "clamp(3.2rem, 9vw, 7.5rem)",
+            fontSize: "clamp(2.56rem, 7.2vw, 6rem)",
             letterSpacing: "-0.01em",
             animation: "fade-up 0.7s ease-out 0.25s both",
           }}
@@ -134,173 +149,46 @@ function HeroSection() {
 
         {/* Subheadline */}
         <p
-          className="text-tiger-muted text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed mb-10"
+          className="text-tiger-cream-dim text-base sm:text-lg font-sans max-w-2xl mx-auto leading-snug sm:leading-relaxed shrink min-h-0"
           style={{ animation: "fade-up 0.7s ease-out 0.45s both" }}
         >
-          Organic yadom, a{" "}
-          <span className="text-tiger-cream font-medium">
-            natural focus inhaler
-          </span>{" "}
-          handcrafted in Koh Samui from Thai-sourced ingredients. 7 scents for
-          focus, breathing clarity, and sensory grounding.
+          Premium yadom inhalers, handcrafted in Koh Samui from traditional Thai
+          botanics. Inspired by the breathing rituals of Muay Thai fighters and
+          designed for focus, wherever your day takes you.
         </p>
 
         {/* CTAs */}
         <div
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-10"
+          className="flex flex-col sm:flex-row gap-3 justify-center shrink-0"
           style={{ animation: "fade-up 0.7s ease-out 0.6s both" }}
         >
           <Link
             href="/shop"
-            className="inline-flex items-center justify-center gap-2.5 bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-sm tracking-[0.14em] uppercase px-8 py-4 rounded-full transition-colors duration-200 cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-sm tracking-[0.14em] uppercase px-7 py-3 sm:px-8 sm:py-3.5 rounded-full transition-colors duration-200 cursor-pointer"
           >
             Shop Smiling Tiger
             <ArrowIcon />
           </Link>
           <Link
             href="#scents"
-            className="inline-flex items-center justify-center gap-2 border border-tiger-border hover:border-tiger-gold text-tiger-cream font-heading font-semibold text-sm tracking-[0.12em] uppercase px-8 py-4 rounded-full transition-all duration-200 cursor-pointer hover:bg-tiger-surface"
+            className="inline-flex items-center justify-center gap-2 border border-tiger-border hover:border-tiger-gold text-tiger-cream font-heading font-semibold text-sm tracking-[0.12em] uppercase px-7 py-3 sm:px-8 sm:py-3.5 rounded-full transition-all duration-200 cursor-pointer hover:bg-tiger-surface"
           >
             Find Your Scent
           </Link>
         </div>
-
-        {/* Trust chips */}
-        <div
-          className="flex flex-wrap justify-center gap-3 md:gap-5"
-          style={{ animation: "fade-up 0.7s ease-out 0.75s both" }}
-        >
-          {[
-            { icon: <LeafIcon />, text: "100% Organic" },
-            { icon: <FlagIcon />, text: "Thai-Sourced" },
-            { icon: <StarIcon />, text: "Small-Batch Koh Samui" },
-          ].map(({ icon, text }) => (
-            <div
-              key={text}
-              className="flex items-center gap-2 text-tiger-muted text-xs font-sans"
-            >
-              <span className="text-tiger-gold">{icon}</span>
-              {text}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Scroll nudge */}
-      <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-40"
-        aria-hidden="true"
-        style={{ animation: "fade-up 0.7s ease-out 1s both" }}
-      >
-        <span className="text-tiger-muted text-xs font-sans tracking-widest uppercase">
-          Scroll
-        </span>
-        <svg
-          width="14"
-          height="20"
-          viewBox="0 0 14 20"
-          fill="none"
-          className="text-tiger-muted animate-bounce"
-        >
-          <rect
-            x="1"
-            y="1"
-            width="12"
-            height="18"
-            rx="6"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          />
-          <circle cx="7" cy="6" r="2" fill="currentColor" />
-        </svg>
       </div>
     </section>
   );
 }
 
-/* Steam animation SVG */
-function SteamBackground() {
-  return (
-    <div
-      className="absolute inset-0 pointer-events-none overflow-hidden"
-      aria-hidden="true"
-    >
-      <svg
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-3xl"
-        viewBox="0 0 600 400"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {/* Bowl / source */}
-        <ellipse
-          cx="300"
-          cy="380"
-          rx="80"
-          ry="18"
-          stroke="#C9940A"
-          strokeWidth="1.2"
-          opacity="0.4"
-        />
-        <ellipse
-          cx="300"
-          cy="380"
-          rx="55"
-          ry="10"
-          fill="rgba(201,148,10,0.06)"
-        />
-
-        {/* Wisp 1 — left */}
-        <path
-          d="M275 375 C270 340 282 315 275 280 C268 245 278 220 272 185"
-          stroke="#C9940A"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          style={{ animation: "steam-rise 3.8s ease-in-out infinite" }}
-          opacity="0.55"
-        />
-
-        {/* Wisp 2 — center (dominant) */}
-        <path
-          d="M300 372 C304 330 295 305 300 268 C305 231 298 208 302 170"
-          stroke="#E8B820"
-          strokeWidth="3"
-          strokeLinecap="round"
-          style={{
-            animation: "steam-rise 4.4s ease-in-out 0.8s infinite",
-          }}
-          opacity="0.65"
-        />
-
-        {/* Wisp 3 — right */}
-        <path
-          d="M325 375 C330 342 320 318 326 284 C332 250 324 228 329 195"
-          stroke="#C9940A"
-          strokeWidth="2"
-          strokeLinecap="round"
-          style={{
-            animation: "steam-rise 3.2s ease-in-out 1.5s infinite",
-          }}
-          opacity="0.45"
-        />
-
-        {/* Wisp 4 — far left, subtle */}
-        <path
-          d="M255 378 C250 355 258 338 252 315 C246 292 252 275 248 252"
-          stroke="#D4681A"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          style={{
-            animation: "steam-rise 5s ease-in-out 2.2s infinite",
-          }}
-          opacity="0.3"
-        />
-      </svg>
-    </div>
-  );
-}
-
 /* ── 2. DIFFERENCE STRIP ─────────────────────────────────── */
 function DifferenceStrip() {
+  const trustItems = [
+    { icon: <LeafIcon />, text: "100% Organic" },
+    { icon: <FlagIcon />, text: "Thai-Sourced" },
+    { icon: <StarIcon />, text: "Small-Batch Koh Samui" },
+  ];
+
   const stats = [
     {
       value: "12+",
@@ -331,6 +219,24 @@ function DifferenceStrip() {
       aria-label="Why Smiling Tiger"
     >
       <div className="max-w-6xl mx-auto px-6">
+        {/* Trust items (moved from hero) */}
+        <AnimateIn className="py-6 border-b border-tiger-border">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+            {trustItems.map(({ icon, text }) => (
+              <div
+                key={text}
+                className="flex items-center gap-2.5 text-tiger-muted text-sm font-sans"
+              >
+                <span className="text-tiger-gold">{icon}</span>
+                <span className="font-heading font-bold text-tiger-cream text-xs tracking-[0.1em] uppercase">
+                  {text}
+                </span>
+              </div>
+            ))}
+          </div>
+        </AnimateIn>
+
+        {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-tiger-border">
           {stats.map((s, i) => (
             <AnimateIn key={s.label} delay={i * 120} className="py-10 px-8 md:px-10">
