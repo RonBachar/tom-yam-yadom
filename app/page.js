@@ -26,14 +26,14 @@ export default function HomePage() {
   );
 }
 
-/** Bust cache when hero.png is replaced (same filename) */
+/** Bust cache when hero.webp is replaced (same filename) */
 function getHeroImageSrc() {
-  const filePath = path.join(process.cwd(), "public", "images", "hero", "hero.png");
+  const filePath = path.join(process.cwd(), "public", "images", "hero", "hero.webp");
   try {
     const { mtimeMs } = fs.statSync(filePath);
-    return `/images/hero/hero.png?v=${Math.floor(mtimeMs)}`;
+    return `/images/hero/hero.webp?v=${Math.floor(mtimeMs)}`;
   } catch {
-    return "/images/hero/hero.png";
+    return "/images/hero/hero.webp";
   }
 }
 
