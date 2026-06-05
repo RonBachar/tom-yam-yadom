@@ -8,6 +8,8 @@ import { useCart } from "../context/CartContext";
 export default function CartPage() {
   const { cartItems, cartTotal, updateQuantity, removeFromCart } = useCart();
   const [mounted, setMounted] = useState(false);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const [checkoutError, setCheckoutError] = useState(null);
 
   useEffect(() => {
     setMounted(true);
@@ -15,6 +17,36 @@ export default function CartPage() {
 
   const isEmpty = mounted && cartItems.length === 0;
   const hasItems = mounted && cartItems.length > 0;
+
+  async function handleCheckout() {
+    setCheckoutLoading(true);
+    setCheckoutError(null);
+
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(cartItems),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Checkout failed. Please try again.");
+      }
+
+      if (!data.url) {
+        throw new Error("Checkout failed. Please try again.");
+      }
+
+      window.location.href = data.url;
+    } catch (error) {
+      setCheckoutError(
+        error instanceof Error ? error.message : "Checkout failed. Please try again."
+      );
+      setCheckoutLoading(false);
+    }
+  }
 
   return (
     <div className="pt-32 pb-24 px-6">
@@ -158,14 +190,18 @@ export default function CartPage() {
               <p className="text-tiger-muted text-xs font-sans mb-6">
                 Shipping calculated at checkout.
               </p>
+              {checkoutError && (
+                <p className="text-tiger-red text-sm font-sans mb-4" role="alert">
+                  {checkoutError}
+                </p>
+              )}
               <button
                 type="button"
-                onClick={() => {
-                  // Stripe checkout wired up in next step
-                }}
-                className="w-full bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-sm tracking-[0.14em] uppercase py-4 rounded-full transition-colors duration-200 cursor-pointer"
+                onClick={handleCheckout}
+                disabled={checkoutLoading}
+                className="w-full bg-tiger-gold hover:bg-tiger-gold-light disabled:opacity-60 disabled:cursor-not-allowed text-tiger-bg font-heading font-bold text-sm tracking-[0.14em] uppercase py-4 rounded-full transition-colors duration-200 cursor-pointer"
               >
-                Proceed to Checkout
+                {checkoutLoading ? "Processing..." : "Proceed to Checkout"}
               </button>
             </div>
           </div>
