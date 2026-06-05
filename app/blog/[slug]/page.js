@@ -167,13 +167,14 @@ export default async function BlogPostPage({ params }) {
 
         {/* Cover image */}
         {fm.coverImage && (
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-12">
+          <div className="relative w-full rounded-2xl overflow-hidden mb-12">
             <Image
               src={fm.coverImage}
               alt={fm.coverImageAlt || fm.title}
-              fill
+              width={fm.coverImageWidth ?? 1200}
+              height={fm.coverImageHeight ?? 675}
               sizes="(max-width: 768px) 100vw, 672px"
-              className="object-cover"
+              className="w-full h-auto object-cover"
               priority
             />
           </div>

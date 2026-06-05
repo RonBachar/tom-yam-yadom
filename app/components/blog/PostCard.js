@@ -12,13 +12,14 @@ export default function PostCard({ post }) {
     >
       {/* Cover image */}
       {post.coverImage ? (
-        <div className="relative w-full aspect-video overflow-hidden">
+        <div className="relative w-full overflow-hidden">
           <Image
             src={post.coverImage}
             alt={post.coverImageAlt || post.title}
-            fill
+            width={post.coverImageWidth ?? 1200}
+            height={post.coverImageHeight ?? 675}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
           />
         </div>
       ) : (
