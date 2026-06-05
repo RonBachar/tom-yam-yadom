@@ -1,5 +1,3 @@
-import fs from "fs";
-import path from "path";
 import Link from "next/link";
 import Image from "next/image";
 import ScentSelector from "./components/ScentSelector";
@@ -14,6 +12,12 @@ import { YADOM_OIL } from "./data/products";
 export default function HomePage() {
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        href={HERO_IMAGE}
+        fetchPriority="high"
+      />
       <HeroSection />
       <DifferenceStrip />
       <ScentSelectorSection />
@@ -26,29 +30,19 @@ export default function HomePage() {
   );
 }
 
-/** Bust cache when hero.webp is replaced (same filename) */
-function getHeroImageSrc() {
-  const filePath = path.join(process.cwd(), "public", "images", "hero", "hero.webp");
-  try {
-    const { mtimeMs } = fs.statSync(filePath);
-    return `/images/hero/hero.webp?v=${Math.floor(mtimeMs)}`;
-  } catch {
-    return "/images/hero/hero.webp";
-  }
-}
+const HERO_IMAGE = "/images/hero/hero.webp";
 
 /* ── 1. HERO ─────────────────────────────────────────────── */
 function HeroSection() {
-  const heroSrc = getHeroImageSrc();
   return (
     <section
       className="relative h-[100svh] min-h-[480px] max-h-[100svh] flex flex-col overflow-hidden"
       aria-label="Hero"
     >
-      {/* Hero background image */}
+      {/* Hero background image — must paint immediately for LCP (no fade-in) */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={heroSrc}
+          src={HERO_IMAGE}
           alt="Tom Yam Yadom Thai herbal inhaler, Koh Samui botanicals and Muay Thai tradition"
           fill
           priority
@@ -115,7 +109,6 @@ function HeroSection() {
           style={{
             borderColor: "rgba(201,148,10,0.35)",
             backgroundColor: "rgba(201,148,10,0.08)",
-            animation: "fade-up 0.6s ease-out 0.1s both",
           }}
         >
           <TigerMark size={16} />
@@ -130,7 +123,6 @@ function HeroSection() {
           style={{
             fontSize: "clamp(2.56rem, 7.2vw, 6rem)",
             letterSpacing: "-0.01em",
-            animation: "fade-up 0.7s ease-out 0.25s both",
           }}
         >
           <span className="text-tiger-cream block">Ancient</span>
@@ -150,20 +142,14 @@ function HeroSection() {
         </h1>
 
         {/* Subheadline */}
-        <p
-          className="text-tiger-cream-dim text-base sm:text-lg font-sans max-w-2xl mx-auto leading-snug sm:leading-relaxed shrink min-h-0"
-          style={{ animation: "fade-up 0.7s ease-out 0.45s both" }}
-        >
+        <p className="text-tiger-cream-dim text-base sm:text-lg font-sans max-w-2xl mx-auto leading-snug sm:leading-relaxed shrink min-h-0">
           Premium yadom inhalers, handcrafted in Koh Samui from traditional Thai
           botanics. Inspired by the breathing rituals of Muay Thai fighters and
           designed for focus, wherever your day takes you.
         </p>
 
         {/* CTAs */}
-        <div
-          className="flex flex-col sm:flex-row gap-3 justify-center shrink-0"
-          style={{ animation: "fade-up 0.7s ease-out 0.6s both" }}
-        >
+        <div className="flex flex-col sm:flex-row gap-3 justify-center shrink-0">
           <Link
             href="/shop"
             className="inline-flex items-center justify-center gap-2 bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-sm tracking-[0.14em] uppercase px-7 py-3 sm:px-8 sm:py-3.5 rounded-full transition-colors duration-200 cursor-pointer"
