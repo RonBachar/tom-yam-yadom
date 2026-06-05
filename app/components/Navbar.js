@@ -15,7 +15,6 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [open, setOpen]           = useState(false);
   const [scrolled, setScrolled]   = useState(false);
-  const [banner, setBanner]       = useState(true);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -32,35 +31,6 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Announcement strip */}
-      {banner && (
-        <div
-          role="status"
-          className="relative w-full"
-          style={{
-            background: "rgba(13,11,8,0.92)",
-            borderBottom: "1px solid rgba(201,148,10,0.14)",
-          }}
-        >
-          <p
-            className="text-center px-10 font-sans text-tiger-muted/80 tracking-wide"
-            style={{ fontSize: "13px", lineHeight: 1, paddingTop: "9px", paddingBottom: "9px" }}
-          >
-            Checkout coming soon{" "}
-            <span className="text-tiger-gold/60 mx-1" aria-hidden="true">·</span>{" "}
-            browse the collection and{" "}
-            <span className="text-tiger-cream/60">join the list for 10% off your first order.</span>
-          </p>
-          <button
-            onClick={() => setBanner(false)}
-            aria-label="Dismiss notice"
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-tiger-muted/40 hover:text-tiger-cream/70 transition-colors duration-200 cursor-pointer p-1 rounded"
-          >
-            <DismissIcon />
-          </button>
-        </div>
-      )}
-
       <div className="px-4 pt-3">
       <nav
         className={`max-w-6xl mx-auto rounded-full flex items-center justify-between px-4 py-2.5 transition-all duration-300 border border-tiger-border ${
@@ -243,20 +213,3 @@ function CloseIcon() {
   );
 }
 
-function DismissIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      aria-hidden="true"
-    >
-      <line x1="18" y1="6"  x2="6"  y2="18" />
-      <line x1="6"  y1="6"  x2="18" y2="18" />
-    </svg>
-  );
-}
