@@ -3,7 +3,6 @@ import {
   LegalSection,
   LegalSubheading,
   LegalEmailLink,
-  Placeholder,
 } from "../components/legal/LegalPageLayout";
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
@@ -31,31 +30,22 @@ export default function ShippingPage() {
       title="Shipping & Returns"
       lastUpdated="June 2026"
     >
-      <div
-        className="min-w-0 rounded-xl px-5 py-4 border border-tiger-gold/40 bg-tiger-gold/10 text-tiger-cream text-sm font-sans break-words"
-        role="note"
-      >
-        <p>
-          ⚠️ NOTE FOR THE TEAM: All <Placeholder>[BRACKETED PLACEHOLDERS]</Placeholder> must be confirmed and replaced before this page goes live.
-        </p>
-      </div>
-
       <LegalSection title="Shipping">
         <LegalSubheading>Where we ship</LegalSubheading>
         <p>
-          We currently ship to all 50 US states. International shipping is coming soon — sign up for our newsletter to be notified.
+          We currently ship to all 50 US states. International shipping is coming soon. Sign up for our newsletter to be notified.
         </p>
 
         <LegalSubheading>Shipping options and costs</LegalSubheading>
         <ul className="list-disc pl-6 space-y-2 my-4">
           <li>
-            Standard Shipping: <Placeholder>[STANDARD SHIPPING COST]</Placeholder> — estimated delivery in <Placeholder>[X–X BUSINESS DAYS]</Placeholder>
+            Standard Shipping: $5.99 - arrives within 7 business days
           </li>
           <li className="min-w-0 break-words">
-            Expedited Shipping: <Placeholder>[EXPEDITED SHIPPING COST]</Placeholder> — estimated delivery in <Placeholder>[X–X BUSINESS DAYS]</Placeholder>
+            Expedited Shipping: $11.99 - arrives within 1-3 business days
           </li>
           <li className="min-w-0 break-words">
-            Free shipping on orders over <Placeholder>[FREE SHIPPING THRESHOLD, e.g. $45]</Placeholder>
+            Free standard shipping on orders over $50
           </li>
         </ul>
         <p>
@@ -64,7 +54,7 @@ export default function ShippingPage() {
 
         <LegalSubheading>Processing time</LegalSubheading>
         <p>
-          Orders are processed and dispatched within <Placeholder>[X–X BUSINESS DAYS]</Placeholder> of being placed. Orders placed on weekends or public holidays are processed the next business day. During high-demand periods processing may take a little longer — we&apos;ll let you know if there&apos;s a significant delay.
+          Orders are processed and dispatched within 1-2 business days of being placed. Orders placed on weekends or public holidays are processed the next business day. During high-demand periods processing may take a little longer. We&apos;ll let you know if there&apos;s a significant delay.
         </p>
 
         <LegalSubheading>Tracking</LegalSubheading>
@@ -82,54 +72,42 @@ export default function ShippingPage() {
       </LegalSection>
 
       <LegalSection title="Returns & Refunds">
+        <LegalSubheading>Our returns policy</LegalSubheading>
+        <p>
+          If you are unsatisfied with our product, please email info@tomyamyadomherbals.com within 30 days of purchase and state the issue. Upon receiving your complaint, we will issue you a return address. Once we receive the returned product, we will issue a refund within 14 days, no questions asked. Your enjoyment of our product is paramount.
+        </p>
+
         <LegalSubheading>Return window</LegalSubheading>
         <p>
-          We accept returns on unopened, unused items within <Placeholder>[RETURN WINDOW, e.g. 30 DAYS]</Placeholder> of the delivery date.
-        </p>
-
-        <LegalSubheading>Conditions for return</LegalSubheading>
-        <p>To be eligible for a return, items must meet all of the following:</p>
-        <ul className="list-disc pl-6 space-y-2 my-4 min-w-0">
-          <li className="min-w-0 break-words">
-            <Placeholder>[CONDITION 1 — e.g. Unopened and unused, seal intact]</Placeholder>
-          </li>
-          <li className="min-w-0 break-words">
-            <Placeholder>[CONDITION 2 — e.g. In original packaging with label undamaged]</Placeholder>
-          </li>
-          <li className="min-w-0 break-words">
-            <Placeholder>[CONDITION 3 — e.g. Returned within the return window from delivery date]</Placeholder>
-          </li>
-        </ul>
-        <p>
-          Due to the nature of herbal inhalers and oils, we cannot accept returns on opened products unless the item arrived damaged or defective.
-        </p>
-
-        <LegalSubheading>Damaged or defective items</LegalSubheading>
-        <p>
-          If your order arrives damaged, defective, or incorrect, email us at <LegalEmailLink /> within <Placeholder>[X DAYS, e.g. 7 DAYS]</Placeholder> of delivery with your order number and a photo of the issue. We will send a replacement or issue a full refund — no questions asked.
-        </p>
-
-        <LegalSubheading>How to start a return</LegalSubheading>
-        <p>
-          Email <LegalEmailLink /> with your order number and reason for return. Do not send items back before contacting us — we&apos;ll provide return instructions and a return address.
+          We accept returns on any item within 30 days of purchase, not only unopened products.
         </p>
 
         <LegalSubheading>Return shipping costs</LegalSubheading>
         <p>
-          <Placeholder>[RETURN SHIPPING POLICY — e.g. &quot;Return shipping is the responsibility of the customer, except in cases of damaged or defective items where we provide a prepaid label.&quot;]</Placeholder>
+          We cover return shipping. You do not pay to send items back to us.
         </p>
 
         <LegalSubheading>Refunds</LegalSubheading>
         <p>
-          Once we receive and inspect your returned item we&apos;ll notify you by email. Approved refunds are processed to your original payment method within <Placeholder>[X BUSINESS DAYS, e.g. 5–7 BUSINESS DAYS]</Placeholder>. Allow additional time for your bank or card issuer to reflect the refund.
+          Refunds are issued within 14 days of receiving your returned product. Allow additional time for your bank or card issuer to reflect the refund on your statement.
         </p>
         <p>
-          <Placeholder>[RESTOCKING FEE — e.g. &quot;No restocking fee.&quot; OR &quot;A restocking fee of $X applies to non-defective returns.&quot;]</Placeholder>
+          No restocking fee.
         </p>
 
         <LegalSubheading>Exchanges</LegalSubheading>
         <p>
-          <Placeholder>[EXCHANGE POLICY — e.g. &quot;We do not offer direct exchanges at this time. Return the item for a refund and place a new order.&quot; OR &quot;We&apos;re happy to exchange unopened items for a different scent — contact us to arrange.&quot;]</Placeholder>
+          We do not offer direct exchanges at this time. Return your item for a refund and place a new order.
+        </p>
+
+        <LegalSubheading>Damaged or defective items</LegalSubheading>
+        <p>
+          If your order arrives damaged, defective, or incorrect, email us at <LegalEmailLink /> within 7 days of delivery with your order number and a photo of the issue. We will send a replacement or issue a full refund, no questions asked.
+        </p>
+
+        <LegalSubheading>How to start a return</LegalSubheading>
+        <p>
+          Email <LegalEmailLink /> with your order number and reason for return. Do not send items back before contacting us. We&apos;ll provide return instructions and a return address.
         </p>
       </LegalSection>
 
@@ -140,55 +118,6 @@ export default function ShippingPage() {
         <p>
           Email: <LegalEmailLink />
         </p>
-      </LegalSection>
-
-      <LegalSection title="Placeholders Checklist (Shipping & Returns page)">
-        <ul className="list-none pl-0 space-y-2 my-4 min-w-0">
-          <li className="flex items-start gap-2 min-w-0">
-            <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
-            <span>Standard shipping cost</span>
-          </li>
-          <li className="flex items-start gap-2 min-w-0">
-            <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
-            <span>Expedited shipping cost</span>
-          </li>
-          <li className="flex items-start gap-2 min-w-0">
-            <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
-            <span>Free shipping threshold</span>
-          </li>
-          <li className="flex items-start gap-2 min-w-0">
-            <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
-            <span>Processing time (business days)</span>
-          </li>
-          <li className="flex items-start gap-2 min-w-0">
-            <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
-            <span>Return window (days)</span>
-          </li>
-          <li className="flex items-start gap-2 min-w-0">
-            <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
-            <span>Return conditions (3 bullet points)</span>
-          </li>
-          <li className="flex items-start gap-2 min-w-0">
-            <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
-            <span>Damaged item report window (days)</span>
-          </li>
-          <li className="flex items-start gap-2 min-w-0">
-            <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
-            <span>Who pays return shipping</span>
-          </li>
-          <li className="flex items-start gap-2 min-w-0">
-            <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
-            <span>Refund processing time (business days)</span>
-          </li>
-          <li className="flex items-start gap-2 min-w-0">
-            <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
-            <span>Restocking fee decision</span>
-          </li>
-          <li className="flex items-start gap-2 min-w-0">
-            <span className="text-tiger-gold mt-0.5" aria-hidden="true">☐</span>
-            <span>Exchange policy</span>
-          </li>
-        </ul>
       </LegalSection>
     </LegalPageLayout>
   );

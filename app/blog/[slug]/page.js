@@ -174,7 +174,7 @@ export default async function BlogPostPage({ params }) {
               width={fm.coverImageWidth ?? 1200}
               height={fm.coverImageHeight ?? 675}
               sizes="(max-width: 768px) 100vw, 672px"
-              className="w-full h-auto object-cover"
+              className="w-full h-auto max-w-full object-cover"
               priority
             />
           </div>

@@ -18,8 +18,9 @@ export default function PostCard({ post }) {
             alt={post.coverImageAlt || post.title}
             width={post.coverImageWidth ?? 1200}
             height={post.coverImageHeight ?? 675}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+            className="w-full h-auto max-w-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
         </div>
       ) : (

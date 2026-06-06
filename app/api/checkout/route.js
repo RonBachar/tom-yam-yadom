@@ -30,6 +30,7 @@ export async function POST(request) {
     }
 
     const lineItems = [];
+    let subtotalCents = 0;
 
     for (const item of items) {
       if (!item?.slug || typeof item.quantity !== "number") {
@@ -48,6 +49,8 @@ export async function POST(request) {
       }
 
       const quantity = Math.max(1, Math.floor(item.quantity));
+      const unitAmountCents = Math.round(product.price * 100);
+      subtotalCents += unitAmountCents * quantity;
       const imageUrl = toAbsoluteImageUrl(product.image ?? item.image);
 
       lineItems.push({
@@ -57,11 +60,47 @@ export async function POST(request) {
             name: product.name,
             ...(imageUrl ? { images: [imageUrl] } : {}),
           },
-          unit_amount: Math.round(product.price * 100),
+          unit_amount: unitAmountCents,
         },
         quantity,
       });
     }
+
+    const FREE_SHIPPING_THRESHOLD_CENTS = 5000;
+    const qualifiesForFreeShipping = subtotalCents >= FREE_SHIPPING_THRESHOLD_CENTS;
+
+    const shippingOptions = [
+      {
+        shipping_rate_data: {
+          type: "fixed_amount",
+          fixed_amount: {
+            amount: qualifiesForFreeShipping ? 0 : 599,
+            currency: "usd",
+          },
+          display_name: qualifiesForFreeShipping
+            ? "Free Standard Shipping (5-7 business days)"
+            : "Standard Shipping (5-7 business days)",
+          delivery_estimate: {
+            minimum: { unit: "business_day", value: 5 },
+            maximum: { unit: "business_day", value: 7 },
+          },
+        },
+      },
+      {
+        shipping_rate_data: {
+          type: "fixed_amount",
+          fixed_amount: {
+            amount: 1199,
+            currency: "usd",
+          },
+          display_name: "Expedited Shipping (1-3 business days)",
+          delivery_estimate: {
+            minimum: { unit: "business_day", value: 1 },
+            maximum: { unit: "business_day", value: 3 },
+          },
+        },
+      },
+    ];
 
     const stripe = new Stripe(secretKey);
 
@@ -70,9 +109,7 @@ export async function POST(request) {
       line_items: lineItems,
       success_url: `${BASE_URL}/order-confirmed?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${BASE_URL}/cart`,
-      shipping_address_collection: {
-        allowed_countries: ["US"],
-      },
+      shipping_options: shippingOptions,
       billing_address_collection: "auto",
     });
 
