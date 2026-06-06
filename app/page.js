@@ -31,27 +31,27 @@ export default function HomePage() {
 }
 
 const HERO_IMAGE = "/images/hero/hero.webp";
+const HERO_WIDTH = 1672;
+const HERO_HEIGHT = 941;
 
 /* ── 1. HERO ─────────────────────────────────────────────── */
 function HeroSection() {
   return (
-    <section
-      className="relative h-[100svh] min-h-[480px] max-h-[100svh] flex flex-col overflow-hidden"
-      aria-label="Hero"
-    >
-      {/* Hero background image — must paint immediately for LCP (no fade-in) */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={HERO_IMAGE}
-          alt="Tom Yam Yadom Thai herbal inhaler, Koh Samui botanicals and Muay Thai tradition"
-          fill
-          priority
-          unoptimized
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-      </div>
+    <section className="relative overflow-hidden" aria-label="Hero">
+      {/* LCP: block-level img with intrinsic dimensions — not fill/absolute */}
+      <Image
+        src={HERO_IMAGE}
+        alt="Tom Yam Yadom Thai herbal inhaler, Koh Samui botanicals and Muay Thai tradition"
+        width={HERO_WIDTH}
+        height={HERO_HEIGHT}
+        priority
+        unoptimized
+        sizes="100vw"
+        className="block w-full h-[100svh] min-h-[480px] max-h-[100svh] object-cover object-center"
+      />
 
+      {/* Overlays + content sit above the LCP image */}
+      <div className="absolute inset-0 flex flex-col overflow-hidden">
       {/* Subtle top edge only — nav blend, center stays clear */}
       <div
         className="absolute inset-x-0 top-0 h-28 md:h-32 pointer-events-none z-[1]"
@@ -126,18 +126,7 @@ function HeroSection() {
           }}
         >
           <span className="text-tiger-cream block">Ancient</span>
-          <span
-            className="block"
-            style={{
-              background:
-                "linear-gradient(135deg, #C9940A 0%, #E8B820 45%, #D4681A 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            Thai Ritual.
-          </span>
+          <span className="block text-tiger-gold">Thai Ritual.</span>
           <span className="text-tiger-cream block">Pocket-Sized.</span>
         </h1>
 
@@ -164,6 +153,7 @@ function HeroSection() {
             Find Your Scent
           </Link>
         </div>
+      </div>
       </div>
     </section>
   );
