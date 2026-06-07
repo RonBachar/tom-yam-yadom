@@ -11,13 +11,52 @@ const LINKS = [
   { href: "/products/crown-blend", label: "Crown Blend" },
 ];
 
+function isValidEmail(value) {
+  return value.includes("@") && value.includes(".") && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+}
+
 export default function Footer() {
   const [email, setEmail]         = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading]     = useState(false);
+  const [error, setError]         = useState("");
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (email) setSubmitted(true);
+  async function handleSubmit() {
+    setError("");
+
+    if (!email.trim()) {
+      setError("Please enter your email address.");
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        setError("Something went wrong. Please try again.");
+        return;
+      }
+
+      setEmail("");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -33,13 +72,10 @@ export default function Footer() {
           </p>
           {submitted ? (
             <p className="text-tiger-gold font-heading font-semibold text-xl tracking-wide">
-              You&rsquo;re in. Watch your inbox.
+              You&rsquo;re on the list! Check your inbox for your 10% off code.
             </p>
           ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-col sm:flex-row gap-3"
-            >
+            <div className="flex flex-col sm:flex-row gap-3">
               <label htmlFor="footer-email" className="sr-only">
                 Email address
               </label>
@@ -53,12 +89,19 @@ export default function Footer() {
                 className="flex-1 bg-tiger-bg border border-tiger-border rounded-full px-5 py-3 text-tiger-cream text-sm font-sans placeholder:text-tiger-muted focus:border-tiger-gold focus:outline-none transition-colors duration-200"
               />
               <button
-                type="submit"
-                className="bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-xs tracking-[0.15em] uppercase px-6 py-3 rounded-full transition-colors duration-200 cursor-pointer whitespace-nowrap"
+                type="button"
+                onClick={handleSubmit}
+                disabled={loading}
+                className="bg-tiger-gold hover:bg-tiger-gold-light disabled:opacity-60 disabled:cursor-not-allowed text-tiger-bg font-heading font-bold text-xs tracking-[0.15em] uppercase px-6 py-3 rounded-full transition-colors duration-200 cursor-pointer whitespace-nowrap"
               >
-                Get 10% Off
+                {loading ? "Sending..." : "Get 10% Off"}
               </button>
-            </form>
+              {error && (
+                <p className="text-tiger-red text-sm font-sans sm:basis-full sm:text-center">
+                  {error}
+                </p>
+              )}
+            </div>
           )}
         </div>
       </div>

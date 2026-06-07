@@ -2,19 +2,69 @@
 
 import { useState } from "react";
 
+const INITIAL_FORM = {
+  name: "",
+  business: "",
+  email: "",
+  phone: "",
+  type: "",
+  message: "",
+};
+
+function isValidEmail(email) {
+  return email.includes("@") && email.includes(".") && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+}
+
 export default function WholesaleForm() {
-  const [form, setForm] = useState({
-    name: "", business: "", email: "", phone: "", type: "", message: "",
-  });
+  const [form, setForm] = useState(INITIAL_FORM);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   function handleChange(e) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setSubmitted(true);
+  async function handleSubmit() {
+    setError("");
+
+    if (!form.name.trim() || !form.business.trim() || !form.email.trim() || !form.type) {
+      setError("Please fill in all required fields.");
+      return;
+    }
+
+    if (!isValidEmail(form.email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/wholesale", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        setError(
+          "Something went wrong. Please email us directly at info@tomyamyadomherbals.com"
+        );
+        return;
+      }
+
+      setForm(INITIAL_FORM);
+      setSubmitted(true);
+    } catch {
+      setError(
+        "Something went wrong. Please email us directly at info@tomyamyadomherbals.com"
+      );
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (submitted) {
@@ -27,7 +77,7 @@ export default function WholesaleForm() {
         }}
       >
         <p className="font-heading font-bold text-tiger-gold text-2xl uppercase tracking-wide mb-2">
-          Application Received
+          Thank you!
         </p>
         <p className="text-tiger-muted font-sans">
           We&rsquo;ll be in touch within 2 business days.
@@ -37,7 +87,7 @@ export default function WholesaleForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <div className="space-y-5">
       {[
         { id: "name",     label: "Your Name",        type: "text",  placeholder: "Full name",          required: true  },
         { id: "business", label: "Business Name",    type: "text",  placeholder: "Store or gym name",  required: true  },
@@ -107,12 +157,18 @@ export default function WholesaleForm() {
         />
       </div>
 
+      {error && (
+        <p className="text-tiger-red text-sm font-sans">{error}</p>
+      )}
+
       <button
-        type="submit"
-        className="w-full bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-sm tracking-[0.15em] uppercase py-4 rounded-full transition-colors duration-200 cursor-pointer"
+        type="button"
+        onClick={handleSubmit}
+        disabled={loading}
+        className="w-full bg-tiger-gold hover:bg-tiger-gold-light disabled:opacity-60 disabled:cursor-not-allowed text-tiger-bg font-heading font-bold text-sm tracking-[0.15em] uppercase py-4 rounded-full transition-colors duration-200 cursor-pointer"
       >
-        Submit Wholesale Application
+        {loading ? "Submitting..." : "Submit Wholesale Application"}
       </button>
-    </form>
+    </div>
   );
 }
