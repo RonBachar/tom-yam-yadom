@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ALL_PRODUCTS } from "../../data/products";
+import { matchIngredientSlug } from "../../data/ingredients";
 import AddToCartButton from "../../components/AddToCartButton";
 
 export function generateStaticParams() {
@@ -165,7 +166,24 @@ export default async function ProductPage({ params }) {
               <span className="font-semibold" style={{ color: "rgba(242,230,196,0.5)" }}>
                 Ingredients:{" "}
               </span>
-              {product.ingredients.join(", ")}
+              {product.ingredients.map((ingredient, i) => {
+                const ingredientSlug = matchIngredientSlug(ingredient);
+                return (
+                  <span key={ingredient}>
+                    {i > 0 && ", "}
+                    {ingredientSlug ? (
+                      <Link
+                        href={`/ingredients/${ingredientSlug}`}
+                        className="hover:text-tiger-gold transition-colors duration-200 cursor-pointer"
+                      >
+                        {ingredient}
+                      </Link>
+                    ) : (
+                      ingredient
+                    )}
+                  </span>
+                );
+              })}
             </p>
 
             {/* Price + CTA */}

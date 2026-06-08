@@ -6,10 +6,11 @@ import TigerMark from "./TigerMark";
 import { useCart } from "../context/CartContext";
 
 const NAV_LINKS = [
-  { href: "/shop",      label: "Shop"       },
-  { href: "/blog",      label: "Journal"    },
-  { href: "/story",     label: "Our Story"  },
-  { href: "/wholesale", label: "Wholesale"  },
+  { href: "/shop",        label: "Shop"           },
+  { href: "/blog",        label: "Journal"        },
+  { href: "/ingredients", label: "The Apothecary" },
+  { href: "/story",       label: "Our Story"      },
+  { href: "/wholesale",   label: "Wholesale"      },
 ];
 
 export default function Navbar() {
