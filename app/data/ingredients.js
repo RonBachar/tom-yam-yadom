@@ -21,6 +21,16 @@ export const INGREDIENT_IMAGE_ALT = {
   "fuji-pear-tea": "Sliced pear with a light, crisp tea-like mood",
 };
 
+const SAMUNPRAI_BASE = [
+  "menthol",
+  "cloves",
+  "aromatic-curcuma",
+  "cardamom",
+  "camphor",
+  "borneol",
+  "lotus-root",
+];
+
 export const INGREDIENT_CATEGORIES = [
   "Foundations",
   "Cooling Compounds",
@@ -36,7 +46,16 @@ export const INGREDIENTS = [
     slug: "menthol",
     title: "Menthol: Aroma, History & Uses",
     categories: ["Foundations", "Cooling Compounds"],
-    foundIn: ["power", "balance", "crown-blend"],
+    foundIn: [
+      "compassion",
+      "vitality",
+      "radiance",
+      "balance",
+      "power",
+      "clarity",
+      "serenity",
+      "crown-blend",
+    ],
     aromaProfile:
       "Sharp, bright, and intensely cooling. Menthol delivers an immediate rush of cold clarity, clean and penetrating, with a freshness that opens the breath on contact.",
     historicalUses:
@@ -49,7 +68,15 @@ export const INGREDIENTS = [
     slug: "cloves",
     title: "Cloves: Aroma, History & Uses",
     categories: ["Foundations", "Spice Cabinet"],
-    foundIn: ["balance", "serenity", "crown-blend"],
+    foundIn: [
+      "compassion",
+      "vitality",
+      "radiance",
+      "balance",
+      "power",
+      "clarity",
+      "serenity",
+    ],
     aromaProfile:
       "Warm, intensely aromatic, and slightly sweet-spicy. Cloves have a depth and richness that grounds a blend, adding a rounded heat that lingers without sharpness.",
     historicalUses:
@@ -62,7 +89,15 @@ export const INGREDIENTS = [
     slug: "aromatic-curcuma",
     title: "Aromatic Curcuma: Aroma, History & Uses",
     categories: ["Foundations", "Roots & Rhizomes"],
-    foundIn: ["balance", "vitality"],
+    foundIn: [
+      "compassion",
+      "vitality",
+      "radiance",
+      "balance",
+      "power",
+      "clarity",
+      "serenity",
+    ],
     aromaProfile:
       "Warm, earthy, and subtly radiant. Aromatic curcuma (distinct from culinary turmeric) carries a softer, more floral earthiness than its kitchen cousin, with a gentle warmth that opens slowly in a blend.",
     historicalUses:
@@ -75,7 +110,15 @@ export const INGREDIENTS = [
     slug: "cardamom",
     title: "Cardamom: Aroma, History & Uses",
     categories: ["Foundations", "Spice Cabinet"],
-    foundIn: ["compassion", "balance", "clarity"],
+    foundIn: [
+      "compassion",
+      "vitality",
+      "radiance",
+      "balance",
+      "power",
+      "clarity",
+      "serenity",
+    ],
     aromaProfile:
       "Bright, aromatic, and slightly sweet-spiced. Cardamom has a complex character that sits between spice and freshness, warm but with a clean, almost floral top note that lifts a blend.",
     historicalUses:
@@ -88,7 +131,16 @@ export const INGREDIENTS = [
     slug: "camphor",
     title: "Camphor: Aroma, History & Uses",
     categories: ["Foundations", "Cooling Compounds"],
-    foundIn: ["balance", "crown-blend", "power", "clarity"],
+    foundIn: [
+      "compassion",
+      "vitality",
+      "radiance",
+      "balance",
+      "power",
+      "clarity",
+      "serenity",
+      "crown-blend",
+    ],
     aromaProfile:
       "Intensely cooling, sharp, and penetrating. Camphor has a powerful, medicinal clarity that cuts through almost anything around it, clean and resinous with a cool that borders on cold.",
     historicalUses:
@@ -101,7 +153,15 @@ export const INGREDIENTS = [
     slug: "borneol",
     title: "Borneol: Aroma, History & Uses",
     categories: ["Foundations", "Cooling Compounds"],
-    foundIn: ["clarity"],
+    foundIn: [
+      "compassion",
+      "vitality",
+      "radiance",
+      "balance",
+      "power",
+      "clarity",
+      "serenity",
+    ],
     aromaProfile:
       "Soft, cooling, and resinous. Borneol is camphor-adjacent but rounder and more refined, with a cool clarity that feels cleaner and less sharp, and a subtle woody depth that grounds it.",
     historicalUses:
@@ -114,7 +174,15 @@ export const INGREDIENTS = [
     slug: "lotus-root",
     title: "Lotus Root: Aroma, History & Uses",
     categories: ["Foundations", "Roots & Rhizomes"],
-    foundIn: ["balance"],
+    foundIn: [
+      "compassion",
+      "vitality",
+      "radiance",
+      "balance",
+      "power",
+      "clarity",
+      "serenity",
+    ],
     aromaProfile:
       "Soft, aqueous, and subtly earthy. Lotus root brings a quiet, clean, almost watery note to a blend, a gentle background presence that softens and opens the space around stronger aromatics.",
     historicalUses:
@@ -127,7 +195,7 @@ export const INGREDIENTS = [
     slug: "peppermint-oil",
     title: "Peppermint Oil: Aroma, History & Uses",
     categories: ["Cooling Compounds"],
-    foundIn: ["crown-blend", "power"],
+    foundIn: ["power", "crown-blend"],
     aromaProfile:
       "Sharp, green, and intensely refreshing. Peppermint oil is brighter and more vegetal than menthol alone, with a fresh, almost grassy top note alongside its cool rush.",
     historicalUses:
@@ -153,7 +221,7 @@ export const INGREDIENTS = [
     slug: "tangerine-zest",
     title: "Tangerine Zest: Aroma, History & Uses",
     categories: ["Citrus & Bright Notes"],
-    foundIn: ["vitality"],
+    foundIn: ["radiance"],
     aromaProfile:
       "Soft citrus sweetness with a gentle fruit character. Tangerine zest is warmer and rounder than sharper citrus notes, approachable and bright without any edge.",
     historicalUses:
@@ -179,13 +247,23 @@ export const INGREDIENTS = [
     slug: "cinnamon",
     title: "Cinnamon: Aroma, History & Uses",
     categories: ["Spice Cabinet"],
-    foundIn: ["vitality", "power", "crown-blend"],
+    foundIn: [],
     aromaProfile:
       "Warm, sweet-spiced, and slightly woody. Cinnamon is one of the most immediately recognizable aromas in the world: comforting, round, and deeply familiar, with a lingering sweetness that grounds a blend.",
     historicalUses:
       "Cinnamon is among the oldest known spices in human history. True cinnamon (Cinnamomum verum) is native to Sri Lanka and was traded to Egypt, the Arab world, and China thousands of years ago. It appears in ancient Egyptian records, in the Hebrew Bible, in Greek and Roman texts, and in the earliest Sanskrit writings on spice. The Portuguese, Dutch, and British all fought for control of cinnamon trade routes, making it one of the most geopolitically significant spices of the early modern era. In Southeast Asian cooking, cassia (a close relative) is a foundational spice in dishes like pho, massaman curry, and char siu. Culinarily, cinnamon has shaped the flavor of baking, confectionery, and spiced drinks across virtually every culture that had access to it.",
     modernUses:
       "Cinnamon remains a universal culinary spice and a key ingredient in natural perfumery, where its warmth and sweetness add body and familiarity to a blend. In herbal inhalers, cinnamon contributes a comforting depth that rounds sharper cooling notes.",
+    image: "",
+  },
+  {
+    slug: "cinnamon-oil",
+    title: "Cinnamon Oil: Aroma, History & Uses",
+    categories: ["Spice Cabinet"],
+    foundIn: ["power", "crown-blend"],
+    aromaProfile: "Content coming soon.",
+    historicalUses: "Content coming soon.",
+    modernUses: "Content coming soon.",
     image: "",
   },
   {
@@ -228,6 +306,16 @@ export const INGREDIENTS = [
     image: "",
   },
   {
+    slug: "fuji-pear-tea",
+    title: "Fuji Pear Tea: Aroma, History & Uses",
+    categories: ["Specialty Extracts"],
+    foundIn: ["vitality"],
+    aromaProfile: "Content coming soon.",
+    historicalUses: "Content coming soon.",
+    modernUses: "Content coming soon.",
+    image: "",
+  },
+  {
     slug: "wasabi-extract",
     title: "Wasabi Extract: Aroma, History & Uses",
     categories: ["Cooling Compounds", "Roots & Rhizomes"],
@@ -238,6 +326,16 @@ export const INGREDIENTS = [
       "True wasabi (Wasabia japonica) is native to Japan, where it has been cultivated since at least the 10th century. It was historically used as a condiment with raw fish, partly for its flavor and partly because its sharp aromatic compounds were believed to have food-safety properties. Wasabi cultivation was centered in mountain stream regions of Japan, particularly in Shizuoka prefecture, and true wasabi was a luxury ingredient reserved for special occasions and high-end dining. The characteristic nose-clearing sensation of wasabi is chemically distinct from chili heat: it is volatile and airborne, which is why it affects the sinuses rather than just the tongue.",
     modernUses:
       "True wasabi remains a prized and expensive ingredient in Japanese cuisine. Wasabi extract is used in specialty food products and, increasingly, in experimental aromatics where its sinus-opening intensity is valued as an extreme version of the clear head effect sought from inhalers.",
+    image: "",
+  },
+  {
+    slug: "peach-blossom",
+    title: "Peach Blossom: Aroma, History & Uses",
+    categories: ["Botanicals"],
+    foundIn: ["compassion"],
+    aromaProfile: "Content coming soon.",
+    historicalUses: "Content coming soon.",
+    modernUses: "Content coming soon.",
     image: "",
   },
   {
@@ -296,6 +394,10 @@ const INGREDIENT_ALIASES = {
   "orange blossom": "orange-blossom",
   "orange blossom tea": "orange-blossom",
   cinnamon: "cinnamon",
+  "cinnamon oil": "cinnamon-oil",
+  "peach blossom": "peach-blossom",
+  "fuji pear": "fuji-pear-tea",
+  "fuji pear tea": "fuji-pear-tea",
   "pink peppercorn": "pink-peppercorn",
   "white peppercorn": "white-peppercorn",
   "white pepper": "white-peppercorn",

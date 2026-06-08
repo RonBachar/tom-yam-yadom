@@ -16,8 +16,13 @@ export default function ShopPage() {
           <span className="inline-block text-tiger-orange text-xs font-heading font-bold tracking-[0.2em] uppercase mb-4">
             All Products
           </span>
-          <h1 className="font-heading font-bold text-tiger-cream uppercase leading-none mb-4"
-            style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", letterSpacing: "-0.01em" }}>
+          <h1
+            className="font-heading font-bold text-tiger-cream uppercase leading-none mb-4"
+            style={{
+              fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+              letterSpacing: "-0.01em",
+            }}
+          >
             Shop Smiling Tiger
           </h1>
           <p className="text-tiger-muted font-sans text-lg max-w-xl">
@@ -43,7 +48,10 @@ export default function ShopPage() {
                 {product.badge && (
                   <span
                     className="inline-block text-xs font-heading font-bold tracking-[0.1em] uppercase px-2.5 py-1 rounded-full mb-3"
-                    style={{ backgroundColor: `${product.accentColor}22`, color: product.accentColor }}
+                    style={{
+                      backgroundColor: `${product.accentColor}22`,
+                      color: product.accentColor,
+                    }}
                   >
                     {product.badge}
                   </span>
@@ -51,7 +59,9 @@ export default function ShopPage() {
                 <h2 className="font-heading font-bold text-2xl text-tiger-cream uppercase tracking-wide group-hover:text-tiger-gold transition-colors duration-200 mb-1">
                   {product.name}
                 </h2>
-                <p className="text-tiger-muted text-xs font-sans mb-3">{product.tagline}</p>
+                <p className="text-tiger-muted text-xs font-sans mb-3">
+                  {product.tagline}
+                </p>
                 <p className="text-tiger-muted text-xs font-sans mb-4">
                   {product.ingredients.join(", ")}
                 </p>

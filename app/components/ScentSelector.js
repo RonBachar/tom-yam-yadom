@@ -29,12 +29,8 @@ function ScentCard({ scent, isSelected, onSelect }) {
     <article
       className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] xl:w-[calc(25%-15px)] rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden group"
       style={{
-        borderColor: isSelected
-          ? scent.accentColor
-          : "rgba(58, 42, 24, 0.8)",
-        backgroundColor: isSelected
-          ? scent.accentBg
-          : "rgba(28, 22, 16, 0.95)",
+        borderColor: isSelected ? scent.accentColor : "rgba(58, 42, 24, 0.8)",
+        backgroundColor: isSelected ? scent.accentBg : "rgba(28, 22, 16, 0.95)",
         boxShadow: isSelected
           ? `0 0 32px 2px ${scent.accentColor}28, 0 4px 24px rgba(0,0,0,0.4)`
           : "0 2px 12px rgba(0,0,0,0.3)",
@@ -113,7 +109,10 @@ function ScentCard({ scent, isSelected, onSelect }) {
 
         {/* Ingredients */}
         <p className="text-tiger-muted text-xs font-sans leading-relaxed mb-5 flex-1">
-          <span className="font-semibold" style={{ color: "rgba(242,230,196,0.5)" }}>
+          <span
+            className="font-semibold"
+            style={{ color: "rgba(242,230,196,0.5)" }}
+          >
             Ingredients:{" "}
           </span>
           {scent.ingredients.join(", ")}

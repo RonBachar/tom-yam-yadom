@@ -1,7 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ALL_PRODUCTS } from "../../data/products";
-import { matchIngredientSlug } from "../../data/ingredients";
+import {
+  getIngredientBySlug,
+  getIngredientName,
+} from "../../data/ingredients";
 import AddToCartButton from "../../components/AddToCartButton";
 
 export function generateStaticParams() {
@@ -35,7 +38,7 @@ export default async function ProductPage({ params }) {
   if (!product) notFound();
 
   const related = ALL_PRODUCTS.filter(
-    (p) => p.slug !== product.slug && !p.isOil
+    (p) => p.slug !== product.slug && !p.isOil,
   ).slice(0, 3);
 
   const priceValidUntil = new Date();
@@ -83,29 +86,20 @@ export default async function ProductPage({ params }) {
 
         {/* Product main */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
-          {/* Visual placeholder */}
+          {/* Product image placeholder */}
           <div
-            className="aspect-square rounded-3xl flex items-center justify-center"
+            className="relative aspect-[4/5] rounded-3xl overflow-hidden flex items-center justify-center"
             style={{
               border: `1px solid ${product.accentColor}50`,
-              background: `radial-gradient(ellipse 70% 60% at 50% 50%, ${product.accentColor}18 0%, transparent 70%)`,
+              backgroundColor: "#1a1a1a",
             }}
           >
-            <div className="text-center p-8">
-              <div
-                className="font-heading font-bold leading-none mb-4 select-none"
-                style={{
-                  fontSize: "clamp(6rem, 18vw, 10rem)",
-                  color: product.accentColor,
-                  opacity: 0.2,
-                }}
-              >
-                {product.name.slice(0, 1)}
-              </div>
-              <p className="font-heading font-bold text-tiger-cream text-2xl uppercase tracking-widest">
-                {product.name}
-              </p>
-            </div>
+            <p
+              className="font-heading text-xs uppercase tracking-widest"
+              style={{ color: "#C9940A" }}
+            >
+              Coming Soon
+            </p>
           </div>
 
           {/* Buy box */}
@@ -163,23 +157,33 @@ export default async function ProductPage({ params }) {
 
             {/* Ingredients */}
             <p className="text-tiger-muted text-sm font-sans mb-8">
-              <span className="font-semibold" style={{ color: "rgba(242,230,196,0.5)" }}>
+              <span
+                className="font-semibold"
+                style={{ color: "rgba(242,230,196,0.5)" }}
+              >
                 Ingredients:{" "}
               </span>
-              {product.ingredients.map((ingredient, i) => {
-                const ingredientSlug = matchIngredientSlug(ingredient);
+              {product.ingredientSlugs.map((ingredientSlug, i) => {
+                const ingredient = getIngredientBySlug(ingredientSlug);
+                const displayName =
+                  ingredientSlug === "fuji-pear-tea"
+                    ? "Fuji Pear Tea"
+                    : ingredient
+                      ? getIngredientName(ingredient.title)
+                      : ingredientSlug;
+                const isLink = ingredient && ingredientSlug !== "fuji-pear-tea";
                 return (
-                  <span key={ingredient}>
+                  <span key={ingredientSlug}>
                     {i > 0 && ", "}
-                    {ingredientSlug ? (
+                    {isLink ? (
                       <Link
                         href={`/ingredients/${ingredientSlug}`}
                         className="hover:text-tiger-gold transition-colors duration-200 cursor-pointer"
                       >
-                        {ingredient}
+                        {displayName}
                       </Link>
                     ) : (
-                      ingredient
+                      displayName
                     )}
                   </span>
                 );
@@ -194,7 +198,10 @@ export default async function ProductPage({ params }) {
               <AddToCartButton
                 product={product}
                 className="flex-1 font-heading font-bold text-sm tracking-[0.14em] uppercase py-4 rounded-full transition-all duration-200 cursor-pointer active:scale-95"
-                style={{ backgroundColor: product.accentColor, color: "#0D0B08" }}
+                style={{
+                  backgroundColor: product.accentColor,
+                  color: "#0D0B08",
+                }}
                 aria-label={`Add ${product.name} to cart, $${product.price}`}
               >
                 Add to Cart
@@ -203,7 +210,8 @@ export default async function ProductPage({ params }) {
 
             {/* Trust note */}
             <p className="text-tiger-muted text-xs font-sans">
-              Handcrafted in Koh Samui &middot; 12+ month shelf life &middot; Thai-sourced ingredients
+              Handcrafted in Koh Samui &middot; 12+ month shelf life &middot;
+              Thai-sourced ingredients
             </p>
           </div>
         </div>
