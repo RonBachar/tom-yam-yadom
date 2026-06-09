@@ -36,7 +36,7 @@ const SAMUNPRAI_BASE = [
 export const INGREDIENT_CATEGORIES = [
   "Foundations",
   "Cooling Compounds",
-  "Citrus & Bright Notes",
+  "Citrus",
   "Spice Cabinet",
   "Roots & Rhizomes",
   "Botanicals",
@@ -47,7 +47,7 @@ export const INGREDIENTS = [
   {
     slug: "menthol",
     title: "Menthol: Aroma, History & Uses",
-    categories: ["Foundations", "Cooling Compounds"],
+    categories: ["Foundations"],
     foundIn: [
       "compassion",
       "vitality",
@@ -69,7 +69,7 @@ export const INGREDIENTS = [
   {
     slug: "cloves",
     title: "Cloves: Aroma, History & Uses",
-    categories: ["Foundations", "Spice Cabinet"],
+    categories: ["Foundations"],
     foundIn: [
       "compassion",
       "vitality",
@@ -90,7 +90,7 @@ export const INGREDIENTS = [
   {
     slug: "aromatic-curcuma",
     title: "Aromatic Curcuma: Aroma, History & Uses",
-    categories: ["Foundations", "Roots & Rhizomes"],
+    categories: ["Foundations"],
     foundIn: [
       "compassion",
       "vitality",
@@ -111,7 +111,7 @@ export const INGREDIENTS = [
   {
     slug: "cardamom",
     title: "Cardamom: Aroma, History & Uses",
-    categories: ["Foundations", "Spice Cabinet"],
+    categories: ["Foundations"],
     foundIn: [
       "compassion",
       "vitality",
@@ -132,7 +132,7 @@ export const INGREDIENTS = [
   {
     slug: "camphor",
     title: "Camphor: Aroma, History & Uses",
-    categories: ["Foundations", "Cooling Compounds"],
+    categories: ["Foundations"],
     foundIn: [
       "compassion",
       "vitality",
@@ -154,7 +154,7 @@ export const INGREDIENTS = [
   {
     slug: "borneol",
     title: "Borneol: Aroma, History & Uses",
-    categories: ["Foundations", "Cooling Compounds"],
+    categories: ["Foundations"],
     foundIn: [
       "compassion",
       "vitality",
@@ -175,7 +175,7 @@ export const INGREDIENTS = [
   {
     slug: "lotus-root",
     title: "Lotus Root: Aroma, History & Uses",
-    categories: ["Foundations", "Roots & Rhizomes"],
+    categories: ["Foundations"],
     foundIn: [
       "compassion",
       "vitality",
@@ -209,7 +209,7 @@ export const INGREDIENTS = [
   {
     slug: "kaffir-lime-skin",
     title: "Kaffir Lime Skin: Aroma, History & Uses",
-    categories: ["Citrus & Bright Notes"],
+    categories: ["Citrus"],
     foundIn: ["radiance"],
     aromaProfile:
       "Sharp, vibrant, and intensely aromatic. Kaffir lime (Citrus hystrix) skin is one of the most distinctive citrus aromas in the world: bright and assertive, with a complexity and depth that sets it far apart from ordinary lime.",
@@ -222,7 +222,7 @@ export const INGREDIENTS = [
   {
     slug: "tangerine-zest",
     title: "Tangerine Zest: Aroma, History & Uses",
-    categories: ["Citrus & Bright Notes"],
+    categories: ["Citrus"],
     foundIn: ["radiance"],
     aromaProfile:
       "Soft citrus sweetness with a gentle fruit character. Tangerine zest is warmer and rounder than sharper citrus notes, approachable and bright without any edge.",
@@ -235,7 +235,7 @@ export const INGREDIENTS = [
   {
     slug: "orange-blossom",
     title: "Orange Blossom: Aroma, History & Uses",
-    categories: ["Citrus & Bright Notes", "Botanicals"],
+    categories: ["Botanicals"],
     foundIn: ["radiance"],
     aromaProfile:
       "Delicate, floral, and softly luminous. Orange blossom sits at the intersection of citrus and flower, sweet and light, with a warmth that feels both clean and intimate.",
@@ -323,7 +323,7 @@ export const INGREDIENTS = [
   {
     slug: "wasabi-extract",
     title: "Wasabi Extract: Aroma, History & Uses",
-    categories: ["Cooling Compounds", "Roots & Rhizomes"],
+    categories: ["Cooling Compounds"],
     foundIn: ["crown-blend"],
     aromaProfile:
       "Sharp, volatile, and intensely sinus-opening. Wasabi delivers one of the most immediate and striking aromatic experiences of any ingredient: a penetrating, nasal rush that clears everything in its path.",
