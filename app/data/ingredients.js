@@ -12,7 +12,8 @@ export const INGREDIENT_IMAGE_ALT = {
   "tangerine-zest": "Bright tangerine zest curled into fine ribbons",
   "orange-blossom": "Orange blossoms in soft white petals",
   cinnamon: "Cinnamon bark sticks with rich reddish-brown tones",
-  "cinnamon-oil": "Cinnamon Oil ingredient used in Tom Yam Yadom herbal inhalers",
+  "cinnamon-oil":
+    "Cinnamon Oil ingredient used in Tom Yam Yadom herbal inhalers",
   "pink-peppercorn": "Pink peppercorns with rosy, speckled color",
   "white-peppercorn": "White peppercorns with a pale, earthy texture",
   "thai-ginger": "Thai ginger (galangal) sliced to reveal pale interiors",
@@ -63,7 +64,7 @@ export const INGREDIENTS = [
       "Menthol has been extracted from peppermint and related mint plants for centuries across Asia and Europe. In Japanese and Chinese traditional practice, menthol crystals were used in aromatic preparations and topical balms valued for their cooling character. In South and Southeast Asia, mint-derived compounds were common ingredients in inhalants, cooling oils, and preparations used by healers and travelers alike. In the Western world, menthol became a key ingredient in the apothecary trade from the 18th century onward, appearing in everything from breath preparations to aromatic salts. Culinarily, mint and menthol have flavored confectionery, tea, and digestifs across dozens of cultures for hundreds of years.",
     modernUses:
       "Today menthol is one of the most widely recognized aromatic compounds in the world. It appears in oral care products, confectionery, cooling balms, and aromatic inhalers. Its crisp, breath-opening character makes it a natural anchor ingredient in any blend designed for alertness and clarity.",
-    image: "",
+    image: "/images/ingredients/menthol.jpg",
   },
   {
     slug: "cloves",
@@ -84,7 +85,7 @@ export const INGREDIENTS = [
       "Cloves (Syzygium aromaticum) are native to the Maluku Islands of Indonesia and were among the most prized spices in the ancient and medieval spice trade, reaching China, India, the Arab world, and eventually Europe centuries before colonization. In traditional Ayurvedic and Chinese medicine, cloves were used in aromatic and warming preparations. They feature prominently in the incense and ritual traditions of South and Southeast Asia, where their warm, resinous smoke was considered purifying. Culinarily, cloves have been essential to spice blends, braises, mulled drinks, and sweets across South Asian, Middle Eastern, European, and Southeast Asian cooking for millennia.",
     modernUses:
       "Cloves remain a cornerstone of global cooking and aromatic craft. Clove essential oil is widely used in perfumery and artisanal aromatics for its warmth and staying power. In herbal inhalers, cloves add grounding depth and a sweet-spicy character that balances cooler, sharper notes.",
-    image: "",
+    image: "/images/ingredients/cloves.jpg",
   },
   {
     slug: "aromatic-curcuma",
@@ -105,7 +106,7 @@ export const INGREDIENTS = [
       "Curcuma species have been cultivated across South and Southeast Asia for thousands of years. In Thailand, aromatic curcuma (Curcuma aromatica) holds a distinct place from culinary turmeric, used historically in ritual, cosmetic, and aromatic contexts rather than primarily as a food ingredient. It appears in traditional Thai herbal compress recipes (luk pra kob) and in aromatic preparations used during ceremonial occasions. In Indian tradition, curcuma species feature in both Ayurvedic practice and in ritual use, including as a component of ceremonial pastes and incense.",
     modernUses:
       "Aromatic curcuma is valued in natural perfumery and craft aromatics for its earthy warmth and its ability to add body and depth to a blend without dominating it. In Thai herbal traditions it remains a staple of handcrafted inhalants and compresses, linking it directly to the yadom lineage.",
-    image: "",
+    image: "/images/ingredients/aromatic-curcuma.jpg",
   },
   {
     slug: "cardamom",
@@ -126,7 +127,7 @@ export const INGREDIENTS = [
       "Cardamom (Elettaria cardamomum) is native to southern India and Sri Lanka and has been traded across the ancient world for over 4,000 years. It is one of the oldest known spices, appearing in Sanskrit texts and in records of the ancient spice routes connecting India to the Arab world and beyond. In Arabic coffee culture, cardamom is essential: qahwa, the traditional spiced coffee of the Gulf, is defined by it. In Scandinavia, cardamom found its way into baking centuries ago and remains a signature flavor in pastries and breads today. In Ayurvedic tradition, cardamom was used in aromatic preparations and considered a warming, digestive spice. Across South and Southeast Asia it appears in spice blends, ritual foods, and aromatic crafts.",
     modernUses:
       "Cardamom is a prized ingredient in specialty coffee, pastry, perfumery, and craft spirits. In natural aromatics it adds brightness and complexity, bridging spice and floral notes in a way few other ingredients can.",
-    image: "",
+    image: "/images/ingredients/cardamom.jpg",
   },
   {
     slug: "camphor",
@@ -148,7 +149,7 @@ export const INGREDIENTS = [
       "Camphor has one of the longest documented histories of any aromatic substance in the world. Derived from the wood of Cinnamomum camphora, a tree native to East and Southeast Asia, camphor was traded along the ancient Silk Road and appears in Chinese, Sanskrit, Arabic, and medieval European texts. In Chinese and Japanese traditions it was burned as incense, used in ritual contexts, and employed as an aromatic preservative. In South and Southeast Asian medicine it featured in preparations valued for its strong aromatic character. In Europe, camphor became part of the apothecary tradition and appeared in smelling salts and aromatic vinegars from the medieval period onward. Its sharp, penetrating scent made it a natural choice wherever a powerful aromatic signal was needed.",
     modernUses:
       "Camphor remains a key aromatic in traditional preparations across Asia and is used in natural perfumery, ritual incense, and artisanal aromatics. In herbal inhalers it is one of the primary cooling and clarifying notes, often paired with menthol and borneol to build a deep, multi-layered clarity.",
-    image: "",
+    image: "/images/ingredients/camphor.jpg",
   },
   {
     slug: "borneol",
@@ -169,7 +170,7 @@ export const INGREDIENTS = [
       "Borneol is one of the most prized aromatic substances in classical Asian medicine. Historically harvested from the resin of Dryobalanops aromatica, a tree native to Borneo and Sumatra, it formed fragrant pale crystals that were among the most valued trade goods in the ancient maritime routes of Southeast Asia. In classical Chinese medicine it is known as bing pian and was considered a precious ingredient, associated with clarifying the senses and awakening the mind. It appears in the oldest Chinese pharmacopoeias and was traded westward along the spice routes to the Arab world, where it was known and valued by medieval scholars. In Thai and Southeast Asian herbal traditions, borneol is a native ingredient with deep roots in aromatic preparations, inhalants, and compresses.",
     modernUses:
       "Genuine botanical borneol signals a premium, traditional approach to aromatic blending. It is used in high-quality natural perfumery and in traditional herbal preparations across Asia. In an inhaler blend, borneol contributes a cool, resinous clarity that layers beautifully with camphor and menthol without duplicating them, and it is precisely this quality that makes it the signature focus ingredient in our Clarity blend.",
-    image: "",
+    image: "/images/ingredients/borneol.jpg",
   },
   {
     slug: "lotus-root",
@@ -190,7 +191,7 @@ export const INGREDIENTS = [
       "The lotus (Nelumbo nucifera) holds a central place in the cultural and spiritual traditions of Asia. Sacred in Hindu, Buddhist, and ancient Egyptian contexts, the lotus is one of the most symbolically loaded plants in human history, representing purity, awakening, and the emergence of beauty from muddy water. In Thailand, the lotus is woven into daily life: flowers are offered at temples, petals are folded into decorative forms, and the plant appears in both cuisine and ceremonial practice. Lotus root has been a culinary ingredient in Chinese, Japanese, Korean, and Southeast Asian cooking for centuries, valued for its texture and mild flavor. Aromatically, lotus has been used in perfumery and incense across the region for its clean, soft, aquatic character.",
     modernUses:
       "Lotus root extract appears in natural perfumery and in artisanal aromatics as a soft, grounding note. Its aqueous quality makes it a useful balancing ingredient in blends that need a quiet, centering presence beneath more assertive aromatics.",
-    image: "",
+    image: "/images/ingredients/lotus-root.jpg",
   },
   {
     slug: "peppermint-oil",
@@ -203,7 +204,7 @@ export const INGREDIENTS = [
       "Peppermint (Mentha piperita) is a hybrid of watermint and spearmint, cultivated in Europe since at least the 18th century, though mint species have been used aromatically and culinarily across the Mediterranean and Middle East for thousands of years. Ancient Egyptians, Greeks, and Romans used dried mint in cooking, medicine, and ritual. In European folk tradition, peppermint was a staple of the herbalist's cabinet, used in aromatic preparations and digestive tonics. Distillation of peppermint oil became commercially significant in England and America in the 18th and 19th centuries, and by the Victorian era peppermint oil was a widely traded aromatic commodity.",
     modernUses:
       "Peppermint oil is one of the most versatile and widely used essential oils in the world, appearing in confectionery, oral care, cosmetics, and aromatics. In inhaler blends it adds a bright, green freshness that complements and extends the cooling action of menthol and camphor.",
-    image: "",
+    image: "/images/ingredients/peppermint-oil.jpg",
   },
   {
     slug: "kaffir-lime-skin",
@@ -216,7 +217,7 @@ export const INGREDIENTS = [
       "Kaffir lime is native to tropical Southeast Asia and has been central to Thai, Indonesian, Cambodian, and Malay cuisine and culture for centuries. Its leaves and skin are among the most recognizable aromatics in Thai cooking, essential to tom kha, curries, and aromatic pastes. In traditional Thai and Southeast Asian practice, kaffir lime was also used in ritual contexts: lime water made with the fruit has long been used in purification and blessing ceremonies. The whole fruit, leaves, and skin appear across the region's traditional aromatic and cosmetic practices as well.",
     modernUses:
       "Kaffir lime zest and essential oil are prized in natural perfumery and craft aromatics for their vivid, complex citrus character. In a herbal inhaler blend, the skin adds a sharp, energizing brightness that lifts the entire composition.",
-    image: "",
+    image: "/images/ingredients/kaffir-lime-skin.jpg",
   },
   {
     slug: "tangerine-zest",
@@ -229,7 +230,7 @@ export const INGREDIENTS = [
       "Tangerines and mandarin oranges have been cultivated in China for over 3,000 years and hold a prominent place in Chinese culture, especially as symbols of luck and abundance during Lunar New Year celebrations. The fruit spread westward along trade routes, reaching the Mediterranean, North Africa, and eventually Europe and the Americas. In Chinese and Southeast Asian culinary tradition, tangerine peel (both fresh and dried) has long been used as a flavoring in cooking, confectionery, and tea. Dried tangerine peel (chen pi) is also a valued ingredient in classical Chinese herbal cuisine.",
     modernUses:
       "Tangerine zest and oil appear in natural perfumery, cocktail crafting, pastry, and artisanal aromatics. In a blend, the zest adds a warm, approachable citrus sweetness that brightens without the sharp edge of lime or lemon.",
-    image: "",
+    image: "/images/ingredients/tangerine-zest.jpg",
   },
   {
     slug: "orange-blossom",
@@ -242,7 +243,7 @@ export const INGREDIENTS = [
       "Orange blossom (from Citrus sinensis or Citrus aurantium) has been prized in perfumery and ritual across the Middle East, North Africa, and the Mediterranean for centuries. In Moroccan and Levantine cooking, orange blossom water is a fundamental flavoring in pastries, sweets, and drinks. In European tradition, orange blossom became associated with weddings and purity, worn by brides and distilled into some of the first recognized perfumes of the modern era. Neroli, the essential oil distilled from bitter orange blossom, has been a cornerstone of fine perfumery since the 17th century. Across many cultures, the scent of orange blossom carries associations of celebration, warmth, and beauty.",
     modernUses:
       "Orange blossom water and neroli oil remain staples of Middle Eastern and Mediterranean cooking and of fine perfumery worldwide. In natural aromatics, orange blossom adds a delicate, luminous floral note that lifts and sweetens a blend without heaviness.",
-    image: "",
+    image: "/images/ingredients/orange-blossom.jpg",
   },
   {
     slug: "cinnamon",
@@ -255,7 +256,7 @@ export const INGREDIENTS = [
       "Cinnamon is among the oldest known spices in human history. True cinnamon (Cinnamomum verum) is native to Sri Lanka and was traded to Egypt, the Arab world, and China thousands of years ago. It appears in ancient Egyptian records, in the Hebrew Bible, in Greek and Roman texts, and in the earliest Sanskrit writings on spice. The Portuguese, Dutch, and British all fought for control of cinnamon trade routes, making it one of the most geopolitically significant spices of the early modern era. In Southeast Asian cooking, cassia (a close relative) is a foundational spice in dishes like pho, massaman curry, and char siu. Culinarily, cinnamon has shaped the flavor of baking, confectionery, and spiced drinks across virtually every culture that had access to it.",
     modernUses:
       "Cinnamon remains a universal culinary spice and a key ingredient in natural perfumery, where its warmth and sweetness add body and familiarity to a blend. In herbal inhalers, cinnamon contributes a comforting depth that rounds sharper cooling notes.",
-    image: "",
+    image: "/images/ingredients/cinnamon.jpg",
   },
   {
     slug: "cinnamon-oil",
@@ -278,7 +279,7 @@ export const INGREDIENTS = [
       "Pink peppercorns (Schinus molle or Schinus terebinthifolia) are native to South America, where they have been used since pre-Columbian times by indigenous peoples of the Andes as a spice and aromatic. They were introduced to European and global cooking more recently than black pepper, gaining wide culinary attention in the latter half of the 20th century, particularly in French nouvelle cuisine. In natural perfumery, pink peppercorn has become a prized top note ingredient for its unusual combination of spice and fruit.",
     modernUses:
       "Pink peppercorn appears in fine dining, craft spirits, chocolate making, and natural perfumery. In an aromatic blend it contributes a bright, lively opening that adds energy and a subtle fruity dimension.",
-    image: "",
+    image: "/images/ingredients/pink-peppercorn.jpg",
   },
   {
     slug: "white-peppercorn",
@@ -291,7 +292,7 @@ export const INGREDIENTS = [
       "White pepper is black pepper (Piper nigrum) with the outer skin removed, a process that changes its aromatic character significantly. Black pepper has been traded from South India since at least 3,000 years ago and was one of the most valuable commodities in the ancient and medieval spice trade. White pepper became particularly valued in European and Chinese cooking for its cleaner, sharper heat and for its visual neutrality in pale dishes. In Southeast Asian cuisine, white pepper is foundational: it is the pepper of choice in Thai, Vietnamese, and Chinese-influenced cooking across the region.",
     modernUses:
       "White pepper is a staple of professional kitchens globally, especially in French, Chinese, and Southeast Asian cooking. In natural perfumery and aromatics, white peppercorn adds a dry, clean spice note with an earthy depth that anchors brighter ingredients.",
-    image: "",
+    image: "/images/ingredients/white-peppercorn.jpg",
   },
   {
     slug: "thai-ginger",
@@ -304,17 +305,20 @@ export const INGREDIENTS = [
       "Galangal has been cultivated and traded in Southeast Asia for thousands of years, and it reached the Arab world and medieval Europe as a prized spice along the ancient trade routes. In medieval European cooking and in Arab medical texts, galangal was considered a luxury spice with warming properties. In Thailand and across Southeast Asia, galangal is a kitchen essential: it is one of the defining aromatics of tom kha gai and appears in curry pastes, spice blends, and aromatic preparations throughout the region. It also has a documented place in traditional Thai herbal practice, appearing in compresses, teas, and topical preparations.",
     modernUses:
       "Galangal is experiencing broader interest in global cooking and in craft aromatics. Its distinctive sharp, resinous, spicy character is difficult to replicate and makes it an immediately recognizable ingredient in any blend that includes it.",
-    image: "",
+    image: "/images/ingredients/thai-ginger.jpg",
   },
   {
     slug: "fuji-pear-tea",
     title: "Fuji Pear Tea: Aroma, History & Uses",
     categories: ["Specialty Extracts"],
     foundIn: ["vitality"],
-    aromaProfile: "Content coming soon.",
-    historicalUses: "Content coming soon.",
-    modernUses: "Content coming soon.",
-    image: "",
+    aromaProfile:
+      "Clean, soft, and gently sweet. Fuji pear tea brings a delicate, watery fruit note to a blend: light and refined, with a quiet sweetness that feels fresh rather than sugary. It is one of the most understated aromatics in the palette, sitting softly in a composition and adding an approachable, airy quality without ever demanding the foreground.",
+    historicalUses:
+      "Pears have been cultivated in China for over 3,000 years, making them one of the oldest continuously farmed fruits in East Asian history. In classical Chinese culture, the pear (li) carries layered symbolism: its white blossom is associated with purity and early spring, and pear trees appear frequently in classical poetry as images of quiet beauty and seasonal change. Pear cultivation spread westward from China along the ancient trade routes through Central Asia and into Persia, the Arab world, and eventually Europe, where both the fruit and its cultivation traditions took root across the Mediterranean and beyond. In East Asian culinary tradition, pear has been used not only as a fresh fruit but as an ingredient in teas, desserts, and medicinal preparations for centuries. In Chinese and Korean cooking, pear is used as a natural sweetener and tenderizer in marinades, and pear-based drinks have been made for generations. The tradition of blending fruit with tea is deeply embedded in East Asian tea culture, where fruit teas and infusions have been enjoyed since antiquity. The Fuji variety specifically is a cultivar developed in Fujisaki, Japan in the mid-20th century, taking its name from both the town and Mount Fuji. It became one of the most widely cultivated apple and pear varieties in East Asia for its exceptional sweetness, clean flavor, and satisfying crunch. Fuji pear tea draws on this modern cultivar's distinctively clean, sweet character, set within the long East Asian tradition of fruit tea blending. In Japanese tea culture, the pairing of delicate fruit notes with green or white tea bases reflects a broader aesthetic of finding quiet complexity in subtle flavors: the same sensibility that shapes Japanese cuisine, ceramics, and garden design.",
+    modernUses:
+      "Fuji pear tea appears in specialty tea blending, artisan confectionery, craft flavor work, and natural aromatics. Its clean, soft sweetness makes it a versatile addition to compositions where a light fruit note is needed without the sharpness of citrus or the heaviness of tropical fruit. In an aromatic blend, it contributes a quiet brightness and approachability that makes a composition feel fresh and inviting from the first breath.",
+    image: "/images/ingredients/fuji-pear-tea.png",
   },
   {
     slug: "wasabi-extract",
@@ -327,17 +331,20 @@ export const INGREDIENTS = [
       "True wasabi (Wasabia japonica) is native to Japan, where it has been cultivated since at least the 10th century. It was historically used as a condiment with raw fish, partly for its flavor and partly because its sharp aromatic compounds were believed to have food-safety properties. Wasabi cultivation was centered in mountain stream regions of Japan, particularly in Shizuoka prefecture, and true wasabi was a luxury ingredient reserved for special occasions and high-end dining. The characteristic nose-clearing sensation of wasabi is chemically distinct from chili heat: it is volatile and airborne, which is why it affects the sinuses rather than just the tongue.",
     modernUses:
       "True wasabi remains a prized and expensive ingredient in Japanese cuisine. Wasabi extract is used in specialty food products and, increasingly, in experimental aromatics where its sinus-opening intensity is valued as an extreme version of the clear head effect sought from inhalers.",
-    image: "",
+    image: "/images/ingredients/wasabi-extract.jpg",
   },
   {
     slug: "peach-blossom",
     title: "Peach Blossom: Aroma, History & Uses",
     categories: ["Botanicals"],
     foundIn: ["compassion"],
-    aromaProfile: "Content coming soon.",
-    historicalUses: "Content coming soon.",
-    modernUses: "Content coming soon.",
-    image: "",
+    aromaProfile:
+      "Soft, delicate, and sweetly floral. Peach blossom sits at the gentle intersection of fruit and flower: lighter and more ethereal than the ripe peach itself, with a clean, powdery sweetness and a warmth that feels both intimate and airy. It opens a blend without demanding attention, adding a quiet luminosity that lingers softly in the background.",
+    historicalUses:
+      "The peach tree (Prunus persica) originated in China, where it has been cultivated for over 4,000 years and holds one of the most layered symbolic histories of any plant in East Asian culture. In Chinese tradition, the peach is among the most auspicious of all fruits, associated with longevity, immortality, and good fortune. Peach blossoms in particular carry deep cultural meaning: they are the flower of early spring, associated with renewal, beauty, and the return of warmth after winter. The image of peach blossoms appears throughout classical Chinese poetry, painting, and literature as a symbol of feminine grace and the fleeting beauty of the natural world. In Japan, peach blossoms are celebrated alongside cherry blossoms as a sign of spring, and the Hinamatsuri (Doll Festival) held each March is also known as the Peach Blossom Festival, where the flowers are displayed as offerings and decorations. In Korean folk tradition, peach blossoms and peach wood have long been associated with protection and the warding off of harmful influences, and peach trees were planted near homes and temples with this intention. Along the ancient Silk Road, the peach traveled westward from China through Persia (reflected in its Latin name, Prunus persica) to the Mediterranean and eventually Europe. Persian and Arab poets embraced the peach as an image of beauty and sensory pleasure, and the blossom's delicate scent was noted in classical Arabic literature. In Europe, peach blossom water and peach-derived aromatics appeared in Renaissance and early modern perfumery and cosmetic preparations. Culinarily, peach blossom has been used in East Asian cooking and confectionery: infused into teas, steeped in liqueurs, and used to flavor sweets and desserts across China, Japan, and Korea.",
+    modernUses:
+      "Peach blossom absolute and peach blossom-derived aromatic materials are prized in natural perfumery for their soft, feminine, and luminous character. The note bridges floral and fruity families without belonging fully to either, making it a versatile and sought-after ingredient in fine fragrance composition. In craft aromatics and artisanal blending, peach blossom adds a gentle sweetness and a quietly uplifting quality that softens and brightens any blend it enters.",
+    image: "/images/ingredients/peach-blossom.png",
   },
   {
     slug: "rose-hips",
@@ -350,7 +357,7 @@ export const INGREDIENTS = [
       "Rose hips are the fruit of the rose plant and have been used across Europe, the Middle East, and Asia for centuries. In Scandinavian and Eastern European tradition, rose hip soup and preserves are a long-standing culinary staple. Rose hips were used across the Arab world and in medieval European herbalism as a nutritious food and a source of tart, fruity flavor. During World War II, rose hip syrup was distributed in Britain as a source of vitamin C when citrus was scarce, making it one of the best-documented wartime food traditions in the country. Rose hips also appear in Turkish and Persian culinary traditions in jams, teas, and sweets.",
     modernUses:
       "Rose hips appear in specialty teas, jams, confectionery, natural skincare, and craft aromatics. In a blend, they contribute a soft, tart fruitiness that adds a subtle warmth and roundness distinct from the sharper character of citrus.",
-    image: "",
+    image: "/images/ingredients/rose-hips.jpg",
   },
   {
     slug: "jasmine",
@@ -363,7 +370,7 @@ export const INGREDIENTS = [
       "Jasmine (Jasminum sambac and related species) has been cultivated for its scent across South Asia, Southeast Asia, the Middle East, and the Mediterranean for thousands of years. In Thailand, jasmine holds deep cultural significance: malai jasmine garlands are offered at temples, given as tokens of respect, and used in religious ceremonies throughout the country. Thai jasmine rice (Khao Hom Mali) takes its name from the flower's scent. In India, jasmine is woven into bridal garlands and is central to several regional perfumery traditions. In the Arab world and in Europe, jasmine has been a foundational fine fragrance ingredient since the earliest days of perfumery. Jasmine absolute is one of the most expensive natural aromatic materials in the world.",
     modernUses:
       "Jasmine is a cornerstone of fine perfumery globally and remains central to Thai and South Asian floral tradition. In an inhaler blend, jasmine adds a soft, warm, luminous floral note that brings elegance and depth to any composition it enters.",
-    image: "",
+    image: "/images/ingredients/jasmine.jpg",
   },
   {
     slug: "thai-royal-basil",
@@ -376,7 +383,7 @@ export const INGREDIENTS = [
       "Basil has been cultivated across Asia and the Mediterranean since antiquity. In South Asian tradition, holy basil (tulsi) is considered sacred in Hinduism and has been used in ritual and aromatic practice for thousands of years. In Thailand, several distinct basil varieties each hold their own culinary and cultural place: Thai royal basil (horapa) is the variety used in stir-fries, curries, and aromatic preparations, and it is one of the defining flavors of Thai cooking. Basil cultivation spread westward from Asia to the Middle East and then to Europe, where it became central to Mediterranean cooking and, eventually, to the fine herb tradition of French cuisine.",
     modernUses:
       "Thai royal basil is an essential ingredient in Thai cuisine and is gaining recognition in global cooking for its distinctive spicy, anise-inflected character. In natural perfumery and craft aromatics, basil's green, spicy complexity adds a fresh, herbal energy that contrasts cleanly with warmer or heavier notes.",
-    image: "",
+    image: "/images/ingredients/thai-royal-basil.jpg",
   },
 ];
 
@@ -431,7 +438,7 @@ export function matchIngredientSlug(name) {
     return INGREDIENT_ALIASES[normalized];
   }
   const byName = INGREDIENTS.find(
-    (i) => getIngredientName(i.title).toLowerCase() === normalized
+    (i) => getIngredientName(i.title).toLowerCase() === normalized,
   );
   return byName ? byName.slug : null;
 }

@@ -48,7 +48,8 @@ export default function IngredientsPage() {
           </h1>
           <p className="text-tiger-muted font-sans max-w-xl">
             Every Smiling Tiger blend is built from botanicals with centuries of
-            history. Explore the aromas, traditions, and stories behind each one.
+            history. Explore the aromas, traditions, and stories behind each
+            one.
           </p>
         </div>
 
@@ -59,56 +60,56 @@ export default function IngredientsPage() {
             const sectionId = categoryToId(category);
             return (
               <section key={category} aria-labelledby={sectionId}>
-              <h2
-                id={sectionId}
-                className="font-heading font-bold text-tiger-cream text-2xl uppercase tracking-wide mb-6 scroll-mt-[100px]"
-              >
-                {category}
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {ingredients.map((ingredient) => {
-                  const name = getIngredientName(ingredient.title);
-                  return (
-                    <Link
-                      key={`${category}-${ingredient.slug}`}
-                      href={`/ingredients/${ingredient.slug}`}
-                      className="block rounded-2xl border border-tiger-border hover:border-tiger-gold/40 bg-tiger-surface transition-all duration-200 overflow-hidden cursor-pointer group"
-                    >
-                      <div className="relative w-full aspect-square overflow-hidden">
-                        <Image
-                          src={
-                            ingredient.image ||
-                            `/images/ingredients/${ingredient.slug}.jpg`
-                          }
-                          alt={getIngredientImageAlt(ingredient.slug, name)}
-                          fill
-                          loading="lazy"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                      <div className="p-5">
-                        <h3 className="font-heading font-bold text-xl text-tiger-cream uppercase tracking-wide group-hover:text-tiger-gold transition-colors duration-200 mb-3">
-                          {name}
-                        </h3>
-                        <p className="text-tiger-muted text-sm font-sans leading-relaxed mb-3 line-clamp-2">
-                          {ingredient.aromaProfile}
-                        </p>
-                        <div className="flex flex-wrap gap-1.5">
-                          {ingredient.categories.map((cat) => (
-                            <span
-                              key={cat}
-                              className="text-xs font-heading font-bold tracking-[0.08em] px-2 py-0.5 rounded-full border border-tiger-gold/25 bg-tiger-cream/20 text-tiger-cream"
-                            >
-                              {cat}
-                            </span>
-                          ))}
+                <h2
+                  id={sectionId}
+                  className="font-heading font-bold text-tiger-cream text-2xl uppercase tracking-wide mb-6 scroll-mt-[100px]"
+                >
+                  {category}
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {ingredients.map((ingredient) => {
+                    const name = getIngredientName(ingredient.title);
+                    return (
+                      <Link
+                        key={`${category}-${ingredient.slug}`}
+                        href={`/ingredients/${ingredient.slug}`}
+                        className="block rounded-2xl border border-tiger-border hover:border-tiger-gold/40 bg-tiger-surface transition-all duration-200 overflow-hidden cursor-pointer group"
+                      >
+                        <div className="relative w-full aspect-square overflow-hidden">
+                          <Image
+                            src={
+                              ingredient.image ||
+                              `/images/ingredients/${ingredient.slug}.jpg`
+                            }
+                            alt={getIngredientImageAlt(ingredient.slug, name)}
+                            fill
+                            loading="lazy"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
                         </div>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
+                        <div className="p-5">
+                          <h3 className="font-heading font-bold text-xl text-tiger-cream uppercase tracking-wide group-hover:text-tiger-gold transition-colors duration-200 mb-3">
+                            {name}
+                          </h3>
+                          <p className="text-tiger-muted text-sm font-sans leading-relaxed mb-3 line-clamp-2">
+                            {ingredient.aromaProfile}
+                          </p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {ingredient.categories.map((cat) => (
+                              <span
+                                key={cat}
+                                className="text-xs font-heading font-bold tracking-[0.08em] px-2 py-0.5 rounded-full border border-tiger-gold/25 bg-tiger-cream/20 text-tiger-cream"
+                              >
+                                {cat}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
               </section>
             );
           })}
