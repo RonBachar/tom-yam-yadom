@@ -12,6 +12,7 @@ export const INGREDIENT_IMAGE_ALT = {
   "tangerine-zest": "Bright tangerine zest curled into fine ribbons",
   "orange-blossom": "Orange blossoms in soft white petals",
   cinnamon: "Cinnamon bark sticks with rich reddish-brown tones",
+  "cinnamon-oil": "Cinnamon Oil ingredient used in Tom Yam Yadom herbal inhalers",
   "pink-peppercorn": "Pink peppercorns with rosy, speckled color",
   "white-peppercorn": "White peppercorns with a pale, earthy texture",
   "thai-ginger": "Thai ginger (galangal) sliced to reveal pale interiors",
@@ -264,7 +265,7 @@ export const INGREDIENTS = [
     aromaProfile: "Content coming soon.",
     historicalUses: "Content coming soon.",
     modernUses: "Content coming soon.",
-    image: "",
+    image: "/images/ingredients/cinnamon-oil.png",
   },
   {
     slug: "pink-peppercorn",

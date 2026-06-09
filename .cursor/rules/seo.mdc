@@ -77,9 +77,7 @@ const jsonLd = {
     "@type": "Offer",
     price: product.price,          // numeric, no currency symbol
     priceCurrency: "USD",
-    // PreOrder until Stripe checkout is connected and products are purchasable.
-    // Switch to "https://schema.org/InStock" once checkout is live.
-    availability: "https://schema.org/PreOrder",
+    availability: "https://schema.org/InStock",
     url: `https://www.tomyamyadomherbals.com/products/${product.slug}`,
     priceValidUntil: /* ISO date string, one year from build date */ "YYYY-MM-DD",
   },

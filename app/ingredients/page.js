@@ -5,18 +5,20 @@ import {
   getIngredientName,
   getIngredientsByCategory,
 } from "../data/ingredients";
+import CategoryBar from "./CategoryBar";
+import { categoryToId } from "./categoryToId";
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
 
 export const metadata = {
-  title: "The Apothecary | Tom Yam Yadom",
+  title: "The Apothecary: Thai Herbal Ingredients | Tom Yam Yadom",
   description:
-    "Explore the ingredients behind every Smiling Tiger blend. From ancient Thai botanicals to rare cooling compounds, every element has a story.",
+    "Browse the Tom Yam Yadom Apothecary — a dictionary of Thai herbs, spices, and botanicals behind every Smiling Tiger blend, with aroma profiles and history.",
   alternates: { canonical: `${BASE_URL}/ingredients` },
   openGraph: {
-    title: "The Apothecary | Tom Yam Yadom",
+    title: "The Apothecary: Thai Herbal Ingredients | Tom Yam Yadom",
     description:
-      "Explore the ingredients behind every Smiling Tiger blend. From ancient Thai botanicals to rare cooling compounds, every element has a story.",
+      "Browse the Tom Yam Yadom Apothecary — a dictionary of Thai herbs, spices, and botanicals behind every Smiling Tiger blend, with aroma profiles and history.",
     url: `${BASE_URL}/ingredients`,
     siteName: "Tom Yam Yadom",
     locale: "en_US",
@@ -26,6 +28,10 @@ export const metadata = {
 
 export default function IngredientsPage() {
   const categoryGroups = getIngredientsByCategory();
+  const categories = categoryGroups.map(({ category }) => ({
+    id: categoryToId(category),
+    label: category,
+  }));
 
   return (
     <div className="pt-32 pb-24 px-6">
@@ -46,12 +52,16 @@ export default function IngredientsPage() {
           </p>
         </div>
 
+        <CategoryBar categories={categories} />
+
         <div className="space-y-16">
-          {categoryGroups.map(({ category, ingredients }) => (
-            <section key={category} aria-labelledby={`category-${category}`}>
+          {categoryGroups.map(({ category, ingredients }) => {
+            const sectionId = categoryToId(category);
+            return (
+              <section key={category} aria-labelledby={sectionId}>
               <h2
-                id={`category-${category}`}
-                className="font-heading font-bold text-tiger-cream text-2xl uppercase tracking-wide mb-6"
+                id={sectionId}
+                className="font-heading font-bold text-tiger-cream text-2xl uppercase tracking-wide mb-6 scroll-mt-[100px]"
               >
                 {category}
               </h2>
@@ -66,7 +76,10 @@ export default function IngredientsPage() {
                     >
                       <div className="relative w-full aspect-square overflow-hidden">
                         <Image
-                          src={`/images/ingredients/${ingredient.slug}.jpg`}
+                          src={
+                            ingredient.image ||
+                            `/images/ingredients/${ingredient.slug}.jpg`
+                          }
                           alt={getIngredientImageAlt(ingredient.slug, name)}
                           fill
                           loading="lazy"
@@ -96,8 +109,9 @@ export default function IngredientsPage() {
                   );
                 })}
               </div>
-            </section>
-          ))}
+              </section>
+            );
+          })}
         </div>
       </div>
     </div>

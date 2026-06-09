@@ -5,7 +5,6 @@ import { ALL_PRODUCTS } from "../../data/products";
 import {
   INGREDIENTS,
   getIngredientBySlug,
-  getIngredientImageAlt,
   getIngredientName,
   ingredientMetaDescription,
 } from "../../data/ingredients";
@@ -29,16 +28,21 @@ export async function generateMetadata({ params }) {
   const url = `${BASE_URL}/ingredients/${slug}`;
 
   return {
-    title: `${ingredient.title} | Tom Yam Yadom`,
+    title: `${name}: Aroma, History & Uses | Tom Yam Yadom`,
     description,
     alternates: { canonical: url },
     openGraph: {
-      title: `${name} | The Apothecary | Tom Yam Yadom`,
+      title: `${name}: Aroma, History & Uses | Tom Yam Yadom`,
       description,
       url,
       siteName: "Tom Yam Yadom",
       locale: "en_US",
-      type: "website",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${name}: Aroma, History & Uses | Tom Yam Yadom`,
+      description,
     },
   };
 }
@@ -54,8 +58,31 @@ export default async function IngredientPage({ params }) {
     .map((productSlug) => ALL_PRODUCTS.find((p) => p.slug === productSlug))
     .filter(Boolean);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    name,
+    description: [
+      ingredient.aromaProfile,
+      ingredient.historicalUses,
+      ingredient.modernUses,
+    ]
+      .filter(Boolean)
+      .join(" "),
+    inDefinedTermSet: {
+      "@type": "DefinedTermSet",
+      name: "Tom Yam Yadom Apothecary",
+      url: `${BASE_URL}/ingredients`,
+    },
+    ...(ingredient.image ? { image: ingredient.image } : {}),
+  };
+
   return (
     <div className="pt-32 pb-24 px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="max-w-3xl mx-auto">
         <nav
           className="flex items-center gap-2 text-xs font-sans text-tiger-muted mb-10"
@@ -89,16 +116,24 @@ export default async function IngredientPage({ params }) {
           ))}
         </div>
 
-        <div className="relative aspect-[16/9] rounded-3xl border border-tiger-border bg-tiger-surface overflow-hidden mb-12">
-          <Image
-            src={`/images/ingredients/${slug}.jpg`}
-            alt={getIngredientImageAlt(slug, name)}
-            fill
-            sizes="(max-width: 768px) 100vw, 768px"
-            className="object-cover"
-            priority
-          />
-        </div>
+        {ingredient.image ? (
+          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-12">
+            <Image
+              src={ingredient.image}
+              alt={`${name} ingredient used in Tom Yam Yadom herbal inhalers`}
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
+              priority
+            />
+          </div>
+        ) : (
+          <div className="relative aspect-[4/5] rounded-2xl border border-tiger-border bg-tiger-surface overflow-hidden mb-12 flex items-center justify-center">
+            <p className="text-tiger-muted font-heading text-sm uppercase tracking-[0.15em]">
+              Coming Soon
+            </p>
+          </div>
+        )}
 
         <div className="space-y-10 mb-12">
           <section aria-labelledby="aroma-heading">

@@ -1,4 +1,5 @@
 import { getAllPosts, CATEGORIES } from "../lib/blog";
+import { INGREDIENTS } from "./data/ingredients";
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
 
@@ -11,28 +12,6 @@ const PRODUCT_SLUGS = [
   "clarity",
   "serenity",
   "crown-blend",
-];
-
-const INGREDIENT_SLUGS = [
-  "menthol",
-  "cloves",
-  "aromatic-curcuma",
-  "cardamom",
-  "camphor",
-  "borneol",
-  "lotus-root",
-  "peppermint-oil",
-  "kaffir-lime-skin",
-  "tangerine-zest",
-  "orange-blossom",
-  "cinnamon",
-  "pink-peppercorn",
-  "white-peppercorn",
-  "thai-ginger",
-  "wasabi-extract",
-  "rose-hips",
-  "jasmine",
-  "thai-royal-basil",
 ];
 
 export default function sitemap() {
@@ -60,7 +39,7 @@ export default function sitemap() {
     {
       url: `${BASE_URL}/ingredients`,
       lastModified,
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 0.8,
     },
     {
@@ -90,8 +69,8 @@ export default function sitemap() {
     {
       url: `${BASE_URL}/shipping`,
       lastModified,
-      changeFrequency: "monthly",
-      priority: 0.5,
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
   ];
 
@@ -102,8 +81,8 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
-  const ingredientRoutes = INGREDIENT_SLUGS.map((slug) => ({
-    url: `${BASE_URL}/ingredients/${slug}`,
+  const ingredientRoutes = INGREDIENTS.map((ingredient) => ({
+    url: `${BASE_URL}/ingredients/${ingredient.slug}`,
     lastModified,
     changeFrequency: "monthly",
     priority: 0.7,

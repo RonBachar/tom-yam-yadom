@@ -8,6 +8,8 @@ const LINKS = [
   { href: "/shop",      label: "Shop All Scents"     },
   { href: "/story",     label: "Our Story"           },
   { href: "/wholesale", label: "Wholesale"           },
+  { href: "/blog",      label: "Journal"             },
+  { href: "/ingredients", label: "The Apothecary"  },
   { href: "/products/crown-blend", label: "Crown Blend" },
 ];
 

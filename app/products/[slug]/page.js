@@ -56,7 +56,7 @@ export default async function ProductPage({ params }) {
       "@type": "Offer",
       price: product.price,
       priceCurrency: "USD",
-      availability: "https://schema.org/PreOrder",
+      availability: "https://schema.org/InStock",
       url: `${BASE_URL}/products/${product.slug}`,
       priceValidUntil: priceValidUntil.toISOString().split("T")[0],
     },
