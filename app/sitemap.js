@@ -16,6 +16,7 @@ const PRODUCT_SLUGS = [
 
 export default function sitemap() {
   const lastModified = new Date();
+  const productLastModified = new Date("2026-06-09");
 
   const staticRoutes = [
     {
@@ -76,7 +77,7 @@ export default function sitemap() {
 
   const productRoutes = PRODUCT_SLUGS.map((slug) => ({
     url: `${BASE_URL}/products/${slug}`,
-    lastModified,
+    lastModified: productLastModified,
     changeFrequency: "weekly",
     priority: 0.8,
   }));

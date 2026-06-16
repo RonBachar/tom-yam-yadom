@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { SCENTS } from "../data/products";
+import { getIngredientBySlug, getIngredientName } from "../data/ingredients";
 import AddToCartButton from "./AddToCartButton";
 
 export default function ScentSelector() {
@@ -27,7 +29,7 @@ export default function ScentSelector() {
 function ScentCard({ scent, isSelected, onSelect }) {
   return (
     <article
-      className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] xl:w-[calc(25%-15px)] rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden group"
+      className="relative w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] xl:w-[calc(25%-15px)] rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden group"
       style={{
         borderColor: isSelected ? scent.accentColor : "rgba(58, 42, 24, 0.8)",
         backgroundColor: isSelected ? scent.accentBg : "rgba(28, 22, 16, 0.95)",
@@ -47,6 +49,16 @@ function ScentCard({ scent, isSelected, onSelect }) {
       aria-pressed={isSelected}
       aria-label={`${scent.name}: ${scent.tagline}`}
     >
+      <Image
+        src={`/images/product/${scent.slug}.png`}
+        alt=""
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        className="absolute inset-0 z-0 object-cover opacity-15 mix-blend-luminosity"
+        aria-hidden
+      />
+
+      <div className="relative z-10">
       {/* Accent top bar */}
       <div
         className="h-1 w-full transition-opacity duration-300"
@@ -115,7 +127,28 @@ function ScentCard({ scent, isSelected, onSelect }) {
           >
             Ingredients:{" "}
           </span>
-          {scent.ingredients.join(", ")}
+          {scent.ingredientSlugs.map((ingredientSlug, i) => {
+            const ingredient = getIngredientBySlug(ingredientSlug);
+            const displayName = ingredient
+              ? getIngredientName(ingredient.title)
+              : ingredientSlug;
+            return (
+              <span key={ingredientSlug}>
+                {i > 0 && ", "}
+                {ingredient ? (
+                  <Link
+                    href={`/ingredients/${ingredientSlug}`}
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-tiger-muted no-underline hover:text-tiger-gold hover:underline transition-colors duration-200 cursor-pointer"
+                  >
+                    {displayName}
+                  </Link>
+                ) : (
+                  displayName
+                )}
+              </span>
+            );
+          })}
         </p>
 
         {/* Actions */}
@@ -142,6 +175,7 @@ function ScentCard({ scent, isSelected, onSelect }) {
             View
           </Link>
         </div>
+      </div>
       </div>
     </article>
   );

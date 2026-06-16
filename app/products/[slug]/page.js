@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ALL_PRODUCTS } from "../../data/products";
 import {
   getIngredientBySlug,
@@ -13,11 +14,27 @@ export function generateStaticParams() {
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
 
+const PRODUCT_IMAGE_ALT = {
+  compassion:
+    "Compassion herbal inhaler — rose hips, peach blossom, and pink peppercorn",
+  vitality: "Vitality herbal inhaler — Thai ginger, cinnamon, and fuji pear",
+  radiance:
+    "Radiance herbal inhaler — kaffir lime, tangerine zest, and orange blossom",
+  balance: "Balance herbal inhaler — traditional samunprai Thai herbal blend",
+  power: "Power herbal inhaler — Thai royal basil, cinnamon oil, and peppermint",
+  clarity: "Clarity herbal inhaler — borneol, camphor, and cooling compounds",
+  serenity:
+    "Serenity herbal inhaler — jasmine, white peppercorn, and calming botanicals",
+  "crown-blend":
+    "Crown Blend herbal oil — premium concentrated Thai herbal ritual oil",
+};
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const product = ALL_PRODUCTS.find((p) => p.slug === slug);
   if (!product) return {};
   const url = `${BASE_URL}/products/${slug}`;
+  const imageUrl = `${BASE_URL}/images/product/${slug}.jpg`;
   return {
     title: `${product.name} Thai Herbal Inhaler | Tom Yam Yadom`,
     description: product.description,
@@ -28,6 +45,18 @@ export async function generateMetadata({ params }) {
       url,
       siteName: "Tom Yam Yadom",
       type: "website",
+      images: [
+        {
+          url: imageUrl,
+          width: 800,
+          height: 800,
+          alt: `${product.name} Thai herbal inhaler by Tom Yam Yadom`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [imageUrl],
     },
   };
 }
@@ -49,7 +78,7 @@ export default async function ProductPage({ params }) {
     "@type": "Product",
     name: product.name,
     description: product.description,
-    ...(product.image ? { image: product.image } : {}),
+    image: `${BASE_URL}/images/product/${product.slug}.jpg`,
     brand: { "@type": "Brand", name: "Tom Yam Yadom" },
     category: "Herbal Inhaler",
     offers: {
@@ -88,18 +117,20 @@ export default async function ProductPage({ params }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
           {/* Product image placeholder */}
           <div
-            className="relative aspect-[4/5] rounded-3xl overflow-hidden flex items-center justify-center"
+            className="relative aspect-[4/5] rounded-3xl overflow-hidden"
             style={{
               border: `1px solid ${product.accentColor}50`,
               backgroundColor: "#1a1a1a",
             }}
           >
-            <p
-              className="font-heading text-xs uppercase tracking-widest"
-              style={{ color: "#C9940A" }}
-            >
-              Coming Soon
-            </p>
+            <Image
+              src={`/images/product/${product.slug}.png`}
+              alt={PRODUCT_IMAGE_ALT[product.slug] ?? `${product.name} Thai herbal inhaler`}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+              priority
+            />
           </div>
 
           {/* Buy box */}

@@ -68,9 +68,7 @@ const jsonLd = {
   "@type": "Product",
   name: product.name,
   description: product.description,
-  // image is CONDITIONAL — only include when product.image exists in products.js.
-  // Never hardcode a placeholder or non-existent path into JSON-LD.
-  ...(product.image ? { image: product.image } : {}),
+  image: `https://www.tomyamyadomherbals.com/images/product/${product.slug}.jpg`,
   brand: { "@type": "Brand", name: "Tom Yam Yadom" },
   category: "Herbal Inhaler",
   offers: {
@@ -87,12 +85,7 @@ const jsonLd = {
 //   dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 ```
 
-> **TODO (keep until done):** Product photos are currently placeholders.
-> Once real product photos exist:
-> 1. Add an `image` field with the real absolute URL to each product in `app/data/products.js`.
-> 2. Verify each product page in [Google's Rich Results Test](https://search.google.com/test/rich-results).
->
-> Until then, the schema intentionally omits the `image` field.
+Product schema `image` field uses the product slug to build the full image URL: `https://www.tomyamyadomherbals.com/images/product/[slug].jpg` — all products have real `.jpg` images.
 
 **Standard pages** (Home, Story, Shop) should include `Organization` or `WebSite` schema where appropriate.
 
