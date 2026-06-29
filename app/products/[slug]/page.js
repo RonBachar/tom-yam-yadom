@@ -7,6 +7,7 @@ import {
   getIngredientName,
 } from "../../data/ingredients";
 import AddToCartButton from "../../components/AddToCartButton";
+import { SHIPPING_POLICY, RETURN_POLICY } from "@/app/data/policies";
 
 export function generateStaticParams() {
   return ALL_PRODUCTS.map((p) => ({ slug: p.slug }));
@@ -88,6 +89,43 @@ export default async function ProductPage({ params }) {
       availability: "https://schema.org/InStock",
       url: `${BASE_URL}/products/${product.slug}`,
       priceValidUntil: priceValidUntil.toISOString().split("T")[0],
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: {
+          "@type": "MonetaryAmount",
+          value: SHIPPING_POLICY.standard.price.toFixed(2),
+          currency: SHIPPING_POLICY.standard.currency,
+        },
+        shippingDestination: {
+          "@type": "DefinedRegion",
+          addressCountry: SHIPPING_POLICY.shipsFrom,
+        },
+        deliveryTime: {
+          "@type": "ShippingDeliveryTime",
+          handlingTime: {
+            "@type": "QuantitativeValue",
+            minValue: SHIPPING_POLICY.handlingDaysMin,
+            maxValue: SHIPPING_POLICY.handlingDaysMax,
+            unitCode: "DAY",
+          },
+          transitTime: {
+            "@type": "QuantitativeValue",
+            minValue: SHIPPING_POLICY.standard.transitDays,
+            maxValue: SHIPPING_POLICY.standard.transitDays,
+            unitCode: "DAY",
+          },
+        },
+      },
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        applicableCountry: SHIPPING_POLICY.shipsFrom,
+        returnPolicyCategory:
+          "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: RETURN_POLICY.windowDays,
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/FreeReturn",
+        refundType: "https://schema.org/FullRefund",
+      },
     },
   };
 

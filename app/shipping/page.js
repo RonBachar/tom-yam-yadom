@@ -4,6 +4,7 @@ import {
   LegalSubheading,
   LegalEmailLink,
 } from "../components/legal/LegalPageLayout";
+import { SHIPPING_POLICY, RETURN_POLICY } from "@/app/data/policies";
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
 
@@ -39,13 +40,16 @@ export default function ShippingPage() {
         <LegalSubheading>Shipping options and costs</LegalSubheading>
         <ul className="list-disc pl-6 space-y-2 my-4">
           <li>
-            Standard Shipping: $5.99 - arrives within 7 business days
+            Standard Shipping: ${SHIPPING_POLICY.standard.price} - arrives within{" "}
+            {SHIPPING_POLICY.standard.transitDays} business days
           </li>
           <li className="min-w-0 break-words">
-            Expedited Shipping: $11.99 - arrives within 1-3 business days
+            Expedited Shipping: ${SHIPPING_POLICY.expedited.price} - arrives within{" "}
+            {SHIPPING_POLICY.expedited.transitDaysMin}-
+            {SHIPPING_POLICY.expedited.transitDaysMax} business days
           </li>
           <li className="min-w-0 break-words">
-            Free standard shipping on orders over $50
+            Free standard shipping on orders over ${SHIPPING_POLICY.freeThreshold}
           </li>
         </ul>
         <p>
@@ -54,7 +58,9 @@ export default function ShippingPage() {
 
         <LegalSubheading>Processing time</LegalSubheading>
         <p>
-          Orders are processed and dispatched within 1-2 business days of being placed. Orders placed on weekends or public holidays are processed the next business day. During high-demand periods processing may take a little longer. We&apos;ll let you know if there&apos;s a significant delay.
+          Orders are processed and dispatched within{" "}
+          {SHIPPING_POLICY.handlingDaysMin}-{SHIPPING_POLICY.handlingDaysMax}{" "}
+          business days of being placed. Orders placed on weekends or public holidays are processed the next business day. During high-demand periods processing may take a little longer. We&apos;ll let you know if there&apos;s a significant delay.
         </p>
 
         <LegalSubheading>Tracking</LegalSubheading>
@@ -74,12 +80,14 @@ export default function ShippingPage() {
       <LegalSection title="Returns & Refunds">
         <LegalSubheading>Our returns policy</LegalSubheading>
         <p>
-          If you are unsatisfied with our product, please email info@tomyamyadomherbals.com within 30 days of purchase and state the issue. Upon receiving your complaint, we will issue you a return address. Once we receive the returned product, we will issue a refund within 14 days, no questions asked. Your enjoyment of our product is paramount.
+          If you are unsatisfied with our product, please email info@tomyamyadomherbals.com within{" "}
+          {RETURN_POLICY.windowDays} days of purchase and state the issue. Upon receiving your complaint, we will issue you a return address. Once we receive the returned product, we will issue a refund within{" "}
+          {RETURN_POLICY.refundDays} days, no questions asked. Your enjoyment of our product is paramount.
         </p>
 
         <LegalSubheading>Return window</LegalSubheading>
         <p>
-          We accept returns on any item within 30 days of purchase, not only unopened products.
+          We accept returns on any item within {RETURN_POLICY.windowDays} days of purchase, not only unopened products.
         </p>
 
         <LegalSubheading>Return shipping costs</LegalSubheading>
@@ -89,7 +97,7 @@ export default function ShippingPage() {
 
         <LegalSubheading>Refunds</LegalSubheading>
         <p>
-          Refunds are issued within 14 days of receiving your returned product. Allow additional time for your bank or card issuer to reflect the refund on your statement.
+          Refunds are issued within {RETURN_POLICY.refundDays} days of receiving your returned product. Allow additional time for your bank or card issuer to reflect the refund on your statement.
         </p>
         <p>
           No restocking fee.
