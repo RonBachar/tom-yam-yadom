@@ -3,13 +3,13 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/shop/p/herbal-boost-balance",
-        destination: "/products/balance",
+        source: "/shop/p/herbal-boost-:scent",
+        destination: "/products/:scent",
         permanent: true,
       },
       {
-        source: "/shop/p/herbal-boost-vitality",
-        destination: "/products/vitality",
+        source: "/about",
+        destination: "/story",
         permanent: true,
       },
     ];
