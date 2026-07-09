@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Smartlook from "./components/Smartlook";
+import Clarity from "./components/Clarity";
 import { CartProvider } from "./context/CartContext";
 
 const barlow = Barlow({
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-screen flex flex-col bg-tiger-bg text-tiger-cream">
         <Smartlook />
+        <Clarity />
         <CartProvider>
           <Navbar />
           <main className="flex-1 w-full min-w-0">{children}</main>
