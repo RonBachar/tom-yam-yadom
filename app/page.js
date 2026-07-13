@@ -293,7 +293,7 @@ function ScentSelectorSection() {
 function YadomOilCard() {
   return (
     <div
-      className="rounded-2xl border p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8"
+      className="relative rounded-2xl border p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8 cursor-pointer transition-all duration-300 hover:scale-[1.01] group"
       style={{
         borderColor: "rgba(201,148,10,0.5)",
         background:
@@ -301,17 +301,23 @@ function YadomOilCard() {
         boxShadow: "0 0 40px 2px rgba(201,148,10,0.12)",
       }}
     >
+      <Link
+        href="/products/crown-blend"
+        className="absolute inset-0 z-[1] rounded-2xl"
+        aria-label="View Crown Blend"
+      />
+
       <div
-        className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
+        className="relative z-[2] pointer-events-none w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
         style={{ backgroundColor: "rgba(201,148,10,0.15)" }}
       >
         <FlameIcon className="text-tiger-gold w-7 h-7" />
       </div>
-      <div className="flex-1">
+      <div className="relative z-[2] pointer-events-none flex-1">
         <div className="flex items-center gap-3 mb-1.5">
           <h3 className="font-heading font-bold text-2xl text-tiger-cream uppercase tracking-wide">
-              Crown Blend
-            </h3>
+            Crown Blend
+          </h3>
           <span
             className="text-xs font-heading font-bold tracking-[0.12em] uppercase px-3 py-1 rounded-full"
             style={{ backgroundColor: "rgba(201,148,10,0.2)", color: "#C9940A" }}
@@ -324,11 +330,14 @@ function YadomOilCard() {
           deeper effect. The premium aromatherapy inhaler oil for serious practitioners.
         </p>
       </div>
-      <div className="flex items-center gap-4 flex-shrink-0">
-        <span className="font-heading font-bold text-tiger-gold text-2xl">$35</span>
+      <div className="relative z-[2] flex items-center gap-4 flex-shrink-0">
+        <span className="pointer-events-none font-heading font-bold text-tiger-gold text-2xl">
+          $35
+        </span>
         <AddToCartButton
           product={YADOM_OIL}
-          className="bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-xs tracking-[0.14em] uppercase px-6 py-3 rounded-full transition-colors duration-200 cursor-pointer whitespace-nowrap"
+          stopPropagation
+          className="relative z-10 pointer-events-auto bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-xs tracking-[0.14em] uppercase px-6 py-3 rounded-full transition-colors duration-200 cursor-pointer whitespace-nowrap"
           aria-label="Add Crown Blend to cart, $35"
         >
           Add to Cart
