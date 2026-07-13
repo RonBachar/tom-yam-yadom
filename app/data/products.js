@@ -24,6 +24,7 @@ export const SCENTS = [
     accentBg: "rgba(192, 104, 128, 0.08)",
     price: 20,
     isOil: false,
+    isBundle: false,
     badge: "Heart Opener",
   },
   {
@@ -50,6 +51,7 @@ export const SCENTS = [
     accentBg: "rgba(204, 32, 32, 0.08)",
     price: 20,
     isOil: false,
+    isBundle: false,
     badge: "Best Seller",
   },
   {
@@ -77,6 +79,7 @@ export const SCENTS = [
     accentBg: "rgba(212, 104, 26, 0.08)",
     price: 20,
     isOil: false,
+    isBundle: false,
     badge: "Uplifting",
   },
   {
@@ -101,6 +104,7 @@ export const SCENTS = [
     accentBg: "rgba(90, 128, 96, 0.08)",
     price: 20,
     isOil: false,
+    isBundle: false,
     badge: "Classic",
   },
   {
@@ -128,6 +132,7 @@ export const SCENTS = [
     accentBg: "rgba(56, 128, 200, 0.08)",
     price: 20,
     isOil: false,
+    isBundle: false,
     badge: "Fighter's Choice",
   },
   {
@@ -152,6 +157,7 @@ export const SCENTS = [
     accentBg: "rgba(200, 184, 0, 0.08)",
     price: 20,
     isOil: false,
+    isBundle: false,
     badge: "Focus",
   },
   {
@@ -178,6 +184,7 @@ export const SCENTS = [
     accentBg: "rgba(104, 88, 168, 0.08)",
     price: 20,
     isOil: false,
+    isBundle: false,
     badge: "Calming",
   },
 ];
@@ -202,7 +209,58 @@ export const YADOM_OIL = {
   accentBg: "rgba(201, 148, 10, 0.12)",
   price: 35,
   isOil: true,
+  isBundle: false,
   badge: "Premium",
 };
 
-export const ALL_PRODUCTS = [...SCENTS, YADOM_OIL];
+export const COMPLETE_RITUAL_SET = {
+  slug: "complete-ritual-set",
+  name: "Complete Ritual Set — All 7 Scents + Crown Blend Oil",
+  tagline:
+    "Your complete Thai apothecary. All 7 signature scents plus Crown Blend Oil.",
+  emotion: "Complete",
+  functions: ["Full collection", "Daily ritual range", "Save $25"],
+  ingredients: [
+    "Compassion",
+    "Vitality",
+    "Radiance",
+    "Balance",
+    "Power",
+    "Clarity",
+    "Serenity",
+    "Crown Blend",
+  ],
+  ingredientSlugs: [
+    "menthol",
+    "cloves",
+    "aromatic-curcuma",
+    "cardamom",
+    "camphor",
+    "borneol",
+    "lotus-root",
+    "peach-blossom",
+    "pink-peppercorn",
+    "rose-hips",
+    "fuji-pear-tea",
+    "thai-ginger",
+    "kaffir-lime-skin",
+    "tangerine-zest",
+    "orange-blossom",
+    "cinnamon-oil",
+    "thai-royal-basil",
+    "peppermint-oil",
+    "jasmine",
+    "white-peppercorn",
+    "wasabi-extract",
+  ],
+  description:
+    "The complete Tom Yam Yadom ritual in one set: all seven signature Thai herbal inhalers plus Crown Blend Oil. Every scent for every mood, with the concentrated oil for deeper practice. A $25 saving versus buying each piece on its own.",
+  accentColor: "#C9940A",
+  accentBg: "rgba(201, 148, 10, 0.12)",
+  price: 150,
+  isOil: false,
+  isBundle: true,
+  badge: "Hero",
+};
+
+export const ALL_PRODUCTS = [...SCENTS, YADOM_OIL, COMPLETE_RITUAL_SET];

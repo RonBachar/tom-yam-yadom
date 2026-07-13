@@ -12,6 +12,7 @@ const PRODUCT_SLUGS = [
   "clarity",
   "serenity",
   "crown-blend",
+  "complete-ritual-set",
 ];
 
 export default function sitemap() {

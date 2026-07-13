@@ -131,19 +131,21 @@ function HeroSection() {
         </h1>
 
         {/* Subheadline */}
-        <p className="text-tiger-cream-dim text-base sm:text-lg font-sans max-w-2xl mx-auto leading-snug sm:leading-relaxed shrink min-h-0">
-          Premium yadom inhalers, handcrafted in Koh Samui from traditional Thai
-          botanics. Inspired by the breathing rituals of Muay Thai fighters and
-          designed for focus, wherever your day takes you.
+        <p
+          className="text-tiger-cream font-sans font-medium max-w-xl mx-auto leading-snug sm:leading-relaxed shrink min-h-0"
+          style={{ fontSize: "clamp(1.05rem, 2.4vw, 1.35rem)" }}
+        >
+          Traditional Thai aromatherapy inhalers, handcrafted from herbs and
+          essential oils in Koh Samui
         </p>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center shrink-0">
           <Link
-            href="/shop"
+            href="/products/complete-ritual-set"
             className="inline-flex items-center justify-center gap-2 bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-sm tracking-[0.14em] uppercase px-7 py-3 sm:px-8 sm:py-3.5 rounded-full transition-colors duration-200 cursor-pointer"
           >
-            Shop Smiling Tiger
+            Try the Complete Ritual Set for $150
             <ArrowIcon />
           </Link>
           <Link
