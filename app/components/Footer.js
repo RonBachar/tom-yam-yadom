@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import TigerMark from "./TigerMark";
+import Image from "next/image";
 
 const LINKS = [
   { href: "/shop",      label: "Shop All Scents"     },
@@ -114,13 +114,13 @@ export default function Footer() {
           {/* Brand col */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <TigerMark size={40} />
-              <div>
-                <p className="font-heading font-bold text-tiger-cream tracking-[0.14em] uppercase text-sm leading-tight">
-                  Tom Yam Yadom
-                </p>
-                <p className="font-sans text-tiger-muted text-xs">Smiling Tiger</p>
-              </div>
+              <Image
+                src="/images/logos/logo.jpg"
+                alt="Tom Yam Yadom - Smiling Tiger"
+                width={48}
+                height={48}
+                className="rounded-full"
+              />
             </div>
             <p className="text-tiger-muted text-sm font-sans leading-relaxed">
               Premium handcrafted Thai herbal inhalers. Made small-batch in Koh Samui from Thai-sourced organic ingredients.

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import TigerMark from "./TigerMark";
+import Image from "next/image";
 import { useCart } from "../context/CartContext";
 
 const NAV_LINKS = [
@@ -47,10 +47,14 @@ export default function Navbar() {
           className="flex items-center gap-2.5 cursor-pointer"
           aria-label="Tom Yam Yadom home"
         >
-          <TigerMark size={34} />
-          <span className="font-heading font-bold text-tiger-cream text-xs tracking-[0.15em] uppercase leading-tight hidden sm:block">
-            Tom Yam<br />Yadom
-          </span>
+          <Image
+            src="/images/logos/logo.jpg"
+            alt="Tom Yam Yadom - Smiling Tiger"
+            width={40}
+            height={40}
+            className="rounded-full"
+            priority
+          />
         </Link>
 
         {/* Desktop links */}

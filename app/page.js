@@ -444,7 +444,13 @@ function FounderSection() {
               }}
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
-              <TigerMark size={64} />
+              <Image
+                src="/images/logos/logo.jpg"
+                alt="Tom Yam Yadom - Smiling Tiger"
+                width={96}
+                height={96}
+                className="rounded-full"
+              />
               <div
                 className="w-10 h-0.5"
                 style={{ backgroundColor: "#C9940A" }}

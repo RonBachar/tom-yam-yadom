@@ -84,7 +84,7 @@ export default async function BlogPostPage({ params }) {
       url: BASE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${BASE_URL}/logo.png`,
+        url: `${BASE_URL}/images/logos/logo.jpg`,
       },
     },
     url: `${BASE_URL}/blog/${slug}`,
