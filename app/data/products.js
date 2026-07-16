@@ -215,7 +215,7 @@ export const YADOM_OIL = {
 
 export const COMPLETE_RITUAL_SET = {
   slug: "complete-ritual-set",
-  name: "Complete Ritual Set — All 7 Scents + Crown Blend Oil",
+  name: "Complete Ritual Set: All 7 Scents + Crown Blend Oil",
   tagline:
     "Your complete Thai apothecary. All 7 signature scents plus Crown Blend Oil.",
   emotion: "Complete",
@@ -254,13 +254,13 @@ export const COMPLETE_RITUAL_SET = {
     "wasabi-extract",
   ],
   description:
-    "The complete Tom Yam Yadom ritual in one set: all seven signature Thai herbal inhalers plus Crown Blend Oil. Every scent for every mood, with the concentrated oil for deeper practice. A $25 saving versus buying each piece on its own.",
+    "The full ritual, in one set. Seven scents to move through your day, and Crown Blend Oil for the moments that ask for more. Save $25.",
   accentColor: "#C9940A",
   accentBg: "rgba(201, 148, 10, 0.12)",
   price: 150,
   isOil: false,
   isBundle: true,
-  badge: "Hero",
+  badge: null,
 };
 
 export const ALL_PRODUCTS = [...SCENTS, YADOM_OIL, COMPLETE_RITUAL_SET];

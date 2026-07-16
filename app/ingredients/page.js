@@ -75,7 +75,10 @@ export default function IngredientsPage() {
                         href={`/ingredients/${ingredient.slug}`}
                         className="block rounded-2xl border border-tiger-border hover:border-tiger-gold/40 bg-tiger-surface transition-all duration-200 overflow-hidden cursor-pointer group"
                       >
-                        <div className="relative w-full aspect-square overflow-hidden">
+                        <div
+                          className="relative w-full overflow-hidden"
+                          style={{ aspectRatio: "1 / 1" }}
+                        >
                           <Image
                             src={
                               ingredient.image ||
@@ -85,7 +88,7 @@ export default function IngredientsPage() {
                             fill
                             loading="lazy"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                           />
                         </div>
                         <div className="p-5">

@@ -117,18 +117,24 @@ export default async function IngredientPage({ params }) {
         </div>
 
         {ingredient.image ? (
-          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-12">
+          <div
+            className="relative rounded-2xl overflow-hidden mb-12"
+            style={{ aspectRatio: "1 / 1" }}
+          >
             <Image
               src={ingredient.image}
               alt={`${name} ingredient used in Tom Yam Yadom herbal inhalers`}
               fill
               sizes="(max-width: 768px) 100vw, 768px"
-              className="object-cover"
+              className="object-cover object-center"
               priority
             />
           </div>
         ) : (
-          <div className="relative aspect-[4/5] rounded-2xl border border-tiger-border bg-tiger-surface overflow-hidden mb-12 flex items-center justify-center">
+          <div
+            className="relative rounded-2xl border border-tiger-border bg-tiger-surface overflow-hidden mb-12 flex items-center justify-center"
+            style={{ aspectRatio: "1 / 1" }}
+          >
             <p className="text-tiger-muted font-heading text-sm uppercase tracking-[0.15em]">
               Coming Soon
             </p>
