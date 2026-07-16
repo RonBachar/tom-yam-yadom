@@ -127,7 +127,7 @@ export const SCENTS = [
       "peppermint-oil",
     ],
     description:
-      "A sharp, cool aromatherapy inhaler that cuts straight through fatigue. Mint and Thai Royal Basil, trusted by fighters and built for anyone who needs to show up hard.",
+      "A sharp, cool aromatherapy inhaler that cuts through fatigue. Mint and Thai Royal Basil, trusted by fighters and built for anyone who shows up hard.",
     accentColor: "#3880C8",
     accentBg: "rgba(56, 128, 200, 0.08)",
     price: 20,

@@ -1,10 +1,27 @@
 import Link from "next/link";
 import { ALL_PRODUCTS } from "../data/products";
+import { DEFAULT_OG_IMAGE } from "../data/siteMeta";
+
+const BASE_URL = "https://www.tomyamyadomherbals.com";
 
 export const metadata = {
   title: "Shop | Tom Yam Yadom | Thai Herbal Inhaler",
   description:
-    "Shop all 7 Smiling Tiger Thai herbal inhaler scents and Crown Blend. Organic yadom handcrafted in Koh Samui.",
+    "Shop all 7 Smiling Tiger Thai herbal inhaler scents, Crown Blend oil, and the Complete Ritual Set. Organic yadom handcrafted in Koh Samui, Thailand.",
+  openGraph: {
+    title: "Shop | Tom Yam Yadom | Thai Herbal Inhaler",
+    description:
+      "Shop all 7 Smiling Tiger Thai herbal inhaler scents, Crown Blend oil, and the Complete Ritual Set. Organic yadom handcrafted in Koh Samui, Thailand.",
+    url: `${BASE_URL}/shop`,
+    siteName: "Tom Yam Yadom",
+    locale: "en_US",
+    type: "website",
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [DEFAULT_OG_IMAGE.url],
+  },
 };
 
 export default function ShopPage() {

@@ -83,16 +83,24 @@ export async function generateMetadata({ params }) {
   const imageUrl = product.isBundle
     ? `${BASE_URL}/images/product/crown-blend.jpg`
     : `${BASE_URL}/images/product/${slug}.jpg`;
+  const pageTitle =
+    slug === "complete-ritual-set"
+      ? "Complete Ritual Set: 7 Scents + Crown Blend | Tom Yam Yadom"
+      : product.isBundle
+        ? `${product.name} | Tom Yam Yadom`
+        : `${product.name} Thai Herbal Inhaler | Tom Yam Yadom`;
+  const ogTitle =
+    slug === "complete-ritual-set"
+      ? "Complete Ritual Set: 7 Scents + Crown Blend | Tom Yam Yadom"
+      : product.isBundle
+        ? `${product.name} | Tom Yam Yadom`
+        : `${product.name} | Tom Yam Yadom Thai Herbal Inhaler`;
   return {
-    title: product.isBundle
-      ? `${product.name} | Tom Yam Yadom`
-      : `${product.name} Thai Herbal Inhaler | Tom Yam Yadom`,
+    title: pageTitle,
     description: product.description,
     alternates: { canonical: url },
     openGraph: {
-      title: product.isBundle
-        ? `${product.name} | Tom Yam Yadom`
-        : `${product.name} | Tom Yam Yadom Thai Herbal Inhaler`,
+      title: ogTitle,
       description: product.description,
       url,
       siteName: "Tom Yam Yadom",

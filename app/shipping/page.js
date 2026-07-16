@@ -5,6 +5,7 @@ import {
   LegalEmailLink,
 } from "../components/legal/LegalPageLayout";
 import { SHIPPING_POLICY, RETURN_POLICY } from "@/app/data/policies";
+import { DEFAULT_OG_IMAGE } from "../data/siteMeta";
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
 
@@ -21,6 +22,11 @@ export const metadata = {
     siteName: "Tom Yam Yadom",
     locale: "en_US",
     type: "website",
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [DEFAULT_OG_IMAGE.url],
   },
 };
 

@@ -1,10 +1,27 @@
 import Link from "next/link";
 import TigerMark from "../components/TigerMark";
+import { DEFAULT_OG_IMAGE } from "../data/siteMeta";
+
+const BASE_URL = "https://www.tomyamyadomherbals.com";
 
 export const metadata = {
   title: "Our Story | Tom Yam Yadom, Smiling Tiger",
   description:
     "Tyler's story: a professional Muay Thai fighter who built a premium Thai herbal inhaler from Koh Samui. Organic ingredients, small-batch, Thai-sourced.",
+  openGraph: {
+    title: "Our Story | Tom Yam Yadom, Smiling Tiger",
+    description:
+      "Tyler's story: a professional Muay Thai fighter who built a premium Thai herbal inhaler from Koh Samui. Organic ingredients, small-batch, Thai-sourced.",
+    url: `${BASE_URL}/story`,
+    siteName: "Tom Yam Yadom",
+    locale: "en_US",
+    type: "website",
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [DEFAULT_OG_IMAGE.url],
+  },
 };
 
 export default function StoryPage() {

@@ -5,6 +5,9 @@ import Footer from "./components/Footer";
 import Smartlook from "./components/Smartlook";
 import Clarity from "./components/Clarity";
 import { CartProvider } from "./context/CartContext";
+import { DEFAULT_OG_IMAGE } from "./data/siteMeta";
+
+const BASE_URL = "https://www.tomyamyadomherbals.com";
 
 const barlow = Barlow({
   weight: ["300", "400", "500", "600", "700"],
@@ -23,7 +26,7 @@ const barlowCondensed = Barlow_Condensed({
 export const metadata = {
   title: "Tom Yam Yadom | Smiling Tiger Thai Herbal Inhaler",
   description:
-    "Handcrafted organic Thai herbal inhalers from Koh Samui. 7 scents for focus, breathing clarity, and sensory ritual. Natural focus inhaler, aromatherapy inhaler, and smoking alternative.",
+    "Handcrafted organic Thai herbal inhalers from Koh Samui. 7 scents for focus, breathing clarity, and sensory ritual. A natural alternative to smoking.",
   keywords: [
     "Thai herbal inhaler",
     "organic yadom",
@@ -47,8 +50,16 @@ export const metadata = {
   openGraph: {
     title: "Tom Yam Yadom | Smiling Tiger Thai Herbal Inhaler",
     description:
-      "Premium handcrafted yadom from Koh Samui. 7 scents. Organic ingredients. 12+ month shelf life.",
+      "Handcrafted organic Thai herbal inhalers from Koh Samui. 7 scents for focus, breathing clarity, and sensory ritual. A natural alternative to smoking.",
+    url: `${BASE_URL}/`,
+    siteName: "Tom Yam Yadom",
+    locale: "en_US",
     type: "website",
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [DEFAULT_OG_IMAGE.url],
   },
 };
 

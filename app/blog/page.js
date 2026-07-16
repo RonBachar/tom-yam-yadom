@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllPosts, CATEGORIES } from "../../lib/blog";
 import PostCard from "../components/blog/PostCard";
+import { DEFAULT_OG_IMAGE } from "../data/siteMeta";
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
 
@@ -15,7 +16,13 @@ export const metadata = {
       "Guides on focus rituals, Muay Thai breathing, Thai herbal tradition, and the culture behind yadom.",
     url: `${BASE_URL}/blog`,
     siteName: "Tom Yam Yadom",
+    locale: "en_US",
     type: "website",
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [DEFAULT_OG_IMAGE.url],
   },
 };
 

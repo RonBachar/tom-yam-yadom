@@ -1,9 +1,10 @@
 import WholesaleForm from "./WholesaleForm";
+import { DEFAULT_OG_IMAGE } from "../data/siteMeta";
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
 
 export const metadata = {
-  title: "Wholesale Inquiries | Tom Yam Yadom — Smiling Tiger",
+  title: "Wholesale Inquiries | Tom Yam Yadom | Smiling Tiger",
   description:
     "Interested in carrying Tom Yam Yadom Thai herbal inhalers in your store, spa, or gym? Submit a wholesale inquiry and we will be in touch with details.",
   keywords: [
@@ -23,6 +24,11 @@ export const metadata = {
     siteName: "Tom Yam Yadom",
     locale: "en_US",
     type: "website",
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [DEFAULT_OG_IMAGE.url],
   },
 };
 

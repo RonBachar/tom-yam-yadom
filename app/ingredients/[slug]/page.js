@@ -7,7 +7,9 @@ import {
   getIngredientBySlug,
   getIngredientName,
   ingredientMetaDescription,
+  INGREDIENT_IMAGE_ALT,
 } from "../../data/ingredients";
+import { DEFAULT_OG_IMAGE } from "../../data/siteMeta";
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
 
@@ -26,6 +28,18 @@ export async function generateMetadata({ params }) {
   const name = getIngredientName(ingredient.title);
   const description = ingredientMetaDescription(ingredient);
   const url = `${BASE_URL}/ingredients/${slug}`;
+  const ogImage = ingredient.image
+    ? {
+        url: ingredient.image.startsWith("http")
+          ? ingredient.image
+          : `${BASE_URL}${ingredient.image}`,
+        width: 1200,
+        height: 630,
+        alt:
+          INGREDIENT_IMAGE_ALT[slug] ??
+          `${name} ingredient used in Tom Yam Yadom herbal inhalers`,
+      }
+    : DEFAULT_OG_IMAGE;
 
   return {
     title: `${name}: Aroma, History & Uses | Tom Yam Yadom`,
@@ -38,11 +52,13 @@ export async function generateMetadata({ params }) {
       siteName: "Tom Yam Yadom",
       locale: "en_US",
       type: "article",
+      images: [ogImage],
     },
     twitter: {
       card: "summary_large_image",
       title: `${name}: Aroma, History & Uses | Tom Yam Yadom`,
       description,
+      images: [ogImage.url],
     },
   };
 }
