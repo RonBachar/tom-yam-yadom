@@ -8,6 +8,7 @@ import {
   INGREDIENT_CATEGORIES,
 } from "../../data/ingredients";
 import AddToCartButton from "../../components/AddToCartButton";
+import ScentCard from "../../components/ScentCard";
 import { SHIPPING_POLICY, RETURN_POLICY } from "@/app/data/policies";
 
 export function generateStaticParams() {
@@ -128,9 +129,16 @@ export default async function ProductPage({ params }) {
   const product = ALL_PRODUCTS.find((p) => p.slug === slug);
   if (!product) notFound();
 
-  const related = ALL_PRODUCTS.filter(
-    (p) => p.slug !== product.slug && !p.isOil && !p.isBundle,
-  ).slice(0, 3);
+  const eligibleScents = SCENTS.filter((p) => !p.isOil && !p.isBundle);
+  const currentIndex = eligibleScents.findIndex((p) => p.slug === product.slug);
+  const related =
+    currentIndex === -1
+      ? eligibleScents.slice(0, 3)
+      : Array.from(
+          { length: 3 },
+          (_, i) =>
+            eligibleScents[(currentIndex + 1 + i) % eligibleScents.length],
+        );
 
   const ingredientGroups = product.isBundle
     ? groupIngredientsByCategory(product.ingredientSlugs)
@@ -564,22 +572,7 @@ export default async function ProductPage({ params }) {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {related.map((r) => (
-                <Link
-                  key={r.slug}
-                  href={`/products/${r.slug}`}
-                  className="block rounded-2xl border border-tiger-border hover:border-tiger-gold/40 bg-tiger-surface p-5 transition-all duration-200 cursor-pointer group overflow-hidden"
-                >
-                  <div
-                    className="h-0.5 w-full mb-4 rounded"
-                    style={{ backgroundColor: r.accentColor, opacity: 0.5 }}
-                  />
-                  <h3 className="font-heading font-bold text-xl text-tiger-cream uppercase tracking-wide group-hover:text-tiger-gold transition-colors duration-200 mb-1">
-                    {r.name}
-                  </h3>
-                  <p className="text-tiger-muted text-xs font-sans">
-                    {r.tagline}
-                  </p>
-                </Link>
+                <ScentCard key={r.slug} scent={r} />
               ))}
             </div>
           </section>

@@ -26,14 +26,25 @@ export async function generateMetadata({ params }) {
 
   const { frontmatter: fm } = post;
   const url = `${BASE_URL}/blog/${slug}`;
+  const metaTitle = fm.metaTitle ?? fm.title;
+  const coverImageEntry = fm.coverImage
+    ? {
+        url: fm.coverImage.startsWith("http")
+          ? fm.coverImage
+          : `${BASE_URL}${fm.coverImage}`,
+        alt: fm.coverImageAlt,
+        ...(fm.coverImageWidth ? { width: fm.coverImageWidth } : {}),
+        ...(fm.coverImageHeight ? { height: fm.coverImageHeight } : {}),
+      }
+    : null;
 
   return {
-    title: `${fm.title} | Tom Yam Yadom`,
+    title: `${metaTitle} | Tom Yam Yadom`,
     description: fm.description,
     keywords: fm.keywords,
     alternates: { canonical: url },
     openGraph: {
-      title: fm.title,
+      title: metaTitle,
       description: fm.description,
       url,
       siteName: "Tom Yam Yadom",
@@ -41,13 +52,13 @@ export async function generateMetadata({ params }) {
       publishedTime: fm.publishedAt,
       modifiedTime: fm.updatedAt,
       authors: [fm.author ?? "Tom Yam Yadom"],
-      ...(fm.coverImage ? { images: [{ url: fm.coverImage, alt: fm.coverImageAlt }] } : {}),
+      ...(coverImageEntry ? { images: [coverImageEntry] } : {}),
     },
     twitter: {
       card: "summary_large_image",
-      title: fm.title,
+      title: metaTitle,
       description: fm.description,
-      ...(fm.coverImage ? { images: [fm.coverImage] } : {}),
+      ...(coverImageEntry ? { images: [coverImageEntry.url] } : {}),
     },
   };
 }
@@ -95,12 +106,26 @@ export default async function BlogPostPage({ params }) {
     keywords: Array.isArray(fm.keywords) ? fm.keywords.join(", ") : fm.keywords,
   };
 
+  const howToJsonLd = fm.howTo
+    ? {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        ...fm.howTo,
+      }
+    : null;
+
   return (
     <div className="pt-32 pb-24 px-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {howToJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+        />
+      )}
 
       <div className="max-w-2xl mx-auto">
 

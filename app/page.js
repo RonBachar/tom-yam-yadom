@@ -22,7 +22,6 @@ export default function HomePage() {
       <DifferenceStrip />
       <ScentSelectorSection />
       <TraditionSection />
-      <FounderSection />
       <UseCaseBand />
       <SocialProofSection />
       <WholesaleTeaser />
@@ -415,94 +414,6 @@ function TraditionSection() {
               that earns its place in your daily carry.
             </p>
           </div>
-        </AnimateIn>
-      </div>
-    </section>
-  );
-}
-
-/* ── 5. FOUNDER TEASER ───────────────────────────────────── */
-function FounderSection() {
-  return (
-    <section
-      className="py-24 px-6"
-      aria-label="About the founder"
-    >
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Fight-card graphic */}
-        <AnimateIn className="order-last lg:order-first">
-          <div
-            className="relative rounded-2xl overflow-hidden aspect-square max-w-sm mx-auto lg:mx-0"
-            style={{ border: "1px solid rgba(201,148,10,0.25)" }}
-          >
-            {/* Decorative fight-card background */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,148,10,0.15) 0%, transparent 65%)",
-              }}
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
-              <Image
-                src="/images/logos/logo.jpg"
-                alt="Tom Yam Yadom - Smiling Tiger"
-                width={96}
-                height={96}
-                className="rounded-full"
-              />
-              <div
-                className="w-10 h-0.5"
-                style={{ backgroundColor: "#C9940A" }}
-              />
-              <p className="font-heading font-bold text-tiger-cream uppercase text-xl tracking-widest">
-                Tyler
-              </p>
-              <p className="text-tiger-muted text-xs font-sans tracking-wide text-center leading-relaxed">
-                Professional Muay Thai Fighter<br />
-                Koh Samui × United States
-              </p>
-              {/* Decorative corner marks */}
-              <div className="absolute top-4 left-4 w-5 h-5" style={{ borderTop: "1px solid rgba(201,148,10,0.5)", borderLeft: "1px solid rgba(201,148,10,0.5)" }} />
-              <div className="absolute top-4 right-4 w-5 h-5" style={{ borderTop: "1px solid rgba(201,148,10,0.5)", borderRight: "1px solid rgba(201,148,10,0.5)" }} />
-              <div className="absolute bottom-4 left-4 w-5 h-5" style={{ borderBottom: "1px solid rgba(201,148,10,0.5)", borderLeft: "1px solid rgba(201,148,10,0.5)" }} />
-              <div className="absolute bottom-4 right-4 w-5 h-5" style={{ borderBottom: "1px solid rgba(201,148,10,0.5)", borderRight: "1px solid rgba(201,148,10,0.5)" }} />
-            </div>
-          </div>
-        </AnimateIn>
-
-        {/* Text */}
-        <AnimateIn delay={150}>
-          <span className="inline-block text-tiger-orange text-xs font-heading font-bold tracking-[0.2em] uppercase mb-6">
-            The Founder
-          </span>
-          <h2
-            className="font-heading font-bold text-tiger-cream uppercase leading-tight mb-6"
-            style={{ fontSize: "clamp(2rem, 4.5vw, 3.2rem)" }}
-          >
-            Built in the Ring.<br />Rooted in Thailand.
-          </h2>
-          <div className="space-y-4 text-tiger-muted font-sans text-base leading-relaxed mb-8">
-            <p>
-              Tyler is a professional Muay Thai fighter who has lived and trained
-              between Thailand and the United States for years. He started
-              Smiling Tiger because he was tired of what was on the market:
-              short shelf life, synthetic fragrances, no cultural connection.
-            </p>
-            <p>
-              Every Smiling Tiger inhaler is formulated the way Thai fighters
-              and healers have always done it: organic herbs, sourced in Thailand,
-              blended by hand in Koh Samui.
-            </p>
-          </div>
-
-          <Link
-            href="/story"
-            className="inline-flex items-center gap-2 text-tiger-gold hover:text-tiger-gold-light font-heading font-bold text-sm tracking-[0.12em] uppercase transition-colors duration-200 cursor-pointer"
-          >
-            Read Our Story
-            <ArrowIcon />
-          </Link>
         </AnimateIn>
       </div>
     </section>
