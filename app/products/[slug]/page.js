@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ALL_PRODUCTS, SCENTS, YADOM_OIL } from "../../data/products";
+import { ALL_PRODUCTS, SCENTS, YADOM_OIL, getProductImageSrc, getProductImageUrl } from "../../data/products";
 import {
   getIngredientBySlug,
   getIngredientName,
@@ -81,9 +81,7 @@ export async function generateMetadata({ params }) {
   const product = ALL_PRODUCTS.find((p) => p.slug === slug);
   if (!product) return {};
   const url = `${BASE_URL}/products/${slug}`;
-  const imageUrl = product.isBundle
-    ? `${BASE_URL}/images/product/crown-blend.jpg`
-    : `${BASE_URL}/images/product/${slug}.jpg`;
+  const imageUrl = getProductImageUrl(slug);
   const pageTitle =
     slug === "complete-ritual-set"
       ? "Complete Ritual Set: 7 Scents + Crown Blend | Tom Yam Yadom"
@@ -109,8 +107,8 @@ export async function generateMetadata({ params }) {
       images: [
         {
           url: imageUrl,
-          width: 800,
-          height: 800,
+          width: 960,
+          height: 1200,
           alt: product.isBundle
             ? PRODUCT_IMAGE_ALT["complete-ritual-set"]
             : `${product.name} Thai herbal inhaler by Tom Yam Yadom`,
@@ -152,7 +150,7 @@ export default async function ProductPage({ params }) {
     "@type": "Product",
     name: product.name,
     description: product.description,
-    image: `${BASE_URL}/images/product/${product.slug}.jpg`,
+    image: getProductImageUrl(product.slug),
     brand: { "@type": "Brand", name: "Tom Yam Yadom" },
     category: "Herbal Inhaler",
     offers: {
@@ -260,7 +258,7 @@ export default async function ProductPage({ params }) {
                       }}
                     >
                       <Image
-                        src={`/images/product/${imageSlug}.png`}
+                        src={getProductImageSrc(imageSlug)}
                         alt=""
                         fill
                         sizes="(max-width: 768px) 50vw, 25vw"
@@ -294,7 +292,7 @@ export default async function ProductPage({ params }) {
               </div>
             ) : (
               <Image
-                src={`/images/product/${product.slug}.png`}
+                src={getProductImageSrc(product.slug)}
                 alt={
                   PRODUCT_IMAGE_ALT[product.slug] ??
                   `${product.name} Thai herbal inhaler`
@@ -532,7 +530,7 @@ export default async function ProductPage({ params }) {
                 >
                   <div className="relative aspect-square bg-[#141210]">
                     <Image
-                      src={`/images/product/${item.slug}.png`}
+                      src={getProductImageSrc(item.slug)}
                       alt={`${item.name} Thai herbal inhaler`}
                       fill
                       sizes="(max-width: 768px) 50vw, 25vw"

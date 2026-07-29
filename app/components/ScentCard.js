@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getIngredientBySlug, getIngredientName } from "../data/ingredients";
 import AddToCartButton from "./AddToCartButton";
+import { getProductImageSrc } from "../data/products";
 
 export default function ScentCard({ scent, index, cardRef }) {
   const isCarousel = typeof index === "number";
@@ -32,7 +33,7 @@ export default function ScentCard({ scent, index, cardRef }) {
       }}
     >
       <Image
-        src={`/images/product/${scent.slug}.png`}
+        src={getProductImageSrc(scent.slug)}
         alt=""
         fill
         sizes="(max-width: 767px) 82vw, (max-width: 1024px) 50vw, 25vw"

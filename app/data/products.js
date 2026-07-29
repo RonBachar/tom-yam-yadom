@@ -264,3 +264,18 @@ export const COMPLETE_RITUAL_SET = {
 };
 
 export const ALL_PRODUCTS = [...SCENTS, YADOM_OIL, COMPLETE_RITUAL_SET];
+
+const BASE_URL = "https://www.tomyamyadomherbals.com";
+
+/** Relative path for a product image. Crown Blend stays PNG; scents + bundle use WebP. */
+export function getProductImageSrc(slug) {
+  if (slug === "crown-blend") {
+    return `/images/product/crown-blend.png`;
+  }
+  return `/images/product/${slug}.webp`;
+}
+
+/** Absolute URL for OG / JSON-LD. */
+export function getProductImageUrl(slug) {
+  return `${BASE_URL}${getProductImageSrc(slug)}`;
+}
