@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useCart } from "../context/CartContext";
+import { getProductImageSrc } from "../data/products";
 
 export default function AddToCartButton({
   product,
@@ -24,7 +25,7 @@ export default function AddToCartButton({
         slug: product.slug,
         name: product.name,
         price: product.price,
-        image: product.image ?? "",
+        image: product.image || getProductImageSrc(product.slug),
       },
       1
     );

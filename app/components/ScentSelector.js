@@ -55,7 +55,7 @@ export default function ScentSelector() {
       <div className="relative">
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:flex-wrap md:justify-center md:gap-5 md:overflow-visible md:px-0 md:snap-none"
+          className="flex items-stretch overflow-x-auto snap-x snap-mandatory gap-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:flex-wrap md:justify-center md:gap-5 md:overflow-visible md:px-0 md:snap-none"
         >
           {SCENTS.map((scent, index) => (
             <ScentCard

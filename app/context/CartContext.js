@@ -8,10 +8,17 @@ import {
   useMemo,
   useState,
 } from "react";
+import { getProductImageSrc } from "../data/products";
 
 const STORAGE_KEY = "tomyam_cart";
 
 const CartContext = createContext(null);
+
+function resolveItemImage(item) {
+  if (item?.image) return item.image;
+  if (item?.slug) return getProductImageSrc(item.slug);
+  return null;
+}
 
 function isValidCartItem(item) {
   return (
@@ -38,7 +45,7 @@ function loadCartFromStorage() {
       slug: item.slug,
       name: item.name,
       price: item.price,
-      image: item.image ?? null,
+      image: resolveItemImage(item),
       quantity: item.quantity,
     }));
   } catch {
@@ -85,7 +92,7 @@ export function CartProvider({ children }) {
           slug: product.slug,
           name: product.name,
           price: product.price,
-          image: product.image ?? null,
+          image: resolveItemImage(product),
           quantity: qty,
         },
       ];

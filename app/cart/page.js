@@ -4,6 +4,39 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useCart } from "../context/CartContext";
+import { getProductImageSrc } from "../data/products";
+
+function CartItemThumb({ item }) {
+  const [failed, setFailed] = useState(false);
+  const src = item.image || getProductImageSrc(item.slug);
+
+  if (failed || !src) {
+    return (
+      <div
+        className="w-20 h-20 flex-shrink-0 rounded-xl border border-tiger-border flex items-center justify-center"
+        style={{ backgroundColor: "rgba(201,148,10,0.06)" }}
+        aria-hidden="true"
+      >
+        <span className="font-heading font-bold text-2xl text-tiger-gold/25 uppercase">
+          {item.name.slice(0, 1)}
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden border border-tiger-border">
+      <Image
+        src={src}
+        alt={`${item.name} Thai herbal inhaler`}
+        width={80}
+        height={80}
+        className="object-cover w-full h-full"
+        onError={() => setFailed(true)}
+      />
+    </div>
+  );
+}
 
 export default function CartPage() {
   const { cartItems, cartTotal, updateQuantity, removeFromCart } = useCart();
@@ -90,27 +123,7 @@ export default function CartPage() {
                   className="rounded-2xl border border-tiger-border bg-tiger-surface p-5"
                 >
                   <div className="flex gap-5">
-                    {item.image ? (
-                      <div className="relative w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden border border-tiger-border">
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          fill
-                          sizes="80px"
-                          className="object-cover"
-                        />
-                      </div>
-                    ) : (
-                      <div
-                        className="w-20 h-20 flex-shrink-0 rounded-xl border border-tiger-border flex items-center justify-center"
-                        style={{ backgroundColor: "rgba(201,148,10,0.06)" }}
-                        aria-hidden="true"
-                      >
-                        <span className="font-heading font-bold text-2xl text-tiger-gold/25 uppercase">
-                          {item.name.slice(0, 1)}
-                        </span>
-                      </div>
-                    )}
+                    <CartItemThumb item={item} />
 
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-start justify-between gap-2 mb-1">

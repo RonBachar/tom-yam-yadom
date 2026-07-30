@@ -15,8 +15,8 @@ export default function ScentCard({ scent, index, cardRef }) {
       data-index={index}
       className={
         isCarousel
-          ? "relative w-[82vw] max-w-[320px] shrink-0 snap-center rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden group hover:scale-[1.015] md:w-[calc(50%-10px)] md:max-w-none md:shrink lg:w-[calc(33.333%-14px)] xl:w-[calc(25%-15px)]"
-          : "relative w-full rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden group hover:scale-[1.015]"
+          ? "relative flex h-full flex-col w-[82vw] max-w-[320px] shrink-0 snap-center rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden group hover:scale-[1.015] md:w-[calc(50%-10px)] md:max-w-none md:shrink lg:w-[calc(33.333%-14px)] xl:w-[calc(25%-15px)]"
+          : "relative flex h-full flex-col w-full rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden group hover:scale-[1.015]"
       }
       style={{
         borderColor: "rgba(58, 42, 24, 0.8)",
@@ -47,7 +47,7 @@ export default function ScentCard({ scent, index, cardRef }) {
         aria-label={`View ${scent.name}`}
       />
 
-      <div className="relative z-[2] pointer-events-none">
+      <div className="relative z-[2] flex flex-1 flex-col pointer-events-none">
         {/* Accent top bar */}
         <div
           className="h-1 w-full transition-opacity duration-300"
@@ -57,7 +57,7 @@ export default function ScentCard({ scent, index, cardRef }) {
           }}
         />
 
-        <div className="p-5 flex flex-col h-full">
+        <div className="p-5 flex flex-col flex-1">
           {/* Badge */}
           {scent.badge && (
             <span

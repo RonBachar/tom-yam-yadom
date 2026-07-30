@@ -49,7 +49,7 @@ export default function ShopPage() {
         </div>
 
         {/* Product grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 items-stretch">
           {ALL_PRODUCTS.map((product) =>
             !product.isOil && !product.isBundle ? (
               <ScentCard key={product.slug} scent={product} />
@@ -57,7 +57,7 @@ export default function ShopPage() {
               <Link
                 key={product.slug}
                 href={`/products/${product.slug}`}
-                className="block rounded-2xl border border-tiger-border hover:border-tiger-gold/50 bg-tiger-surface transition-all duration-200 overflow-hidden cursor-pointer group"
+                className="block h-full rounded-2xl border border-tiger-border hover:border-tiger-gold/50 bg-tiger-surface transition-all duration-200 overflow-hidden cursor-pointer group"
                 aria-label={`${product.name}: ${product.tagline}`}
               >
                 {/* Accent bar */}

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
-import { ALL_PRODUCTS } from "../../data/products";
+import { ALL_PRODUCTS, getProductImageUrl } from "../../data/products";
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
 
@@ -51,7 +51,9 @@ export async function POST(request) {
       const quantity = Math.max(1, Math.floor(item.quantity));
       const unitAmountCents = Math.round(product.price * 100);
       subtotalCents += unitAmountCents * quantity;
-      const imageUrl = toAbsoluteImageUrl(product.image ?? item.image);
+      const imageUrl =
+        getProductImageUrl(product.slug) ||
+        toAbsoluteImageUrl(product.image ?? item.image);
 
       lineItems.push({
         price_data: {
