@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { SCENTS } from "../data/products";
 import ScentCard from "./ScentCard";
+import ScentFan from "./ScentFan";
 
 export default function ScentSelector() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -52,7 +53,8 @@ export default function ScentSelector() {
 
   return (
     <div>
-      <div className="relative">
+      {/* Mobile / tablet carousel — unchanged */}
+      <div className="relative lg:hidden">
         <div
           ref={scrollRef}
           className="flex items-stretch overflow-x-auto snap-x snap-mandatory gap-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:flex-wrap md:justify-center md:gap-5 md:overflow-visible md:px-0 md:snap-none"
@@ -121,7 +123,7 @@ export default function ScentSelector() {
       </div>
 
       <div
-        className="flex justify-center gap-2 mt-5 md:hidden"
+        className="flex justify-center gap-2 mt-5 lg:hidden"
         aria-hidden="true"
       >
         {SCENTS.map((scent, index) => (
@@ -134,6 +136,24 @@ export default function ScentSelector() {
             }}
           />
         ))}
+      </div>
+
+      {/*
+        EXPERIMENT: fan layout. To revert, swap ScentFan back to the grid below.
+        Previous desktop grid (kept for easy revert):
+
+        <div className="hidden lg:flex items-stretch flex-wrap justify-center gap-5 px-0">
+          {SCENTS.map((scent, index) => (
+            <ScentCard
+              key={scent.slug}
+              scent={scent}
+              index={index}
+            />
+          ))}
+        </div>
+      */}
+      <div className="hidden lg:block">
+        <ScentFan />
       </div>
     </div>
   );
