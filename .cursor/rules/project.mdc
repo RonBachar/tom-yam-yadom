@@ -1,0 +1,93 @@
+---
+description: Project governance — universal e-commerce architecture plus Tom Yam Yadom-specific conventions
+alwaysApply: true
+---
+
+# Project Rules — Tom Yam Yadom
+
+Two layers. Layer 1 is portable to any e-commerce App Router store. Layer 2 is this brand only and must be rewritten per project.
+
+---
+
+## LAYER 1: UNIVERSAL RULES
+
+Portable. Apply on every e-commerce project that adopts this playbook.
+
+### Data architecture
+
+- All business data (products, prices, policies, content entities) lives in dedicated data files (`app/data/*` or equivalent). Components, pages, API routes, and generated files (sitemap, `llms.txt`, feeds) **derive** from these sources.
+- **NEVER** hardcode a price, product name, slug, policy value, or absolute site URL in a component, page, API route, or generated file.
+- Any API route that charges money derives **ALL** amounts from data files. Convert units in code (e.g. dollars → cents with `Math.round(price * 100)`). Never store duplicate literal amounts in both dollars and cents.
+- One `BASE_URL` / site URL source (env var or a single config module). Never re-declare the production domain in every file as a long-term pattern; when touching a file that still has a local constant, prefer the shared source if one exists.
+- Shared UI patterns become shared components. One card component per entity type, reused everywhere (shop, homepage, related products, etc.).
+- Deprecated code is kept as clearly marked comments for reversibility. No file deletions without explicit instruction.
+
+### SEO
+
+- Every page exports `metadata` (static) or `generateMetadata`: `title`, `description`, `canonical` (`alternates.canonical`), `openGraph`, and `twitter`. No exceptions, including the homepage.
+- Descriptions should be page-specific and ideally ≤ 160 characters.
+- `og:type` is `"website"` everywhere except `"article"` for editorial content. **NEVER** `"product"` (crashes Next.js metadata builds).
+- JSON-LD Schema on every content type: `Product` for product pages, `Article` / `BlogPosting` for posts, `Organization` in the root layout. `HowTo` where step-based content exists. `DefinedTerm` (or equivalent) for glossary / ingredient entity pages when those pages exist.
+- Transactional pages (cart, checkout success / order confirmation) are `noindex`, robots-disallowed, and excluded from the sitemap.
+- `sitemap` and `llms.txt` are **dynamic** routes generated from data files, never static hand-maintained files in `public/`.
+- Internal links between related content (topic clusters): informational content links to commercial pages and vice versa.
+
+### Images
+
+- Always `next/image`, never raw `<img>`. Every image has alt text and explicit `width`/`height` (or `fill` with a positioned parent).
+- All new images are WebP. Product images share one consistent size ratio across the catalog.
+- Hero / LCP images get `priority` (or equivalent preload). Below-fold images lazy-load (Next.js default).
+
+### Performance
+
+- Heavy libraries (animation, charts, etc.) load only where used; dynamically import when the feature is conditionally rendered.
+- Fonts via `next/font` with `display: "swap"`.
+- Measure layout from the **container** (`ResizeObserver` + `getBoundingClientRect` on the element), not `window` alone, for JS-driven layouts.
+
+### Commerce
+
+- Prices are **ALWAYS** calculated server-side. The client sends `{ slug, quantity }` only; the server looks up prices from data. Unknown slug → reject.
+- Cart state: React context + `localStorage` with a hydration guard (no SSR/client mismatch from reading storage before mount).
+- Policy values (shipping, returns) are declared once in a policy data file and consumed identically by UI pages, checkout, Merchant Center copy, and generated machine files.
+
+### Content
+
+- Structured frontmatter schema, identical across all posts. A post missing required fields must fail loudly, not silently vanish from indexes.
+- Contact emails are always `mailto:` links (or a shared link component), never plain text addresses without a link.
+
+---
+
+## LAYER 2: PROJECT-SPECIFIC RULES
+
+Tom Yam Yadom / Smiling Tiger only. Rewrite this entire layer for the next brand.
+
+### Copy and claims
+
+- **NO em dashes and NO en dashes** anywhere: content, frontmatter, UI copy, metadata, generated text (`llms.txt`, etc.). Use commas, colons, parentheses, or separate sentences. No current exceptions.
+- **NO medical or therapeutic claims** anywhere. Frame the product as aromatic / sensory ritual, never as medicine. FDA disclaimer required **verbatim** on health-adjacent content (especially Crown Blend usage).
+- Shipping scope: **United States ONLY**. Never write "ships worldwide" or imply international shipping.
+- The **10% donation commitment to any gym is permanently cancelled** and must never appear anywhere (copy, blog, wholesale, footers, ads).
+
+### Brand and catalog data
+
+- Scent accent colors in `app/data/products.js` are the source of truth:
+  - Compassion `#C06880`
+  - Vitality `#CC2020`
+  - Radiance `#D4681A`
+  - Balance `#5A8060`
+  - Power `#3880C8`
+  - Clarity `#C8B800`
+  - Serenity `#6858A8`
+  - Crown / Temple Gold `#C9940A`
+- `foundIn` arrays in `app/data/ingredients.js` reference **individual scents** (and Crown Blend when accurate) only, **never** the Complete Ritual Set bundle.
+- `localStorage` cart key: `"tomyam_cart"`.
+- Brand voice: modern warm American (Glossier / Herbivore register). Never clinical. Never stiff "Israeli accent" formality.
+- Crown Blend keeps its own card identity (`YadomOilCard`); it does **not** use `ScentCard`. The Ritual Set gets distinct hero treatment.
+- Production domain for absolute URLs: `https://www.tomyamyadomherbals.com`.
+- Shared default OG image: `app/data/siteMeta.js` → `/images/og-default.webp` (1200×630).
+
+### Indexing and ops
+
+- `/cart` and `/order-confirmed` are the only `noindex` pages (plus robots disallow for those paths).
+- Git commits: English, concise, summarizing the session.
+- PowerShell environment: never chain commands with `&&`; give commands on separate lines (or use `;` only when appropriate). Prefer sequential tool calls.
