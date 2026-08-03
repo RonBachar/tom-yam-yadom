@@ -1,10 +1,19 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { ALL_PRODUCTS, getProductImageUrl } from "../../data/products";
+import { SHIPPING_POLICY } from "../../data/policies";
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
 
 const productBySlug = new Map(ALL_PRODUCTS.map((product) => [product.slug, product]));
+
+const FREE_SHIPPING_THRESHOLD_CENTS = Math.round(
+  SHIPPING_POLICY.freeThreshold * 100,
+);
+const STANDARD_SHIPPING_CENTS = Math.round(SHIPPING_POLICY.standard.price * 100);
+const EXPEDITED_SHIPPING_CENTS = Math.round(
+  SHIPPING_POLICY.expedited.price * 100,
+);
 
 function toAbsoluteImageUrl(image) {
   if (!image || typeof image !== "string") return null;
@@ -68,23 +77,26 @@ export async function POST(request) {
       });
     }
 
-    const FREE_SHIPPING_THRESHOLD_CENTS = 5000;
-    const qualifiesForFreeShipping = subtotalCents >= FREE_SHIPPING_THRESHOLD_CENTS;
+    const qualifiesForFreeShipping =
+      subtotalCents >= FREE_SHIPPING_THRESHOLD_CENTS;
+    const standardTransitDays = SHIPPING_POLICY.standard.transitDays;
+    const expeditedTransitMin = SHIPPING_POLICY.expedited.transitDaysMin;
+    const expeditedTransitMax = SHIPPING_POLICY.expedited.transitDaysMax;
 
     const shippingOptions = [
       {
         shipping_rate_data: {
           type: "fixed_amount",
           fixed_amount: {
-            amount: qualifiesForFreeShipping ? 0 : 599,
+            amount: qualifiesForFreeShipping ? 0 : STANDARD_SHIPPING_CENTS,
             currency: "usd",
           },
           display_name: qualifiesForFreeShipping
-            ? "Free Standard Shipping (5-7 business days)"
-            : "Standard Shipping (5-7 business days)",
+            ? `Free Standard Shipping (${standardTransitDays} business days)`
+            : `Standard Shipping (${standardTransitDays} business days)`,
           delivery_estimate: {
-            minimum: { unit: "business_day", value: 5 },
-            maximum: { unit: "business_day", value: 7 },
+            minimum: { unit: "business_day", value: standardTransitDays },
+            maximum: { unit: "business_day", value: standardTransitDays },
           },
         },
       },
@@ -92,13 +104,13 @@ export async function POST(request) {
         shipping_rate_data: {
           type: "fixed_amount",
           fixed_amount: {
-            amount: 1199,
+            amount: EXPEDITED_SHIPPING_CENTS,
             currency: "usd",
           },
-          display_name: "Expedited Shipping (1-3 business days)",
+          display_name: `Expedited Shipping (${expeditedTransitMin}-${expeditedTransitMax} business days)`,
           delivery_estimate: {
-            minimum: { unit: "business_day", value: 1 },
-            maximum: { unit: "business_day", value: 3 },
+            minimum: { unit: "business_day", value: expeditedTransitMin },
+            maximum: { unit: "business_day", value: expeditedTransitMax },
           },
         },
       },

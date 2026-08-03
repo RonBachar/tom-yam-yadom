@@ -5,6 +5,30 @@ import AnimateIn from "./components/AnimateIn";
 import TigerMark from "./components/TigerMark";
 import AddToCartButton from "./components/AddToCartButton";
 import { YADOM_OIL } from "./data/products";
+import { DEFAULT_OG_IMAGE } from "./data/siteMeta";
+
+const BASE_URL = "https://www.tomyamyadomherbals.com";
+
+export const metadata = {
+  title: "Tom Yam Yadom | Smiling Tiger Thai Herbal Inhaler",
+  description:
+    "Handcrafted Thai herbal inhalers from Koh Samui. Shop 7 Smiling Tiger scents and Crown Blend oil, with shipping across the United States.",
+  alternates: { canonical: BASE_URL },
+  openGraph: {
+    title: "Tom Yam Yadom | Smiling Tiger Thai Herbal Inhaler",
+    description:
+      "Handcrafted Thai herbal inhalers from Koh Samui. Shop 7 Smiling Tiger scents and Crown Blend oil, with shipping across the United States.",
+    url: BASE_URL,
+    siteName: "Tom Yam Yadom",
+    locale: "en_US",
+    type: "website",
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [DEFAULT_OG_IMAGE.url],
+  },
+};
 
 /* ─────────────────────────────────────────────────────────
    Home page — cold-traffic conversion engine
