@@ -79,7 +79,7 @@ export default function TermsPage() {
 
       <LegalSection title="Returns and Refunds">
         <p>
-          Our return and refund policy is detailed on our <ShippingReturnsLink /> page. Due to the nature of herbal products, we cannot accept returns of opened items unless the product is defective or damaged on arrival.
+          Our return and refund policy is detailed on our <ShippingReturnsLink /> page. We accept returns on any item within 30 days of purchase, including opened products. See our Shipping and Returns page for full details.
         </p>
       </LegalSection>
 
