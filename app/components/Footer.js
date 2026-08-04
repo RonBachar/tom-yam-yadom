@@ -74,7 +74,7 @@ export default function Footer() {
           </p>
           {submitted ? (
             <p className="text-tiger-gold font-heading font-semibold text-xl tracking-wide">
-              You&rsquo;re on the list! Check your inbox for your 10% off code.
+              You&rsquo;re on the list! Check your inbox for your 10% off code (it may land in Promotions or Spam if you use Gmail).
             </p>
           ) : (
             <div className="flex flex-col sm:flex-row gap-3">
