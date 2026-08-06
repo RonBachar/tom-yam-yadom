@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import ScentSelector from "./components/ScentSelector";
 import AnimateIn from "./components/AnimateIn";
-import TigerMark from "./components/TigerMark";
 import AddToCartButton from "./components/AddToCartButton";
 import { YADOM_OIL } from "./data/products";
 import { DEFAULT_OG_IMAGE } from "./data/siteMeta";
@@ -128,13 +127,12 @@ function HeroSection() {
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 flex-1 flex flex-col items-center justify-center gap-2.5 sm:gap-3.5 text-center min-h-0 pt-[7.5rem] pb-5 sm:pt-28 sm:pb-6">
         {/* Eyebrow */}
         <div
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border shrink-0"
+          className="inline-flex items-center px-3 py-1.5 rounded-full border shrink-0"
           style={{
             borderColor: "rgba(201,148,10,0.35)",
             backgroundColor: "rgba(201,148,10,0.08)",
           }}
         >
-          <TigerMark size={16} />
           <span className="text-tiger-gold text-[10px] sm:text-xs font-heading font-bold tracking-[0.16em] uppercase">
             Handcrafted in Koh Samui · Small-Batch
           </span>
@@ -168,7 +166,7 @@ function HeroSection() {
             href="/products/complete-ritual-set"
             className="inline-flex items-center justify-center gap-2 bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-sm tracking-[0.14em] uppercase px-7 py-3 sm:px-8 sm:py-3.5 rounded-full transition-colors duration-200 cursor-pointer"
           >
-            Give the Complete Ritual Set – $150
+            Gift the Complete Ritual Set
             <ArrowIcon />
           </Link>
           <Link
