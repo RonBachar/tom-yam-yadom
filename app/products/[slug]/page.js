@@ -83,17 +83,19 @@ export async function generateMetadata({ params }) {
   const url = `${BASE_URL}/products/${slug}`;
   const imageUrl = getProductImageUrl(slug);
   const pageTitle =
-    slug === "complete-ritual-set"
+    product.metaTitle ??
+    (slug === "complete-ritual-set"
       ? "Complete Ritual Set: 7 Scents + Crown Blend | Tom Yam Yadom"
       : product.isBundle
         ? `${product.name} | Tom Yam Yadom`
-        : `${product.name} Thai Herbal Inhaler | Tom Yam Yadom`;
+        : `${product.name} Thai Herbal Inhaler | Tom Yam Yadom`);
   const ogTitle =
-    slug === "complete-ritual-set"
+    product.metaTitle ??
+    (slug === "complete-ritual-set"
       ? "Complete Ritual Set: 7 Scents + Crown Blend | Tom Yam Yadom"
       : product.isBundle
         ? `${product.name} | Tom Yam Yadom`
-        : `${product.name} | Tom Yam Yadom Thai Herbal Inhaler`;
+        : `${product.name} | Tom Yam Yadom Thai Herbal Inhaler`);
   return {
     title: pageTitle,
     description: product.description,

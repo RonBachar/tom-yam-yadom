@@ -170,6 +170,8 @@ export const INGREDIENTS = [
       "Borneol is one of the most prized aromatic substances in classical Asian medicine. Historically harvested from the resin of Dryobalanops aromatica, a tree native to Borneo and Sumatra, it formed fragrant pale crystals that were among the most valued trade goods in the ancient maritime routes of Southeast Asia. In classical Chinese medicine it is known as bing pian and was considered a precious ingredient, associated with clarifying the senses and awakening the mind. It appears in the oldest Chinese pharmacopoeias and was traded westward along the spice routes to the Arab world, where it was known and valued by medieval scholars. In Thai and Southeast Asian herbal traditions, borneol is a native ingredient with deep roots in aromatic preparations, inhalants, and compresses.",
     modernUses:
       "Genuine botanical borneol signals a premium, traditional approach to aromatic blending. It is used in high-quality natural perfumery and in traditional herbal preparations across Asia. In an inhaler blend, borneol contributes a cool, resinous clarity that layers beautifully with camphor and menthol without duplicating them, and it is precisely this quality that makes it the signature focus ingredient in our Clarity blend.",
+    metaDescription:
+      "Borneol is a crystalline herb used for centuries in Thai tradition for focus and clarity. Learn what it is, how it smells, and its role in our Clarity blend.",
     image: "/images/ingredients/borneol.jpg",
   },
   {
@@ -261,11 +263,14 @@ export const INGREDIENTS = [
   {
     slug: "cinnamon-oil",
     title: "Cinnamon Oil: Aroma, History & Uses",
-    categories: ["Spice Cabinet"],
+    categories: ["Spice Cabinet", "Specialty Extracts"],
     foundIn: ["power", "crown-blend"],
-    aromaProfile: "Content coming soon.",
-    historicalUses: "Content coming soon.",
-    modernUses: "Content coming soon.",
+    aromaProfile:
+      "Warm, concentrated, and intensely sweet-spiced. Cinnamon oil is the distilled essence of cinnamon bark: richer, more volatile, and more penetrating than the dried spice, with an immediate heat that blooms quickly and lingers. Where dried cinnamon is familiar and rounded, the oil is bolder and more alive, a concentrated version of one of the world's most recognized aromatics.",
+    historicalUses:
+      "Cinnamon has been traded, valued, and written about for longer than almost any other spice. True cinnamon (Cinnamomum verum) is native to Sri Lanka, and records of its trade reach back over 4,000 years to ancient Egypt, where cinnamon was imported for embalming, ritual, and as a luxury aromatic. It appears in the Hebrew Bible, in ancient Greek and Roman texts, and in the earliest Sanskrit writings on spice and medicine. The distillation of cinnamon oil developed alongside the broader history of essential oil extraction, which advanced significantly in the Arab world during the medieval period before spreading to Europe. Arab physicians and scholars documented cinnamon extensively, and distilled aromatic preparations using cinnamon were part of the medieval Islamic apothecary tradition. In Europe, cinnamon oil became part of the formal pharmacopoeia from the early modern period onward, used in aromatic and flavoring preparations by apothecaries and perfumers alike. Two distinct oils are produced from the cinnamon plant: bark oil and leaf oil. Cinnamon bark oil is the richer, more prized of the two, with a deep, sweet, intensely warm character. Cinnamon leaf oil is sharper and more phenolic. Both have been used in aromatic and flavoring contexts across Asia, the Middle East, and Europe for centuries. In Southeast Asia, cassia (Cinnamomum cassia), a close relative of true cinnamon, has been cultivated and used in cooking and aromatic practice for thousands of years. It is a foundational spice in Chinese five-spice, Vietnamese pho, and Thai massaman curry, and its oil carries the same warm, sweet-spiced character in a slightly more robust form.",
+    modernUses:
+      "Cinnamon oil is a valued ingredient in natural perfumery, specialty food and beverage, craft spirits, and artisanal aromatics. In perfumery it functions as a warm, sweet base note with excellent staying power, adding depth and a familiar comfort to any composition it enters. Its concentration means a small amount goes a long way, making it a precision ingredient rather than a background filler. In craft cocktails and specialty baking, cinnamon oil is used where the dried spice would add texture but not enough aromatic intensity. It appears in bitters, syrups, chocolate work, and flavored spirits where a clean, pure cinnamon note is needed without physical bulk. In herbal inhaler blending, cinnamon oil contributes a concentrated warmth that rounds and deepens cooler, sharper notes. It adds a sweet-spiced backbone that makes a blend feel complete and grounded rather than one-dimensional.",
     image: "/images/ingredients/cinnamon-oil.png",
   },
   {
@@ -318,6 +323,8 @@ export const INGREDIENTS = [
       "Pears have been cultivated in China for over 3,000 years, making them one of the oldest continuously farmed fruits in East Asian history. In classical Chinese culture, the pear (li) carries layered symbolism: its white blossom is associated with purity and early spring, and pear trees appear frequently in classical poetry as images of quiet beauty and seasonal change. Pear cultivation spread westward from China along the ancient trade routes through Central Asia and into Persia, the Arab world, and eventually Europe, where both the fruit and its cultivation traditions took root across the Mediterranean and beyond. In East Asian culinary tradition, pear has been used not only as a fresh fruit but as an ingredient in teas, desserts, and medicinal preparations for centuries. In Chinese and Korean cooking, pear is used as a natural sweetener and tenderizer in marinades, and pear-based drinks have been made for generations. The tradition of blending fruit with tea is deeply embedded in East Asian tea culture, where fruit teas and infusions have been enjoyed since antiquity. The Fuji variety specifically is a cultivar developed in Fujisaki, Japan in the mid-20th century, taking its name from both the town and Mount Fuji. It became one of the most widely cultivated apple and pear varieties in East Asia for its exceptional sweetness, clean flavor, and satisfying crunch. Fuji pear tea draws on this modern cultivar's distinctively clean, sweet character, set within the long East Asian tradition of fruit tea blending. In Japanese tea culture, the pairing of delicate fruit notes with green or white tea bases reflects a broader aesthetic of finding quiet complexity in subtle flavors: the same sensibility that shapes Japanese cuisine, ceramics, and garden design.",
     modernUses:
       "Fuji pear tea appears in specialty tea blending, artisan confectionery, craft flavor work, and natural aromatics. Its clean, soft sweetness makes it a versatile addition to compositions where a light fruit note is needed without the sharpness of citrus or the heaviness of tropical fruit. In an aromatic blend, it contributes a quiet brightness and approachability that makes a composition feel fresh and inviting from the first breath.",
+    metaDescription:
+      "Fuji pear brings a soft, sweet brightness to herbal blends. Learn how this ingredient works in aromatherapy and why it pairs with ginger in our Vitality blend.",
     image: "/images/ingredients/fuji-pear-tea.png",
   },
   {
@@ -344,6 +351,8 @@ export const INGREDIENTS = [
       "The peach tree (Prunus persica) originated in China, where it has been cultivated for over 4,000 years and holds one of the most layered symbolic histories of any plant in East Asian culture. In Chinese tradition, the peach is among the most auspicious of all fruits, associated with longevity, immortality, and good fortune. Peach blossoms in particular carry deep cultural meaning: they are the flower of early spring, associated with renewal, beauty, and the return of warmth after winter. The image of peach blossoms appears throughout classical Chinese poetry, painting, and literature as a symbol of feminine grace and the fleeting beauty of the natural world. In Japan, peach blossoms are celebrated alongside cherry blossoms as a sign of spring, and the Hinamatsuri (Doll Festival) held each March is also known as the Peach Blossom Festival, where the flowers are displayed as offerings and decorations. In Korean folk tradition, peach blossoms and peach wood have long been associated with protection and the warding off of harmful influences, and peach trees were planted near homes and temples with this intention. Along the ancient Silk Road, the peach traveled westward from China through Persia (reflected in its Latin name, Prunus persica) to the Mediterranean and eventually Europe. Persian and Arab poets embraced the peach as an image of beauty and sensory pleasure, and the blossom's delicate scent was noted in classical Arabic literature. In Europe, peach blossom water and peach-derived aromatics appeared in Renaissance and early modern perfumery and cosmetic preparations. Culinarily, peach blossom has been used in East Asian cooking and confectionery: infused into teas, steeped in liqueurs, and used to flavor sweets and desserts across China, Japan, and Korea.",
     modernUses:
       "Peach blossom absolute and peach blossom-derived aromatic materials are prized in natural perfumery for their soft, feminine, and luminous character. The note bridges floral and fruity families without belonging fully to either, making it a versatile and sought-after ingredient in fine fragrance composition. In craft aromatics and artisanal blending, peach blossom adds a gentle sweetness and a quietly uplifting quality that softens and brightens any blend it enters.",
+    metaDescription:
+      "Peach blossom has long been used in Thai and Chinese herbal traditions to uplift the mood. Discover why it is the heart of our Compassion inhaler blend.",
     image: "/images/ingredients/peach-blossom.png",
   },
   {
@@ -444,9 +453,23 @@ export function matchIngredientSlug(name) {
 }
 
 export function ingredientMetaDescription(ingredient) {
+  if (ingredient.metaDescription) return ingredient.metaDescription;
+
   const text = ingredient.aromaProfile;
   if (text.length <= 160) return text;
-  return `${text.slice(0, 157).trim()}...`;
+
+  const slice = text.slice(0, 160);
+  const sentenceMatch = slice.match(/^[\s\S]*[.!?]/);
+  if (sentenceMatch && sentenceMatch[0].trim().length > 0) {
+    return sentenceMatch[0].trim();
+  }
+
+  const lastSpace = slice.lastIndexOf(" ");
+  if (lastSpace > 0) {
+    return slice.slice(0, lastSpace).trim();
+  }
+
+  return slice.trim();
 }
 
 export function getIngredientsByCategory() {

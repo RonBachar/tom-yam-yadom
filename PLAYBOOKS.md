@@ -19,12 +19,36 @@ Operational checklists for this store. Written generically so they port to any e
 ## Playbook: Publish a new article
 
 1. Create the MDX file with the complete frontmatter schema (copy from an existing published post; do not invent a partial schema).
-2. Add a cover image: WebP, standard blog dimensions, alt text in frontmatter or the image component.
-3. Add internal links: at least one commercial page link (product or shop), and at least one related article link (topic cluster).
-4. If the content is step-based, include a HowTo frontmatter block (or equivalent) so HowTo JSON-LD can render.
-5. Verify the article appears in: blog index, its category page, sitemap, and `llms.txt`.
-6. Lint the copy against project Layer 2 rules (for this brand: no em/en dashes, no medical claims, US-only shipping if mentioned).
-7. Run the production build; confirm it passes; then commit.
+
+### Cover Image: Midjourney Prompt (required)
+
+Every article requires a cover image prompt before deployment.
+Use the template below, customized to the article's specific angle.
+Remind the person to use Omni Reference with the existing character
+photo to maintain visual consistency across all blog images.
+
+**Template:**
+
+[ARTICLE-SPECIFIC SCENE DESCRIPTION], warm golden light, cinematic
+portrait, luxury wellness and apothecary mood, dark background with
+gold and amber tones, shallow depth of field, film grain, no text,
+no logos --ar 16:9 --style raw --v 6.1
+
+**Omni Reference reminder:**
+Always attach the existing character reference image via Omni Reference
+in Midjourney before generating. This keeps the same woman across all
+blog cover images.
+
+**File delivery:**
+- Save as WebP at 1200x630
+- Place in /public/images/blog/[slug].webp
+- Use the alt text provided in the article frontmatter
+
+2. Add internal links: at least one commercial page link (product or shop), and at least one related article link (topic cluster).
+3. If the content is step-based, include a HowTo frontmatter block (or equivalent) so HowTo JSON-LD can render.
+4. Verify the article appears in: blog index, its category page, sitemap, and `llms.txt`.
+5. Lint the copy against project Layer 2 rules (for this brand: no em/en dashes, no medical claims, US-only shipping if mentioned).
+6. Run the production build; confirm it passes; then commit.
 
 ---
 

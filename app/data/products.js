@@ -47,6 +47,8 @@ export const SCENTS = [
     ],
     description:
       "A spiced, warming organic yadom built for Muay Thai training, morning routines, and long days. Cinnamon and ginger fire the focus; pear softens the edge.",
+    metaTitle:
+      "Vitality Thai Herbal Inhaler: Cinnamon, Ginger & Fuji Pear | $20",
     accentColor: "#CC2020",
     accentBg: "rgba(204, 32, 32, 0.08)",
     price: 20,
