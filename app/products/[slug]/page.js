@@ -333,6 +333,12 @@ export default async function ProductPage({ params }) {
               {product.name}
             </h1>
 
+            {product.isBundle && (
+              <p className="text-tiger-cream font-heading font-semibold text-base tracking-wide mb-2">
+                The Gift That Awakens the Senses
+              </p>
+            )}
+
             <p className="text-tiger-muted font-sans text-base italic mb-6">
               {product.tagline}
             </p>
@@ -341,6 +347,14 @@ export default async function ProductPage({ params }) {
               className="w-12 h-0.5 mb-6"
               style={{ backgroundColor: product.accentColor }}
             />
+
+            {product.isBundle && (
+              <p className="text-tiger-muted font-sans text-base leading-relaxed mb-4">
+                Looking for a gift that&apos;s genuinely different? The Complete
+                Ritual Set brings all 7 Thai herbal scents plus our Crown Blend
+                Oil, handcrafted in Koh Samui.
+              </p>
+            )}
 
             <p className="text-tiger-muted font-sans text-base leading-relaxed mb-8">
               {product.description}
