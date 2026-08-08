@@ -33,7 +33,7 @@ export const SCENTS = [
     tagline: "Energy. Confidence. Drive.",
     emotion: "Energizing",
     functions: ["Boosts energy", "Sharpens confidence", "Warms the body"],
-    ingredients: ["Cinnamon", "Ginger", "Fuji Pear"],
+    ingredients: ["Fuji Pear Tea", "Thai Ginger"],
     ingredientSlugs: [
       "menthol",
       "cloves",
@@ -46,9 +46,9 @@ export const SCENTS = [
       "thai-ginger",
     ],
     description:
-      "A spiced, warming organic yadom built for Muay Thai training, morning routines, and long days. Cinnamon and ginger fire the focus; pear softens the edge.",
+      "A spiced, warming organic yadom built for Muay Thai training, morning routines, and long days. Thai ginger fires the focus; fuji pear tea softens the edge.",
     metaTitle:
-      "Vitality Thai Herbal Inhaler: Cinnamon, Ginger & Fuji Pear | $20",
+      "Vitality Thai Herbal Inhaler: Thai Ginger & Fuji Pear Tea | $20",
     accentColor: "#CC2020",
     accentBg: "rgba(204, 32, 32, 0.08)",
     price: 20,
@@ -167,7 +167,7 @@ export const SCENTS = [
     name: "Serenity",
     tagline: "Calm the mind. Slow the breath.",
     emotion: "Calming",
-    functions: ["Calms anxiety", "Wind-down ritual", "Slow breath"],
+    functions: ["Grounding ritual", "Wind-down ritual", "Slow breath"],
     ingredients: ["Jasmine Pearls", "White Pepper", "Star Anise"],
     ingredientSlugs: [
       "menthol",

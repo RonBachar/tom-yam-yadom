@@ -40,7 +40,7 @@ export default function ShippingPage() {
       <LegalSection title="Shipping">
         <LegalSubheading>Where we ship</LegalSubheading>
         <p>
-          We currently ship to all 50 US states. International shipping is coming soon. Sign up for our newsletter to be notified.
+          We currently ship within the United States, to all 50 states.
         </p>
 
         <LegalSubheading>Shipping options and costs</LegalSubheading>

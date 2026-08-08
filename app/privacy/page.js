@@ -43,17 +43,17 @@ export default function PrivacyPage() {
       <LegalSection title="What We Collect">
         <LegalSubheading>When you place an order</LegalSubheading>
         <p>
-          Our checkout is powered by Stripe. When you purchase, Stripe collects your name, shipping address, email address, and payment details. We never see or store your full card number — Stripe handles all payment security. We retain your name, shipping address, and order details to fulfill and confirm your order.
+          Our checkout is powered by Stripe. When you purchase, Stripe collects your name, shipping address, email address, and payment details. We never see or store your full card number: Stripe handles all payment security. We retain your name, shipping address, and order details to fulfill and confirm your order.
         </p>
 
         <LegalSubheading>When you contact us or sign up for email</LegalSubheading>
         <p>
-          Our contact and wholesale inquiry form collects your name and email address. Our newsletter signup collects your email address. We use an email service provider to send newsletters and order-related messages. You can unsubscribe at any time using the link in any email.
+          Our contact and wholesale inquiry form collects your name and email address. Our newsletter signup collects your email address. We use Resend to send newsletters and order-related messages. You can unsubscribe at any time using the link in any email.
         </p>
 
         <LegalSubheading>Automatically collected data</LegalSubheading>
         <p>
-          We use Google Analytics to understand how visitors use our site. Google Analytics may collect your IP address, browser type, pages visited, and referring URLs. This data is aggregated and used to improve our website. We do not sell this data.
+          We use Microsoft Clarity and Smartlook to understand how visitors use our site. These tools may collect your IP address, browser type, pages visited, referring URLs, and session recordings of how you interact with the site. This data is used to improve our website. We do not sell this data.
         </p>
       </LegalSection>
 
@@ -61,8 +61,8 @@ export default function PrivacyPage() {
         <p>Our site uses cookies for two purposes:</p>
         <ul className="list-disc pl-6 space-y-2 my-4">
           <li>
-            <strong className="text-tiger-cream">Analytics cookies (Google Analytics):</strong>{" "}
-            Track visit patterns so we can improve the site.
+            <strong className="text-tiger-cream">Analytics cookies (Microsoft Clarity and Smartlook):</strong>{" "}
+            Track visit patterns and session behavior so we can improve the site.
           </li>
           <li>
             <strong className="text-tiger-cream">Functional cookies (Stripe):</strong>{" "}
@@ -92,16 +92,19 @@ export default function PrivacyPage() {
         <p>We share your data only with services that help us run our store:</p>
         <ul className="list-disc pl-6 space-y-2 my-4">
           <li>
-            <strong className="text-tiger-cream">Stripe</strong> — payment processing. PCI-DSS compliant. See stripe.com/privacy.
+            <strong className="text-tiger-cream">Stripe:</strong> payment processing. PCI-DSS compliant. See stripe.com/privacy.
           </li>
           <li>
-            <strong className="text-tiger-cream">Google Analytics</strong> — website analytics. See policies.google.com/privacy.
+            <strong className="text-tiger-cream">Microsoft Clarity:</strong> website analytics and session insights. See clarity.microsoft.com.
           </li>
           <li>
-            <strong className="text-tiger-cream">Email provider (Mailchimp or similar)</strong> — newsletter and transactional email.
+            <strong className="text-tiger-cream">Smartlook:</strong> website analytics and session recording. See smartlook.com/privacy.
           </li>
           <li>
-            <strong className="text-tiger-cream">Shipping carriers</strong> — your name and address are shared with our carrier to deliver your order.
+            <strong className="text-tiger-cream">Resend:</strong> newsletter and transactional email.
+          </li>
+          <li>
+            <strong className="text-tiger-cream">Shipping carriers:</strong> your name and address are shared with our carrier to deliver your order.
           </li>
         </ul>
         <p>We may also disclose information if required by law.</p>

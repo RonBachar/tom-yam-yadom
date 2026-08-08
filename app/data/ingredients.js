@@ -264,7 +264,7 @@ export const INGREDIENTS = [
   {
     slug: "cinnamon-oil",
     title: "Cinnamon Oil: Aroma, History & Uses",
-    categories: ["Spice Cabinet", "Specialty Extracts"],
+    categories: ["Spice Cabinet"],
     foundIn: ["power", "crown-blend"],
     aromaProfile:
       "Warm, concentrated, and intensely sweet-spiced. Cinnamon oil is the distilled essence of cinnamon bark: richer, more volatile, and more penetrating than the dried spice, with an immediate heat that blooms quickly and lingers. Where dried cinnamon is familiar and rounded, the oil is bolder and more alive, a concentrated version of one of the world's most recognized aromatics.",
