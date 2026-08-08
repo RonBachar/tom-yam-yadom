@@ -16,6 +16,7 @@ export const INGREDIENT_IMAGE_ALT = {
     "Cinnamon Oil ingredient used in Tom Yam Yadom herbal inhalers",
   "pink-peppercorn": "Pink peppercorns with rosy, speckled color",
   "white-peppercorn": "White peppercorns with a pale, earthy texture",
+  "star-anise": "Star anise pods with deep brown eight-pointed forms",
   "thai-ginger": "Thai ginger (galangal) sliced to reveal pale interiors",
   "rose-hips": "Rose hips with deep red-orange skins",
   jasmine: "Jasmine flowers with delicate white petals",
@@ -300,6 +301,19 @@ export const INGREDIENTS = [
     image: "/images/ingredients/white-peppercorn.jpg",
   },
   {
+    slug: "star-anise",
+    title: "Star Anise: Aroma, History & Uses",
+    categories: ["Spice Cabinet"],
+    foundIn: ["serenity"],
+    aromaProfile:
+      "Warm, sweet, and deeply anise-like, with a richness that goes beyond simple licorice. Star anise has a rounded, almost balsamic depth beneath its sweetness, and a lingering warmth that makes it one of the most distinctive and immediately recognizable aromatics in the spice world.",
+    historicalUses:
+      "Star anise (Illicium verum) is native to southwestern China and northern Vietnam, where it has been cultivated and prized for thousands of years. In Chinese culinary tradition it is one of the five spices that make up the foundational five-spice blend (alongside cloves, cinnamon, Sichuan pepper, and fennel seeds), a combination that has defined the flavor of Chinese braised meats, roasted duck, and slow-cooked dishes for centuries. In Vietnamese cooking, star anise is essential to pho, the aromatic broth that is both a national dish and a daily ritual across the country, where whole pods are charred and added to the stock to build its signature deep, sweet complexity. Beyond the kitchen, star anise held a place in Chinese traditional practice as a valued aromatic, appearing in incense preparations and in the broader herbal traditions of the region. Along the ancient maritime spice routes, star anise traveled from Southeast Asia to the Arab world and eventually to Europe, where it was embraced by distillers and confectioners alike. It became a key botanical in the production of anise-flavored spirits across France, Greece, Turkey, and the Middle East, appearing in pastis, arak, ouzo, and sambuca. In European folk tradition, star anise was also used to flavor breads, pastries, and mulled drinks, and its striking eight-pointed form made it a favorite decorative element in spice displays and aromatic arrangements.",
+    modernUses:
+      "Star anise remains a cornerstone of both Asian and European culinary traditions, appearing in spice blends, braises, marinades, confectionery, and spirits production worldwide. Its essential oil is widely used in the flavor industry and in natural perfumery, where its warm, sweet, anise character adds depth and a slightly exotic richness to oriental and spice-forward compositions. In craft aromatics and artisanal blending, star anise contributes a rounded, lingering warmth that anchors a blend and gives it staying power, making it a natural choice wherever a sweet, resinous base note is needed.",
+    image: "/images/ingredients/star-anise.webp",
+  },
+  {
     slug: "thai-ginger",
     title: "Thai Ginger: Aroma, History & Uses",
     categories: ["Roots & Rhizomes"],
@@ -418,6 +432,7 @@ const INGREDIENT_ALIASES = {
   "pink peppercorn": "pink-peppercorn",
   "white peppercorn": "white-peppercorn",
   "white pepper": "white-peppercorn",
+  "star anise": "star-anise",
   "thai ginger": "thai-ginger",
   ginger: "thai-ginger",
   galangal: "thai-ginger",

@@ -179,6 +179,7 @@ export const SCENTS = [
       "lotus-root",
       "jasmine",
       "white-peppercorn",
+      "star-anise",
     ],
     description:
       "A slow, floral-spiced Thai herbal inhaler for the end of the day. Jasmine and star anise ease the mind while white pepper keeps you present.",
