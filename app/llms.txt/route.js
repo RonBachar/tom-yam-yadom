@@ -1,5 +1,11 @@
-import { ALL_PRODUCTS } from "../data/products";
+import {
+  ALL_PRODUCTS,
+  SCENTS,
+  YADOM_OIL,
+  COMPLETE_RITUAL_SET,
+} from "../data/products";
 import { INGREDIENTS, getIngredientName } from "../data/ingredients";
+import { SHIPPING_POLICY, RETURN_POLICY } from "../data/policies";
 import { getAllPosts } from "../../lib/blog";
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
@@ -18,6 +24,10 @@ function scrubDashes(text) {
 
 function buildLlmsTxt() {
   const lines = [];
+  const scentPrice = SCENTS[0].price;
+  const returnShipping = RETURN_POLICY.merchantCoversReturn
+    ? "free return shipping"
+    : "return shipping not covered";
 
   lines.push("# Tom Yam Yadom");
   lines.push("");
@@ -28,7 +38,7 @@ function buildLlmsTxt() {
   lines.push("Key facts:");
   lines.push("");
   lines.push(
-    "- Products: 7 herbal inhaler scents (USD $20 each), Crown Blend concentrated oil (USD $35), Complete Ritual Set with all 7 scents + Crown Blend oil (USD $150)",
+    `- Products: 7 herbal inhaler scents (USD $${scentPrice} each), Crown Blend concentrated oil (USD $${YADOM_OIL.price}), Complete Ritual Set with all 7 scents + Crown Blend oil (USD $${COMPLETE_RITUAL_SET.price})`,
   );
   lines.push(
     "- Ingredients: organic botanicals including menthol, camphor, borneol, cloves, cardamom, Thai ginger, makrut lime, jasmine",
@@ -40,10 +50,10 @@ function buildLlmsTxt() {
     "- Common use cases: focus while working, pre-training rituals in Muay Thai, festivals, quitting smoking (nicotine-free hand-to-mouth ritual), grounding when overwhelmed",
   );
   lines.push(
-    "- Shipping: United States only. USD $5.99 flat rate, free shipping on orders over USD $50",
+    `- Shipping: United States only. USD $${SHIPPING_POLICY.standard.price} flat rate, free shipping on orders over USD $${SHIPPING_POLICY.freeThreshold}`,
   );
   lines.push(
-    "- Returns: 30-day returns on any item, free return shipping, refunds within 14 days",
+    `- Returns: ${RETURN_POLICY.windowDays}-day returns on any item, ${returnShipping}, refunds within ${RETURN_POLICY.refundDays} days`,
   );
   lines.push(
     "- Contact: info@tomyamyadomherbals.com. Wholesale program available",

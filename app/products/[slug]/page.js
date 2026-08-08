@@ -1,7 +1,14 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ALL_PRODUCTS, SCENTS, YADOM_OIL, getProductImageSrc, getProductImageUrl } from "../../data/products";
+import {
+  ALL_PRODUCTS,
+  SCENTS,
+  YADOM_OIL,
+  COMPLETE_RITUAL_SET,
+  getProductImageSrc,
+  getProductImageUrl,
+} from "../../data/products";
 import {
   getIngredientBySlug,
   getIngredientName,
@@ -47,8 +54,8 @@ const BUNDLE_GRID_SLUGS = [
 ];
 
 const SET_PRODUCTS = [...SCENTS, YADOM_OIL];
-const BUNDLE_LIST_PRICE = 175;
-const BUNDLE_SAVINGS = 25;
+const BUNDLE_LIST_PRICE = SET_PRODUCTS.reduce((sum, p) => sum + p.price, 0);
+const BUNDLE_SAVINGS = BUNDLE_LIST_PRICE - COMPLETE_RITUAL_SET.price;
 
 function groupIngredientsByCategory(ingredientSlugs) {
   const groups = INGREDIENT_CATEGORIES.map((category) => ({
@@ -493,7 +500,7 @@ export default async function ProductPage({ params }) {
             {/* Trust badges */}
             <div className="w-full">
               <p className="hidden md:flex flex-wrap items-center justify-start gap-x-2 text-xs font-sans text-tiger-muted tracking-wide">
-                <span>Free shipping over $50</span>
+                <span>Free shipping over ${SHIPPING_POLICY.freeThreshold}</span>
                 <span style={{ color: "#C9940A" }} aria-hidden="true">
                   ·
                 </span>
@@ -508,7 +515,7 @@ export default async function ProductPage({ params }) {
                   <span style={{ color: "#C9940A" }} aria-hidden="true">
                     ✦
                   </span>
-                  <span>Free shipping over $50</span>
+                  <span>Free shipping over ${SHIPPING_POLICY.freeThreshold}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span style={{ color: "#C9940A" }} aria-hidden="true">

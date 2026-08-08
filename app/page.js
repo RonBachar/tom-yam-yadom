@@ -355,13 +355,13 @@ function YadomOilCard() {
       </div>
       <div className="relative z-[2] flex items-center gap-4 flex-shrink-0">
         <span className="pointer-events-none font-heading font-bold text-tiger-gold text-2xl">
-          $35
+          ${YADOM_OIL.price}
         </span>
         <AddToCartButton
           product={YADOM_OIL}
           stopPropagation
           className="relative z-10 pointer-events-auto bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-xs tracking-[0.14em] uppercase px-6 py-3 rounded-full transition-colors duration-200 cursor-pointer whitespace-nowrap"
-          aria-label="Add Crown Blend to cart, $35"
+          aria-label={`Add Crown Blend to cart, $${YADOM_OIL.price}`}
         >
           Add to Cart
         </AddToCartButton>
