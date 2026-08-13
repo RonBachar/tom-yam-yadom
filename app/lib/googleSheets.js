@@ -1,5 +1,13 @@
 import { google } from "googleapis";
 
+function formatDate(date) {
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
 export async function appendSubscriberToSheet(email, source) {
   try {
     const clientEmail = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
@@ -29,7 +37,7 @@ export async function appendSubscriberToSheet(email, source) {
       range: "Sheet1!A:C",
       valueInputOption: "USER_ENTERED",
       requestBody: {
-        values: [[email, new Date().toISOString(), source]],
+        values: [[email, formatDate(new Date()), source]],
       },
     });
   } catch (error) {
