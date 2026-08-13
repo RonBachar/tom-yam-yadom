@@ -4,12 +4,12 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { useCart } from "../context/CartContext";
 
-export default function OrderConfirmedClient() {
+export default function OrderConfirmedClient({ paid = false }) {
   const { clearCart } = useCart();
 
   useEffect(() => {
-    clearCart();
-  }, [clearCart]);
+    if (paid) clearCart();
+  }, [paid, clearCart]);
 
   return (
     <div className="pt-32 pb-24 px-6">
