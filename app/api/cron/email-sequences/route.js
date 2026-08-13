@@ -5,6 +5,7 @@ import {
   getAllSubscribers,
   updateSubscriberStep,
 } from "../../../lib/googleSheets";
+import { generateToken } from "../../../lib/unsubscribeToken";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -113,6 +114,7 @@ export async function GET(request) {
 
     let skipped = 0;
     let wouldSend = 0;
+    let unsubscribedSkipped = 0;
 
     for (const subscriber of subscribers) {
       const signupDate = parseSheetDate(subscriber.date);
@@ -130,6 +132,11 @@ export async function GET(request) {
 
       if (!stepName) continue;
 
+      if (subscriber.unsubscribed) {
+        unsubscribedSkipped += 1;
+        continue;
+      }
+
       const templateFn = SEQUENCE_TEMPLATES[stepName];
       const flag = STEP_FLAGS[stepName];
 
@@ -143,7 +150,8 @@ export async function GET(request) {
       }
 
       try {
-        const { subject, html } = templateFn();
+        const token = generateToken(subscriber.email);
+        const { subject, html } = templateFn(subscriber.email, token);
         await sendResendEmail(resend, stepName, {
           from: FROM,
           to: [subscriber.email],
@@ -192,6 +200,7 @@ export async function GET(request) {
       ok: true,
       processed: subscribers.length,
       skipped,
+      unsubscribedSkipped,
       wouldSend,
       byStep,
       errors,

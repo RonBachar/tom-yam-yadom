@@ -53,7 +53,7 @@ export async function getAllSubscribers() {
 
   const response = await sheets.spreadsheets.values.get({
     spreadsheetId,
-    range: "Sheet1!A:F",
+    range: "Sheet1!A:G",
   });
 
   const rows = response.data.values ?? [];
@@ -71,10 +71,41 @@ export async function getAllSubscribers() {
       source: String(row[2] ?? "").trim(),
       welcomeStep: String(row[4] ?? "").trim() || "0",
       educationStep: String(row[5] ?? "").trim() || "0",
+      unsubscribed: String(row[6] ?? "").trim() === "1",
     });
   }
 
   return subscribers;
+}
+
+export async function getSubscriberByEmail(email) {
+  const normalized = String(email ?? "").trim().toLowerCase();
+  if (!normalized) return null;
+
+  const subscribers = await getAllSubscribers();
+  const match = subscribers.find(
+    (subscriber) => subscriber.email.toLowerCase() === normalized
+  );
+  if (!match) return null;
+
+  return {
+    rowIndex: match.rowIndex,
+    email: match.email,
+    unsubscribed: match.unsubscribed,
+  };
+}
+
+export async function markUnsubscribed(rowIndex) {
+  const { sheets, spreadsheetId } = getSheetsClient();
+
+  await sheets.spreadsheets.values.update({
+    spreadsheetId,
+    range: `Sheet1!G${rowIndex}`,
+    valueInputOption: "USER_ENTERED",
+    requestBody: {
+      values: [["1"]],
+    },
+  });
 }
 
 export async function updateSubscriberStep(rowIndex, column, value) {

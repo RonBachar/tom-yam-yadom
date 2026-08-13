@@ -3,6 +3,7 @@ import {
   SCENTS,
   YADOM_OIL,
 } from "../../data/products";
+import { emailComplianceFooter } from "./footer";
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
 const DISCOUNT_CODE = "TIGER10";
@@ -34,7 +35,15 @@ function paragraph(html, isLast) {
   return `<p style="margin:0 0 ${margin};font-family:Georgia,Arial,sans-serif;font-size:16px;line-height:1.7;color:#F0EDE6;">${html}</p>`;
 }
 
-function brandedEmail({ title, paragraphs, extraHtml = "", ctaLabel, ctaHref }) {
+function brandedEmail({
+  title,
+  paragraphs,
+  extraHtml = "",
+  ctaLabel,
+  ctaHref,
+  email,
+  token,
+}) {
   const body = paragraphs
     .map((html, index) =>
       paragraph(html, index === paragraphs.length - 1 && !extraHtml)
@@ -83,13 +92,7 @@ function brandedEmail({ title, paragraphs, extraHtml = "", ctaLabel, ctaHref }) 
               </p>
             </td>
           </tr>
-          <tr>
-            <td style="padding:24px 36px 36px;border-top:1px solid #3A2A18;text-align:center;">
-              <p style="margin:0;font-family:Georgia,Arial,sans-serif;font-size:13px;line-height:1.6;color:#9A8A6C;">
-                Handcrafted in Koh Samui, Thailand
-              </p>
-            </td>
-          </tr>
+          ${emailComplianceFooter({ email, token })}
         </table>
       </td>
     </tr>
@@ -123,7 +126,7 @@ const YADOM_STORY_URL = `${BASE_URL}/blog/what-is-yadom-thai-herbal-inhaler`;
 const RITUAL_SET_URL = `${BASE_URL}/products/${COMPLETE_RITUAL_SET.slug}`;
 const RITUAL_SET_SHORT_NAME = COMPLETE_RITUAL_SET.name.split(":")[0].trim();
 
-export function welcome_2() {
+export function welcome_2(email, token) {
   const subject = "Which scent is you?";
   return {
     subject,
@@ -138,11 +141,13 @@ export function welcome_2() {
       ],
       ctaLabel: "Explore the scents",
       ctaHref: SHOP_URL,
+      email,
+      token,
     }),
   };
 }
 
-export function welcome_3() {
+export function welcome_3(email, token) {
   const subject = "A ritual for wherever you are";
   return {
     subject,
@@ -156,11 +161,13 @@ export function welcome_3() {
       extraHtml: discountCodeBlock(DISCOUNT_CODE),
       ctaLabel: "Shop now",
       ctaHref: SHOP_URL,
+      email,
+      token,
     }),
   };
 }
 
-export function education_1() {
+export function education_1(email, token) {
   const subject = "What is yadom, actually?";
   return {
     subject,
@@ -173,11 +180,13 @@ export function education_1() {
       ],
       ctaLabel: "Read the full story",
       ctaHref: YADOM_STORY_URL,
+      email,
+      token,
     }),
   };
 }
 
-export function education_2() {
+export function education_2(email, token) {
   const subject = "Find your scent";
   return {
     subject,
@@ -192,11 +201,13 @@ export function education_2() {
       ],
       ctaLabel: "Shop all scents",
       ctaHref: SHOP_URL,
+      email,
+      token,
     }),
   };
 }
 
-export function education_3() {
+export function education_3(email, token) {
   const subject = "The fighter behind Smiling Tiger";
   return {
     subject,
@@ -208,11 +219,13 @@ export function education_3() {
       ],
       ctaLabel: "Read the full story",
       ctaHref: STORY_URL,
+      email,
+      token,
     }),
   };
 }
 
-export function education_4() {
+export function education_4(email, token) {
   const subject = "The full ritual, all in one set";
   const price = COMPLETE_RITUAL_SET.price;
   return {
@@ -225,6 +238,8 @@ export function education_4() {
       ],
       ctaLabel: `Shop the ${RITUAL_SET_SHORT_NAME}`,
       ctaHref: RITUAL_SET_URL,
+      email,
+      token,
     }),
   };
 }

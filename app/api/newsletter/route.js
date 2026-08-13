@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { emailComplianceFooter } from "../../lib/emailTemplates/footer";
 import { appendSubscriberToSheet } from "../../lib/googleSheets";
+import { generateToken } from "../../lib/unsubscribeToken";
 
 const FROM = "Tom Yam Yadom <info@tomyamyadomherbals.com>";
 const INTERNAL_TO = "info@tomyamyadomherbals.com";
@@ -24,7 +26,7 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;");
 }
 
-function subscriberEmailHtml() {
+function subscriberEmailHtml(email, token) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,13 +86,7 @@ function subscriberEmailHtml() {
               </a>
             </td>
           </tr>
-          <tr>
-            <td style="padding:24px 36px 36px;border-top:1px solid #3A2A18;text-align:center;">
-              <p style="margin:0;font-family:Georgia,Arial,sans-serif;font-size:13px;line-height:1.6;color:#9A8A6C;">
-                Handcrafted in Koh Samui, Thailand
-              </p>
-            </td>
-          </tr>
+          ${emailComplianceFooter({ email, token })}
         </table>
       </td>
     </tr>
@@ -142,12 +138,13 @@ export async function POST(request) {
     }
 
     const resend = new Resend(apiKey);
+    const token = generateToken(email);
 
     await sendResendEmail(resend, "subscriber confirmation", {
       from: FROM,
       to: [email],
       subject: "Your 10% off code is inside",
-      html: subscriberEmailHtml(),
+      html: subscriberEmailHtml(email, token),
     });
 
     try {

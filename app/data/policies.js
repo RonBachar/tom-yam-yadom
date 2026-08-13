@@ -23,3 +23,12 @@ export const RETURN_POLICY = {
   merchantCoversReturn: true,
   refundDays: 14,
 };
+
+export const MAILING_ADDRESS = {
+  street: "17530 Lake Melford Avenue",
+  city: "Bowie",
+  state: "Maryland",
+  postalCode: "20715",
+};
+
+export const MAILING_ADDRESS_LINE = `${MAILING_ADDRESS.street}, ${MAILING_ADDRESS.city}, ${MAILING_ADDRESS.state} ${MAILING_ADDRESS.postalCode}`;
