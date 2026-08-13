@@ -8,6 +8,7 @@ export const metadata = {
   title: "Our Story | Tom Yam Yadom, Smiling Tiger",
   description:
     "Tyler's story: a professional Muay Thai fighter who built a premium Thai herbal inhaler from Koh Samui. Organic ingredients, small-batch, Thai-sourced.",
+  alternates: { canonical: `${BASE_URL}/story` },
   openGraph: {
     title: "Our Story | Tom Yam Yadom, Smiling Tiger",
     description:

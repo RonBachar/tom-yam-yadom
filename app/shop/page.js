@@ -8,6 +8,7 @@ export const metadata = {
   title: "Shop | Tom Yam Yadom | Thai Herbal Inhaler",
   description:
     "Shop all 7 Smiling Tiger Thai herbal inhaler scents, Crown Blend oil, and the Complete Ritual Set. Organic yadom handcrafted in Koh Samui, Thailand.",
+  alternates: { canonical: `${BASE_URL}/shop` },
   openGraph: {
     title: "Shop | Tom Yam Yadom | Thai Herbal Inhaler",
     description:

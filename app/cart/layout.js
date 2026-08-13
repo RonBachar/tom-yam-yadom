@@ -6,6 +6,7 @@ export const metadata = {
   title: "Cart | Tom Yam Yadom",
   description: "Your Tom Yam Yadom cart.",
   robots: { index: false, follow: true },
+  alternates: { canonical: `${BASE_URL}/cart` },
   openGraph: {
     title: "Cart | Tom Yam Yadom",
     description: "Your Tom Yam Yadom cart.",

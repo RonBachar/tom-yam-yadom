@@ -72,14 +72,6 @@ export function LegalEmailLink() {
   );
 }
 
-export function Placeholder({ children }) {
-  return (
-    <span className="inline max-w-full break-words bg-tiger-gold/15 text-tiger-gold border border-tiger-gold/30 px-1.5 py-0.5 rounded font-sans text-sm [overflow-wrap:anywhere]">
-      {children}
-    </span>
-  );
-}
-
 export function ShippingReturnsLink() {
   return (
     <Link

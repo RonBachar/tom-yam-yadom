@@ -45,11 +45,11 @@ export default function TermsPage() {
           Tom Yam Yadom sells premium handcrafted Thai herbal inhalers and herbal oils. Our products are made from organic herbal ingredients sourced from Thailand and are intended for personal, lifestyle, and aromatic use.
         </p>
         <p>
-          <strong className="text-tiger-cream">Important — Not a Medical Product.</strong>{" "}
+          <strong className="text-tiger-cream">Important: Not a Medical Product.</strong>{" "}
           Our herbal inhalers and oils are wellness and lifestyle products. They are not medicines, medical devices, or dietary supplements. They are not intended to diagnose, treat, cure, or prevent any disease or medical condition. Nothing on this website constitutes medical advice. If you have a medical condition, consult a qualified healthcare provider before use.
         </p>
         <p>
-          Our products contain natural herbal ingredients. If you have known allergies or sensitivities to any listed ingredient, do not use the product. Keep out of reach of children. For aromatic use only — do not ingest.
+          Our products contain natural herbal ingredients. If you have known allergies or sensitivities to any listed ingredient, do not use the product. Keep out of reach of children. For aromatic use only. Do not ingest.
         </p>
       </LegalSection>
 
@@ -85,7 +85,7 @@ export default function TermsPage() {
 
       <LegalSection title="Intellectual Property">
         <p>
-          All content on this website — including the Tom Yam Yadom and Smiling Tiger brand names, the tiger logo and artwork, scent names and descriptions, photography, copy, and design — is the property of Tom Yam Yadom and protected by applicable intellectual property laws.
+          All content on this website, including the Tom Yam Yadom and Smiling Tiger brand names, the tiger logo and artwork, scent names and descriptions, photography, copy, and design, is the property of Tom Yam Yadom and protected by applicable intellectual property laws.
         </p>
         <p>
           You may not reproduce, distribute, or use any of our content for commercial purposes without our prior written permission.

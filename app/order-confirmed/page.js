@@ -8,6 +8,7 @@ export const metadata = {
   description:
     "Your Tom Yam Yadom order is confirmed. Thank you for your purchase.",
   robots: { index: false, follow: true },
+  alternates: { canonical: `${BASE_URL}/order-confirmed` },
   openGraph: {
     title: "Order Confirmed | Tom Yam Yadom",
     description:

@@ -61,6 +61,7 @@ export const metadata = {
     card: "summary_large_image",
     images: [DEFAULT_OG_IMAGE.url],
   },
+  alternates: { canonical: BASE_URL },
 };
 
 const organizationJsonLd = {

@@ -14,12 +14,12 @@ const BASE_URL = "https://www.tomyamyadomherbals.com";
 export const metadata = {
   title: "The Apothecary: Thai Herbal Ingredients | Tom Yam Yadom",
   description:
-    "Browse the Tom Yam Yadom Apothecary — a dictionary of Thai herbs, spices, and botanicals behind every Smiling Tiger blend, with aroma profiles and history.",
+    "Browse the Tom Yam Yadom Apothecary: a dictionary of Thai herbs, spices, and botanicals behind every Smiling Tiger blend, with aroma profiles and history.",
   alternates: { canonical: `${BASE_URL}/ingredients` },
   openGraph: {
     title: "The Apothecary: Thai Herbal Ingredients | Tom Yam Yadom",
     description:
-      "Browse the Tom Yam Yadom Apothecary — a dictionary of Thai herbs, spices, and botanicals behind every Smiling Tiger blend, with aroma profiles and history.",
+      "Browse the Tom Yam Yadom Apothecary: a dictionary of Thai herbs, spices, and botanicals behind every Smiling Tiger blend, with aroma profiles and history.",
     url: `${BASE_URL}/ingredients`,
     siteName: "Tom Yam Yadom",
     locale: "en_US",
