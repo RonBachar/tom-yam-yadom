@@ -22,7 +22,7 @@ export function LegalPageLayout({ eyebrow, title, lastUpdated, children }) {
           </p>
         </header>
 
-        <div className="space-y-10 text-tiger-muted font-sans text-base leading-relaxed">
+        <div className="space-y-10 text-tiger-cream-dim font-sans text-base leading-relaxed">
           {children}
         </div>
       </div>

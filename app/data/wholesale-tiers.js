@@ -6,7 +6,7 @@ const WHOLESALE_TIERS = [
     min: "12 units",
     discount: "20% off MSRP",
     best: "Pop-ups, boutiques, smoke shops",
-    accentColor: "#8A7A60",
+    accentColor: "#9A8A6C",
     featured: false,
   },
   {

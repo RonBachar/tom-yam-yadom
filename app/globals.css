@@ -9,10 +9,10 @@
   --color-tiger-gold-light:#E8B820;
   --color-tiger-gold-dim:  #7A5806;
   --color-tiger-orange:    #D4681A;
-  --color-tiger-red:       #B81C18;
-  --color-tiger-cream:     #F2E6C4;
-  --color-tiger-cream-dim: #B8A880;
-  --color-tiger-muted:     #8A7A60;
+  --color-tiger-red:       #E85A52; /* error / destructive, AA on bg + surface */
+  --color-tiger-cream:     #F2E6C4; /* primary text */
+  --color-tiger-cream-dim: #B8A880; /* long-form / secondary reading */
+  --color-tiger-muted:     #9A8A6C; /* soft UI / captions, AA on bg + surface */
   --color-tiger-border:    #3A2A18;
 
   /* ── Typography ──────────────────────────────────── */
@@ -82,8 +82,8 @@ html  {
 }
 
 body  {
-  background-color: #0D0B08;
-  color: #F2E6C4;
+  background-color: var(--color-tiger-bg);
+  color: var(--color-tiger-cream);
   font-family: var(--font-sans);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -99,12 +99,12 @@ body  {
 }
 
 ::selection {
-  background-color: rgba(201, 148, 10, 0.30);
-  color: #F2E6C4;
+  background-color: color-mix(in srgb, var(--color-tiger-gold) 30%, transparent);
+  color: var(--color-tiger-cream);
 }
 
 :focus-visible {
-  outline: 2px solid #C9940A;
+  outline: 2px solid var(--color-tiger-gold);
   outline-offset: 3px;
   border-radius: 3px;
 }

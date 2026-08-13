@@ -20,24 +20,24 @@ export const mdxComponents = {
     </h3>
   ),
   p: ({ children }) => (
-    <p className="text-tiger-muted font-sans leading-relaxed mb-5">
+    <p className="text-tiger-cream-dim font-sans leading-relaxed mb-5">
       {children}
     </p>
   ),
   ul: ({ children }) => (
-    <ul className="list-disc list-outside pl-5 mb-5 space-y-1.5 text-tiger-muted font-sans leading-relaxed">
+    <ul className="list-disc list-outside pl-5 mb-5 space-y-1.5 text-tiger-cream-dim font-sans leading-relaxed">
       {children}
     </ul>
   ),
   ol: ({ children }) => (
-    <ol className="list-decimal list-outside pl-5 mb-5 space-y-1.5 text-tiger-muted font-sans leading-relaxed">
+    <ol className="list-decimal list-outside pl-5 mb-5 space-y-1.5 text-tiger-cream-dim font-sans leading-relaxed">
       {children}
     </ol>
   ),
   li: ({ children }) => <li>{children}</li>,
   blockquote: ({ children }) => (
     <blockquote
-      className="border-l-2 border-tiger-gold pl-5 my-6 italic text-tiger-cream/70 font-sans"
+      className="border-l-2 border-tiger-gold pl-5 my-6 italic text-tiger-cream-dim font-sans"
     >
       {children}
     </blockquote>
@@ -46,7 +46,7 @@ export const mdxComponents = {
     <strong className="font-semibold text-tiger-cream">{children}</strong>
   ),
   em: ({ children }) => (
-    <em className="italic text-tiger-cream/80">{children}</em>
+    <em className="italic text-tiger-cream">{children}</em>
   ),
   a: ({ href, children }) => (
     <a

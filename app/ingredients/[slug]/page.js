@@ -165,7 +165,7 @@ export default async function IngredientPage({ params }) {
             >
               Aroma Profile
             </h2>
-            <p className="text-tiger-muted font-sans text-base leading-relaxed">
+            <p className="text-tiger-cream-dim font-sans text-base leading-relaxed">
               {ingredient.aromaProfile}
             </p>
           </section>
@@ -177,7 +177,7 @@ export default async function IngredientPage({ params }) {
             >
               Historical Uses
             </h2>
-            <p className="text-tiger-muted font-sans text-base leading-relaxed">
+            <p className="text-tiger-cream-dim font-sans text-base leading-relaxed">
               {ingredient.historicalUses}
             </p>
           </section>
@@ -189,7 +189,7 @@ export default async function IngredientPage({ params }) {
             >
               Modern Uses
             </h2>
-            <p className="text-tiger-muted font-sans text-base leading-relaxed">
+            <p className="text-tiger-cream-dim font-sans text-base leading-relaxed">
               {ingredient.modernUses}
             </p>
           </section>
@@ -208,7 +208,7 @@ export default async function IngredientPage({ params }) {
                 <li key={product.slug}>
                   <Link
                     href={`/products/${product.slug}`}
-                    className="text-tiger-muted hover:text-tiger-gold font-sans text-base transition-colors duration-200 cursor-pointer"
+                    className="text-tiger-cream-dim hover:text-tiger-gold font-sans text-base transition-colors duration-200 cursor-pointer"
                   >
                     {product.name}
                   </Link>
@@ -218,7 +218,7 @@ export default async function IngredientPage({ params }) {
           </section>
         )}
 
-        <p className="text-tiger-muted/70 font-sans text-xs leading-relaxed border-t border-tiger-border pt-8">
+        <p className="text-tiger-muted font-sans text-xs leading-relaxed border-t border-tiger-border pt-8">
           {DISCLAIMER}
         </p>
       </div>

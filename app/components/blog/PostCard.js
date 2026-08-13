@@ -40,11 +40,11 @@ export default function PostCard({ post }) {
       <div className="flex flex-col flex-1 p-5 gap-3">
         {/* Category + date */}
         <div className="flex items-center gap-3">
-          <span className="text-xs font-heading font-bold tracking-[0.1em] uppercase text-tiger-gold/80">
+          <span className="text-xs font-heading font-bold tracking-[0.1em] uppercase text-tiger-gold">
             {categoryLabel}
           </span>
           {post.publishedAt && (
-            <span className="text-xs font-sans text-tiger-muted/60">
+            <span className="text-xs font-sans text-tiger-muted">
               {formatDate(post.publishedAt)}
             </span>
           )}
@@ -57,7 +57,7 @@ export default function PostCard({ post }) {
 
         {/* Excerpt */}
         {post.description && (
-          <p className="text-tiger-muted text-sm font-sans leading-relaxed line-clamp-3 flex-1">
+          <p className="text-tiger-cream-dim text-sm font-sans leading-relaxed line-clamp-3 flex-1">
             {post.description}
           </p>
         )}

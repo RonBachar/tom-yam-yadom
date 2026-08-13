@@ -346,7 +346,7 @@ export default async function ProductPage({ params }) {
               </p>
             )}
 
-            <p className="text-tiger-muted font-sans text-base italic mb-6">
+            <p className="text-tiger-cream-dim font-sans text-base italic mb-6">
               {product.tagline}
             </p>
 
@@ -356,14 +356,14 @@ export default async function ProductPage({ params }) {
             />
 
             {product.isBundle && (
-              <p className="text-tiger-muted font-sans text-base leading-relaxed mb-4">
+              <p className="text-tiger-cream-dim font-sans text-base leading-relaxed mb-4">
                 Looking for a gift that&apos;s genuinely different? The Complete
                 Ritual Set brings all 7 Thai herbal scents plus our Crown Blend
                 Oil, handcrafted in Koh Samui.
               </p>
             )}
 
-            <p className="text-tiger-muted font-sans text-base leading-relaxed mb-8">
+            <p className="text-tiger-cream-dim font-sans text-base leading-relaxed mb-8">
               {product.description}
             </p>
 
@@ -461,7 +461,7 @@ export default async function ProductPage({ params }) {
             <div className="flex flex-wrap items-center gap-4 mb-4">
               {product.isBundle && (
                 <>
-                  <span className="font-heading text-tiger-muted text-xl line-through decoration-tiger-muted/60">
+                  <span className="font-heading text-tiger-muted text-xl line-through decoration-tiger-muted">
                     ${BUNDLE_LIST_PRICE}
                   </span>
                   <span className="font-heading font-bold text-tiger-gold text-4xl">

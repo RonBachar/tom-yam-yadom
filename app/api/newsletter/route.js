@@ -85,7 +85,7 @@ function subscriberEmailHtml() {
           </tr>
           <tr>
             <td style="padding:24px 36px 36px;border-top:1px solid #3A2A18;text-align:center;">
-              <p style="margin:0;font-family:Georgia,Arial,sans-serif;font-size:13px;line-height:1.6;color:#8A7A60;">
+              <p style="margin:0;font-family:Georgia,Arial,sans-serif;font-size:13px;line-height:1.6;color:#9A8A6C;">
                 Handcrafted in Koh Samui, Thailand
               </p>
             </td>

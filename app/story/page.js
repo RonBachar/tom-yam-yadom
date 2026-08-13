@@ -44,7 +44,7 @@ export default function StoryPage() {
         </div>
 
         {/* Story content */}
-        <div className="space-y-12 text-tiger-muted font-sans text-lg leading-relaxed">
+        <div className="space-y-12 text-tiger-cream-dim font-sans text-lg leading-relaxed">
           <section>
             <h2 className="font-heading font-bold text-tiger-cream text-2xl uppercase tracking-wide mb-4">
               The Founder

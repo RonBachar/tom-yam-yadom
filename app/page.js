@@ -394,7 +394,7 @@ function TraditionSection() {
               className="w-16 h-0.5 mb-6"
               style={{ backgroundColor: "#C9940A" }}
             />
-            <p className="text-tiger-muted font-sans text-base leading-relaxed">
+            <p className="text-tiger-cream-dim font-sans text-base leading-relaxed">
               Yadom is the daily breath ritual of Thailand. Used by ~72 million
               people every single day, in temples, street markets, gyms, and
               offices across the country.
@@ -411,7 +411,7 @@ function TraditionSection() {
             style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)" }}>
             Thailand&rsquo;s oldest breathing practice, rebuilt for modern life.
           </h2>
-          <div className="space-y-4 text-tiger-muted font-sans text-base leading-relaxed">
+          <div className="space-y-4 text-tiger-cream-dim font-sans text-base leading-relaxed">
             <p>
               The <strong className="text-tiger-cream font-medium">Thai herbal inhaler</strong>, known as{" "}
               <em className="text-tiger-cream">ya-dom</em>, is a compressed blend

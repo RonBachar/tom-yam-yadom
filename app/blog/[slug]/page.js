@@ -157,7 +157,7 @@ export default async function BlogPostPage({ params }) {
           {fm.category && (
             <Link
               href={`/blog/category/${fm.category}`}
-              className="inline-block text-xs font-heading font-bold tracking-[0.12em] uppercase text-tiger-gold/80 hover:text-tiger-gold transition-colors mb-4 cursor-pointer"
+              className="inline-block text-xs font-heading font-bold tracking-[0.12em] uppercase text-tiger-gold hover:text-tiger-gold-light transition-colors mb-4 cursor-pointer"
             >
               {categoryLabel}
             </Link>
@@ -169,11 +169,11 @@ export default async function BlogPostPage({ params }) {
             {fm.title}
           </h1>
           {fm.description && (
-            <p className="text-tiger-muted font-sans text-lg leading-relaxed mb-6">
+            <p className="text-tiger-cream-dim font-sans text-lg leading-relaxed mb-6">
               {fm.description}
             </p>
           )}
-          <div className="flex items-center gap-4 text-xs font-sans text-tiger-muted/60">
+          <div className="flex items-center gap-4 text-xs font-sans text-tiger-muted">
             {fm.author && <span>{fm.author}</span>}
             {fm.publishedAt && (
               <>
