@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { appendSubscriberToSheet } from "../../lib/googleSheets";
 
 const FROM = "Tom Yam Yadom <info@tomyamyadomherbals.com>";
 const INTERNAL_TO = "info@tomyamyadomherbals.com";
@@ -162,6 +163,8 @@ export async function POST(request) {
         internalError
       );
     }
+
+    void appendSubscriberToSheet(email, "website_newsletter");
 
     return NextResponse.json({ success: true });
   } catch (error) {
