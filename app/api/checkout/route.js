@@ -124,6 +124,9 @@ export async function POST(request) {
       success_url: `${BASE_URL}/order-confirmed?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${BASE_URL}/cart`,
       shipping_options: shippingOptions,
+      shipping_address_collection: {
+        allowed_countries: ["US"],
+      },
       billing_address_collection: "auto",
     });
 
