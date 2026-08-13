@@ -69,6 +69,9 @@ export async function POST(request) {
           currency: "usd",
           product_data: {
             name: product.name,
+            metadata: {
+              slug: product.slug,
+            },
             ...(imageUrl ? { images: [imageUrl] } : {}),
           },
           unit_amount: unitAmountCents,
