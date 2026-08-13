@@ -1,9 +1,4 @@
-import {
-  ALL_PRODUCTS,
-  SCENTS,
-  YADOM_OIL,
-  COMPLETE_RITUAL_SET,
-} from "../data/products";
+import { ALL_PRODUCTS } from "../data/products";
 import { INGREDIENTS, getIngredientName } from "../data/ingredients";
 import { SHIPPING_POLICY, RETURN_POLICY } from "../data/policies";
 import { getAllPosts } from "../../lib/blog";
@@ -24,7 +19,16 @@ function scrubDashes(text) {
 
 function buildLlmsTxt() {
   const lines = [];
-  const scentPrice = SCENTS[0].price;
+  const scents = ALL_PRODUCTS.filter((p) => !p.isOil && !p.isBundle);
+  const oil = ALL_PRODUCTS.find((p) => p.isOil);
+  const bundle = ALL_PRODUCTS.find((p) => p.isBundle);
+  const scentPrices = scents.map((p) => p.price);
+  const scentPriceMin = Math.min(...scentPrices);
+  const scentPriceMax = Math.max(...scentPrices);
+  const scentPriceLabel =
+    scentPriceMin === scentPriceMax
+      ? `USD $${scentPriceMin} each`
+      : `USD $${scentPriceMin} to $${scentPriceMax} each`;
   const returnShipping = RETURN_POLICY.merchantCoversReturn
     ? "free return shipping"
     : "return shipping not covered";
@@ -38,7 +42,7 @@ function buildLlmsTxt() {
   lines.push("Key facts:");
   lines.push("");
   lines.push(
-    `- Products: 7 herbal inhaler scents (USD $${scentPrice} each), Crown Blend concentrated oil (USD $${YADOM_OIL.price}), Complete Ritual Set with all 7 scents + Crown Blend oil (USD $${COMPLETE_RITUAL_SET.price})`,
+    `- Products: ${scents.length} herbal inhaler scents (${scentPriceLabel}), Crown Blend concentrated oil (USD $${oil.price}), Complete Ritual Set with all ${scents.length} scents + Crown Blend oil (USD $${bundle.price})`,
   );
   lines.push(
     "- Ingredients: organic botanicals including menthol, camphor, borneol, cloves, cardamom, Thai ginger, makrut lime, jasmine",
@@ -67,7 +71,7 @@ function buildLlmsTxt() {
   );
   for (const product of ALL_PRODUCTS) {
     lines.push(
-      `- [${scrubDashes(product.name)}](${BASE_URL}/products/${product.slug}): ${scrubDashes(product.tagline)}`,
+      `- [${scrubDashes(product.name)}](${BASE_URL}/products/${product.slug}): ${scrubDashes(product.tagline)} (USD $${product.price})`,
     );
   }
   lines.push("");

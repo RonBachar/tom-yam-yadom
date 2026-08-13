@@ -48,10 +48,10 @@ export const SCENTS = [
     description:
       "A spiced, warming organic yadom built for Muay Thai training, morning routines, and long days. Thai ginger fires the focus; fuji pear tea softens the edge.",
     metaTitle:
-      "Vitality Thai Herbal Inhaler: Thai Ginger & Fuji Pear Tea | $20",
+      "Vitality Thai Herbal Inhaler: Thai Ginger & Fuji Pear Tea | $14",
     accentColor: "#CC2020",
     accentBg: "rgba(204, 32, 32, 0.08)",
-    price: 20,
+    price: 14,
     isOil: false,
     isBundle: false,
     badge: "Best Seller",
@@ -79,7 +79,7 @@ export const SCENTS = [
       "Citrus-forward herbal nasal inhaler with the brightness of kaffir lime and tangerine. Clears your head and brings festival energy anywhere you carry it.",
     accentColor: "#D4681A",
     accentBg: "rgba(212, 104, 26, 0.08)",
-    price: 20,
+    price: 18,
     isOil: false,
     isBundle: false,
     badge: "Uplifting",
@@ -104,7 +104,7 @@ export const SCENTS = [
       "The classic Thai yadom formula: an authentic samunprai herbal blend carried unchanged through a thousand years of tradition. Your daily anchor.",
     accentColor: "#5A8060",
     accentBg: "rgba(90, 128, 96, 0.08)",
-    price: 20,
+    price: 10,
     isOil: false,
     isBundle: false,
     badge: "Classic",
@@ -132,7 +132,7 @@ export const SCENTS = [
       "A sharp, cool aromatherapy inhaler that cuts through fatigue. Mint and Thai Royal Basil, trusted by fighters and built for anyone who shows up hard.",
     accentColor: "#3880C8",
     accentBg: "rgba(56, 128, 200, 0.08)",
-    price: 20,
+    price: 10,
     isOil: false,
     isBundle: false,
     badge: "Fighter's Choice",
@@ -185,7 +185,7 @@ export const SCENTS = [
       "A slow, floral-spiced Thai herbal inhaler for the end of the day. Jasmine and star anise ease the mind while white pepper keeps you present.",
     accentColor: "#6858A8",
     accentBg: "rgba(104, 88, 168, 0.08)",
-    price: 20,
+    price: 15,
     isOil: false,
     isBundle: false,
     badge: "Calming",
@@ -210,11 +210,20 @@ export const YADOM_OIL = {
     "The premium formula: concentrated for those who want maximum intensity and depth in their herbal aromatherapy ritual. Same Thai heritage, fully amplified.",
   accentColor: "#C9940A",
   accentBg: "rgba(201, 148, 10, 0.12)",
-  price: 35,
+  price: 30,
   isOil: true,
   isBundle: false,
   badge: "Premium",
 };
+
+/** Sum of the 7 scents + Crown Blend. Used as the bundle compare-at price. */
+export const BUNDLE_LIST_PRICE = [...SCENTS, YADOM_OIL].reduce(
+  (sum, product) => sum + product.price,
+  0,
+);
+
+const BUNDLE_PRICE = 115;
+export const BUNDLE_SAVINGS = BUNDLE_LIST_PRICE - BUNDLE_PRICE;
 
 export const COMPLETE_RITUAL_SET = {
   slug: "complete-ritual-set",
@@ -222,7 +231,11 @@ export const COMPLETE_RITUAL_SET = {
   tagline:
     "Your complete Thai apothecary. All 7 signature scents plus Crown Blend Oil.",
   emotion: "Complete",
-  functions: ["Full collection", "Daily ritual range", "Save $25"],
+  functions: [
+    "Full collection",
+    "Daily ritual range",
+    `Save $${BUNDLE_SAVINGS}`,
+  ],
   ingredients: [
     "Compassion",
     "Vitality",
@@ -256,11 +269,10 @@ export const COMPLETE_RITUAL_SET = {
     "white-peppercorn",
     "wasabi-extract",
   ],
-  description:
-    "The full ritual, in one set. Seven scents to move through your day, and Crown Blend Oil for the moments that ask for more. Save $25.",
+  description: `The full ritual, in one set. Seven scents to move through your day, and Crown Blend Oil for the moments that ask for more. Save $${BUNDLE_SAVINGS}.`,
   accentColor: "#C9940A",
   accentBg: "rgba(201, 148, 10, 0.12)",
-  price: 150,
+  price: BUNDLE_PRICE,
   isOil: false,
   isBundle: true,
   badge: null,
