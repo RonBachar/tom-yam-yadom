@@ -1,8 +1,16 @@
 import { NextResponse } from "next/server";
-import { getAllSubscribers } from "../../../lib/googleSheets";
+import { Resend } from "resend";
+import { SEQUENCE_TEMPLATES } from "../../../lib/emailTemplates/sequences";
+import {
+  getAllSubscribers,
+  updateSubscriberStep,
+} from "../../../lib/googleSheets";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+export const maxDuration = 60;
+
+const FROM = "Tom Yam Yadom <info@tomyamyadomherbals.com>";
 
 const SCHEDULE = {
   welcome_2: 3,
@@ -11,6 +19,15 @@ const SCHEDULE = {
   education_2: 21,
   education_3: 28,
   education_4: 35,
+};
+
+const STEP_FLAGS = {
+  welcome_2: { column: "E", value: "1" },
+  welcome_3: { column: "E", value: "2" },
+  education_1: { column: "F", value: "1" },
+  education_2: { column: "F", value: "2" },
+  education_3: { column: "F", value: "3" },
+  education_4: { column: "F", value: "4" },
 };
 
 function parseSheetDate(value) {
@@ -33,20 +50,14 @@ function daysSinceSignup(signupDate) {
 }
 
 function stepAlreadySent(stepName, welcomeStep, educationStep) {
-  const welcome = Number.parseInt(welcomeStep, 10) || 0;
-  const education = Number.parseInt(educationStep, 10) || 0;
+  const flag = STEP_FLAGS[stepName];
+  if (!flag) return true;
 
-  if (stepName.startsWith("welcome_")) {
-    const stepNumber = Number.parseInt(stepName.slice("welcome_".length), 10);
-    return welcome >= stepNumber;
-  }
+  const current = stepName.startsWith("welcome_")
+    ? Number.parseInt(welcomeStep, 10) || 0
+    : Number.parseInt(educationStep, 10) || 0;
 
-  if (stepName.startsWith("education_")) {
-    const stepNumber = Number.parseInt(stepName.slice("education_".length), 10);
-    return education >= stepNumber;
-  }
-
-  return true;
+  return current >= (Number.parseInt(flag.value, 10) || 0);
 }
 
 function matchingStep(days, welcomeStep, educationStep) {
@@ -58,6 +69,23 @@ function matchingStep(days, welcomeStep, educationStep) {
   return null;
 }
 
+async function sendResendEmail(resend, label, payload) {
+  console.log(`[cron/email-sequences] Sending ${label} to:`, payload.to);
+
+  const { data, error } = await resend.emails.send(payload);
+
+  if (error) {
+    console.error(`[cron/email-sequences] ${label} failed:`, error);
+    throw new Error(error.message || `Failed to send ${label}`);
+  }
+
+  console.log(
+    `[cron/email-sequences] ${label} sent successfully:`,
+    data?.id ?? data
+  );
+  return data;
+}
+
 export async function GET(request) {
   const cronSecret = process.env.CRON_SECRET;
   const authHeader = request.headers.get("authorization");
@@ -66,11 +94,22 @@ export async function GET(request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error("[cron/email-sequences] RESEND_API_KEY is not configured");
+    return NextResponse.json(
+      { error: "Email service is not configured." },
+      { status: 500 }
+    );
+  }
+
   try {
     const subscribers = await getAllSubscribers();
     const byStep = Object.fromEntries(
       Object.keys(SCHEDULE).map((stepName) => [stepName, 0])
     );
+    const errors = [];
+    const resend = new Resend(apiKey);
 
     let skipped = 0;
     let wouldSend = 0;
@@ -91,9 +130,62 @@ export async function GET(request) {
 
       if (!stepName) continue;
 
-      console.log(`Would send ${stepName} to ${subscriber.email}`);
-      byStep[stepName] += 1;
-      wouldSend += 1;
+      const templateFn = SEQUENCE_TEMPLATES[stepName];
+      const flag = STEP_FLAGS[stepName];
+
+      if (!templateFn || !flag) {
+        errors.push({
+          email: subscriber.email,
+          step: stepName,
+          error: `Unknown sequence step: ${stepName}`,
+        });
+        continue;
+      }
+
+      try {
+        const { subject, html } = templateFn();
+        await sendResendEmail(resend, stepName, {
+          from: FROM,
+          to: [subscriber.email],
+          subject,
+          html,
+        });
+
+        try {
+          await updateSubscriberStep(subscriber.rowIndex, flag.column, flag.value);
+        } catch (sheetError) {
+          const message =
+            sheetError instanceof Error
+              ? sheetError.message
+              : "Failed to update subscriber step.";
+          console.error(
+            `[cron/email-sequences] Sent ${stepName} to ${subscriber.email} but sheet update failed:`,
+            sheetError
+          );
+          errors.push({
+            email: subscriber.email,
+            step: stepName,
+            error: `Sent, but sheet update failed: ${message}`,
+          });
+        }
+
+        byStep[stepName] += 1;
+        wouldSend += 1;
+      } catch (sendError) {
+        const message =
+          sendError instanceof Error
+            ? sendError.message
+            : "Failed to send sequence email.";
+        console.error(
+          `[cron/email-sequences] ${stepName} failed for ${subscriber.email}:`,
+          sendError
+        );
+        errors.push({
+          email: subscriber.email,
+          step: stepName,
+          error: message,
+        });
+      }
     }
 
     return NextResponse.json({
@@ -102,6 +194,7 @@ export async function GET(request) {
       skipped,
       wouldSend,
       byStep,
+      errors,
     });
   } catch (error) {
     console.error("[cron/email-sequences] Failed:", error);
