@@ -26,32 +26,24 @@ const BASE_URL = "https://www.tomyamyadomherbals.com";
 
 const PRODUCT_IMAGE_ALT = {
   compassion:
-    "Compassion herbal inhaler, rose hips, peach blossom, and pink peppercorn",
-  vitality: "Vitality herbal inhaler, Thai ginger, cinnamon, and fuji pear",
+    "Compassion Thai herbal inhaler with pink cap among ixora flowers",
+  vitality:
+    "Vitality Thai herbal inhaler with red cap surrounded by red ixora blossoms",
   radiance:
-    "Radiance herbal inhaler, kaffir lime, tangerine zest, and orange blossom",
-  balance: "Balance herbal inhaler, traditional samunprai Thai herbal blend",
-  power: "Power herbal inhaler, Thai royal basil, cinnamon oil, and peppermint",
-  clarity: "Clarity herbal inhaler, borneol, camphor, and cooling compounds",
+    "Radiance Thai herbal inhaler with orange cap among colorful croton leaves",
+  balance:
+    "Balance Thai herbal inhaler with green cap resting on tropical leaves",
+  power:
+    "Power Thai herbal inhaler with blue cap on volcanic stone with fresh mint",
+  clarity:
+    "Clarity Thai herbal inhaler with yellow cap nested in variegated leaves",
   serenity:
-    "Serenity herbal inhaler, jasmine, white peppercorn, and calming botanicals",
+    "Serenity Thai herbal inhaler with purple cap among pink garden flowers",
   "crown-blend":
     "Crown Blend herbal oil, premium concentrated Thai herbal ritual oil",
   "complete-ritual-set":
-    "Complete Ritual Set containing all seven Tom Yam Yadom herbal inhalers and Crown Blend oil",
+    "Complete Ritual Set with all seven Thai herbal inhalers displayed on natural wood and stone",
 };
-
-/* Crown Blend first, then 7 scents. Fills 4x2 desktop / 2x4 mobile. */
-const BUNDLE_GRID_SLUGS = [
-  "crown-blend",
-  "compassion",
-  "vitality",
-  "radiance",
-  "balance",
-  "power",
-  "clarity",
-  "serenity",
-];
 
 const SET_PRODUCTS = [...SCENTS, YADOM_OIL];
 const BUNDLE_LIST_PRICE = SET_PRODUCTS.reduce((sum, p) => sum + p.price, 0);
@@ -234,72 +226,48 @@ export default async function ProductPage({ params }) {
         {/* Product main */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
           {/* Product image */}
-          <div
-            className="relative aspect-[4/5] rounded-3xl overflow-hidden"
-            style={{
-              border: `1px solid ${product.accentColor}50`,
-              backgroundColor: "#1a1a1a",
-            }}
-          >
-            {product.isBundle ? (
+          {product.isBundle ? (
+            <div className="flex flex-col gap-4">
               <div
-                className="absolute inset-0 grid grid-cols-2 grid-rows-4 md:grid-cols-4 md:grid-rows-2 gap-1 p-1.5"
-                style={{ backgroundColor: "#0D0B08" }}
-                role="img"
-                aria-label={PRODUCT_IMAGE_ALT["complete-ritual-set"]}
+                className="relative aspect-[4/5] rounded-3xl overflow-hidden"
+                style={{
+                  border: `1px solid ${product.accentColor}50`,
+                  backgroundColor: "#1a1a1a",
+                }}
               >
-                {BUNDLE_GRID_SLUGS.map((imageSlug) => {
-                  const isHero = imageSlug === "crown-blend";
-
-                  return (
-                    <div
-                      key={imageSlug}
-                      className={`relative min-h-0 overflow-hidden rounded-xl ${
-                        isHero ? "z-10" : ""
-                      }`}
-                      style={{
-                        border: isHero
-                          ? "1px solid rgba(201,148,10,0.55)"
-                          : "1px solid rgba(201,148,10,0.22)",
-                        boxShadow: isHero
-                          ? "0 0 20px rgba(201,148,10,0.22)"
-                          : undefined,
-                      }}
-                    >
-                      <Image
-                        src={getProductImageSrc(imageSlug)}
-                        alt=""
-                        fill
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                        className="object-cover"
-                        priority={isHero}
-                        aria-hidden
-                      />
-                      {isHero && (
-                        <div
-                          className="absolute inset-0"
-                          style={{
-                            background:
-                              "linear-gradient(to top, rgba(13,11,8,0.45) 0%, transparent 55%)",
-                          }}
-                          aria-hidden
-                        />
-                      )}
-                    </div>
-                  );
-                })}
-
-                <div
-                  className="pointer-events-none absolute inset-0 rounded-3xl"
-                  style={{
-                    background:
-                      "radial-gradient(ellipse at center, transparent 35%, rgba(13,11,8,0.5) 100%)",
-                    boxShadow: "inset 0 0 40px rgba(201,148,10,0.08)",
-                  }}
-                  aria-hidden
+                <Image
+                  src={getProductImageSrc("complete-ritual-set")}
+                  alt={PRODUCT_IMAGE_ALT["complete-ritual-set"]}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  priority
                 />
               </div>
-            ) : (
+              <div
+                className="relative aspect-[4/5] rounded-3xl overflow-hidden"
+                style={{
+                  border: "1px solid rgba(201,148,10,0.5)",
+                  backgroundColor: "#1a1a1a",
+                }}
+              >
+                <Image
+                  src={getProductImageSrc("crown-blend")}
+                  alt={PRODUCT_IMAGE_ALT["crown-blend"]}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          ) : (
+            <div
+              className="relative aspect-[4/5] rounded-3xl overflow-hidden"
+              style={{
+                border: `1px solid ${product.accentColor}50`,
+                backgroundColor: "#1a1a1a",
+              }}
+            >
               <Image
                 src={getProductImageSrc(product.slug)}
                 alt={
@@ -311,8 +279,8 @@ export default async function ProductPage({ params }) {
                 className="object-cover"
                 priority
               />
-            )}
-          </div>
+            </div>
+          )}
 
           {/* Buy box */}
           <div className="flex flex-col justify-center">
