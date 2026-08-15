@@ -5,7 +5,7 @@ import { SHIPPING_POLICY } from "../data/policies";
 
 const MESSAGES = [
   `Free shipping on orders over $${SHIPPING_POLICY.freeThreshold}`,
-  "Ships from the US 🐯",
+  "Ships from the US",
   "Handcrafted in Koh Samui",
 ];
 
@@ -37,9 +37,7 @@ export default function AnnouncementBar() {
     >
       <p
         className={`m-0 w-full max-w-xl text-center font-sans text-xs font-medium tracking-wide transition-[opacity,transform] duration-300 ease-out sm:text-sm ${
-          visible
-            ? "translate-y-0 opacity-100"
-            : "-translate-y-2 opacity-0"
+          visible ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
         }`}
       >
         {MESSAGES[index]}
