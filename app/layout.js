@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Smartlook from "./components/Smartlook";
 import Clarity from "./components/Clarity";
+import CookieConsent from "./components/CookieConsent";
 import { CartProvider } from "./context/CartContext";
 import { DEFAULT_OG_IMAGE } from "./data/siteMeta";
 
@@ -88,6 +89,7 @@ export default function RootLayout({ children }) {
         />
         <Smartlook />
         <Clarity />
+        <CookieConsent />
         <CartProvider>
           <Navbar />
           <main className="flex-1 w-full min-w-0">{children}</main>

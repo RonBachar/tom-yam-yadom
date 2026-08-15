@@ -1,8 +1,26 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Script from "next/script";
+import { getCookieConsent } from "./CookieConsent";
 
 export default function Smartlook() {
+  const [allowed, setAllowed] = useState(false);
+
+  useEffect(() => {
+    if (getCookieConsent() === "accepted") {
+      setAllowed(true);
+      return;
+    }
+    function onConsent(event) {
+      if (event.detail === "accepted") setAllowed(true);
+    }
+    window.addEventListener("cookie-consent", onConsent);
+    return () => window.removeEventListener("cookie-consent", onConsent);
+  }, []);
+
+  if (!allowed) return null;
+
   return (
     <>
       <Script
