@@ -166,7 +166,7 @@ function HeroSection() {
             href="/products/complete-ritual-set"
             className="inline-flex items-center justify-center gap-2 bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-sm tracking-[0.14em] uppercase px-7 py-3 sm:px-8 sm:py-3.5 rounded-full transition-colors duration-200 cursor-pointer"
           >
-            Gift the Complete Ritual Set
+            Gift The Ritual Set
             <ArrowIcon />
           </Link>
           <Link
