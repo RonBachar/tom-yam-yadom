@@ -34,7 +34,7 @@ export default function PrivacyPage() {
     <LegalPageLayout
       eyebrow="Legal"
       title="Privacy Policy"
-      lastUpdated="June 2026"
+      lastUpdated="August 2026"
     >
       <p className="text-tiger-cream">
         Your privacy matters to us. This page explains what information we collect when you visit tomyamyadomherbals.com, why we collect it, and what we do with it. We collect only what we need to run our store and communicate with you.
@@ -48,21 +48,32 @@ export default function PrivacyPage() {
 
         <LegalSubheading>When you contact us or sign up for email</LegalSubheading>
         <p>
-          Our contact and wholesale inquiry form collects your name and email address. Our newsletter signup collects your email address. We use Resend to send newsletters and order-related messages. You can unsubscribe at any time using the link in any email.
+          Our contact and wholesale inquiry form collects your name and email address. You can also join our email list through the newsletter signup on the site, or through an exit-intent popup that offers a 10% first-order discount code in exchange for your email. Depending on the form, we may collect your name, your email address, or both.
+        </p>
+        <p>
+          Subscriber details (name and email when provided) are stored in Google Sheets, which we use as our email list database. We use Resend to send newsletters, welcome messages, and order-related emails.
+        </p>
+
+        <LegalSubheading>Abandoned cart emails</LegalSubheading>
+        <p>
+          We have built an abandoned cart email feature that may remind you about items left in your cart if you provided an email address during checkout or signup. This feature is not active yet. When we turn it on, those messages will use the same email tools described on this page, and every message will include an unsubscribe link.
         </p>
 
         <LegalSubheading>Automatically collected data</LegalSubheading>
         <p>
-          We use Microsoft Clarity and Smartlook to understand how visitors use our site. These tools may collect your IP address, browser type, pages visited, referring URLs, and session recordings of how you interact with the site. This data is used to improve our website. We do not sell this data.
+          If you accept cookies through our cookie consent banner, we use Microsoft Clarity and Smartlook for heatmaps and session recordings so we can understand how visitors use the site. These tools may collect your IP address, browser type, pages visited, referring URLs, and how you interact with the page. This data is used to improve our website. We do not sell this data. If you reject cookies, Clarity and Smartlook are not loaded.
         </p>
       </LegalSection>
 
       <LegalSection title="Cookies">
+        <p>
+          When you first visit, we show a cookie consent banner. Analytics tools only run after you choose Accept. If you choose Reject, we do not load Microsoft Clarity or Smartlook.
+        </p>
         <p>Our site uses cookies for two purposes:</p>
         <ul className="list-disc pl-6 space-y-2 my-4">
           <li>
             <strong className="text-tiger-cream">Analytics cookies (Microsoft Clarity and Smartlook):</strong>{" "}
-            Track visit patterns and session behavior so we can improve the site.
+            Track visit patterns, heatmaps, and session behavior so we can improve the site. These run only after you accept cookies.
           </li>
           <li>
             <strong className="text-tiger-cream">Functional cookies (Stripe):</strong>{" "}
@@ -70,7 +81,7 @@ export default function PrivacyPage() {
           </li>
         </ul>
         <p>
-          You can disable or delete cookies in your browser settings. Disabling functional cookies may prevent checkout from working correctly.
+          You can also disable or delete cookies in your browser settings. Disabling functional cookies may prevent checkout from working correctly.
         </p>
       </LegalSection>
 
@@ -79,8 +90,9 @@ export default function PrivacyPage() {
           <li>To process and fulfill your orders</li>
           <li>To send order confirmations and shipping updates</li>
           <li>To respond to your messages or wholesale inquiries</li>
-          <li>To send newsletters and product updates (only if you opted in)</li>
-          <li>To improve our website using anonymized analytics</li>
+          <li>To send newsletters, welcome offers, and product updates (only if you opted in)</li>
+          <li>To send abandoned cart reminders once that feature is active (only if we have your email)</li>
+          <li>To improve our website using analytics and session insights after cookie consent</li>
           <li>To comply with legal obligations</li>
         </ul>
         <p>
@@ -95,19 +107,28 @@ export default function PrivacyPage() {
             <strong className="text-tiger-cream">Stripe:</strong> payment processing. PCI-DSS compliant. See stripe.com/privacy.
           </li>
           <li>
-            <strong className="text-tiger-cream">Microsoft Clarity:</strong> website analytics and session insights. See clarity.microsoft.com.
+            <strong className="text-tiger-cream">Google Sheets:</strong> storage for our email subscriber list (name and email when provided).
           </li>
           <li>
-            <strong className="text-tiger-cream">Smartlook:</strong> website analytics and session recording. See smartlook.com/privacy.
+            <strong className="text-tiger-cream">Microsoft Clarity:</strong> website analytics, heatmaps, and session insights, only after cookie consent. See clarity.microsoft.com.
           </li>
           <li>
-            <strong className="text-tiger-cream">Resend:</strong> newsletter and transactional email.
+            <strong className="text-tiger-cream">Smartlook:</strong> website analytics and session recording, only after cookie consent. See smartlook.com/privacy.
+          </li>
+          <li>
+            <strong className="text-tiger-cream">Resend:</strong> newsletter, welcome, abandoned cart (when active), and transactional email.
           </li>
           <li>
             <strong className="text-tiger-cream">Shipping carriers:</strong> your name and address are shared with our carrier to deliver your order.
           </li>
         </ul>
         <p>We may also disclose information if required by law.</p>
+      </LegalSection>
+
+      <LegalSection title="Unsubscribing">
+        <p>
+          Every marketing email we send includes an unsubscribe link. That link uses a secure, HMAC-verified token tied to your email address so only a valid link can update your subscription status. When you unsubscribe, we mark your address as unsubscribed in our Google Sheets subscriber list and stop sending marketing emails. This process is designed to meet CAN-SPAM requirements. You can also email us at <LegalEmailLink /> and we will remove you.
+        </p>
       </LegalSection>
 
       <LegalSection title="Your Rights">
@@ -127,13 +148,13 @@ export default function PrivacyPage() {
 
       <LegalSection title="Data Retention">
         <p>
-          We retain order records for as long as required by applicable tax and accounting laws (typically 7 years). Newsletter subscriber data is retained until you unsubscribe. Contact form data is retained only as long as necessary to respond to your inquiry.
+          We retain order records for as long as required by applicable tax and accounting laws (typically 7 years). Newsletter subscriber data is retained in Google Sheets until you unsubscribe. Contact form data is retained only as long as necessary to respond to your inquiry. Analytics and session recording data is retained according to each provider&rsquo;s settings and only collected after cookie consent.
         </p>
       </LegalSection>
 
       <LegalSection title="Security">
         <p>
-          Payment data is handled entirely by Stripe and never stored on our servers. We use industry-standard practices to protect the information we do hold.
+          Payment data is handled entirely by Stripe and never stored on our servers. Unsubscribe links are protected with HMAC verification so they cannot be forged. We use industry-standard practices to protect the information we do hold.
         </p>
       </LegalSection>
 
