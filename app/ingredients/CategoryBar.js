@@ -31,7 +31,7 @@ export default function CategoryBar({ categories }) {
 
   return (
     <nav
-      className="sticky top-[100px] z-40 -mx-6 px-6 py-4 mb-10 bg-tiger-bg/95 backdrop-blur-sm border-b border-tiger-border"
+      className="sticky top-[136px] z-40 -mx-6 px-6 py-4 mb-10 bg-tiger-bg/95 backdrop-blur-sm border-b border-tiger-border"
       aria-label="Ingredient categories"
     >
       <div className="flex gap-2 overflow-x-auto whitespace-nowrap">

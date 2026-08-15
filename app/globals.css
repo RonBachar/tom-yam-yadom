@@ -65,11 +65,11 @@
 html  {
   scroll-behavior: smooth;
   /*
-   * Offset anchor targets so they land below the fixed navbar.
-   * ~100px covers nav pill (55px) + top padding (12px) + banner (~40px).
+   * Offset anchor targets so they land below the fixed announcement bar + navbar.
+   * ~136px covers announcement (36px) + nav pill (55px) + top padding (12px) + buffer.
    * Adjust if navbar height changes.
    */
-  scroll-padding-top: 100px;
+  scroll-padding-top: 136px;
   /*
    * Setting font-size here shifts the rem base used by all Tailwind text-*
    * utilities (text-xs, text-sm, text-base, etc.) proportionally.

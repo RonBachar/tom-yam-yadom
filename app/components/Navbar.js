@@ -31,7 +31,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header className="fixed top-9 left-0 right-0 z-50">
       <div className="px-4 pt-3">
       <nav
         className={`max-w-6xl mx-auto rounded-full flex items-center justify-between px-4 py-2.5 transition-all duration-300 border border-tiger-border ${

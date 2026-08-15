@@ -1,10 +1,12 @@
 import { Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
+import AnnouncementBar from "./components/AnnouncementBar";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Smartlook from "./components/Smartlook";
 import Clarity from "./components/Clarity";
 import CookieConsent from "./components/CookieConsent";
+import EngagementPopup from "./components/EngagementPopup";
 import { CartProvider } from "./context/CartContext";
 import { DEFAULT_OG_IMAGE } from "./data/siteMeta";
 
@@ -90,7 +92,9 @@ export default function RootLayout({ children }) {
         <Smartlook />
         <Clarity />
         <CookieConsent />
+        <EngagementPopup />
         <CartProvider>
+          <AnnouncementBar />
           <Navbar />
           <main className="flex-1 w-full min-w-0">{children}</main>
           <Footer />
