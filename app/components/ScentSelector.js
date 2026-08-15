@@ -64,6 +64,7 @@ export default function ScentSelector() {
               key={scent.slug}
               scent={scent}
               index={index}
+              showMedallion
               cardRef={(el) => {
                 cardRefs.current[index] = el;
               }}

@@ -535,7 +535,7 @@ export default function ScentFan() {
                 onMouseEnter={() => handleCardEnter(slot)}
                 onMouseLeave={handleCardLeave}
               >
-                <ScentCard scent={scent} />
+                <ScentCard scent={scent} showMedallion medallionSize="sm" />
               </div>
             );
           })}

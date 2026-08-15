@@ -6,8 +6,17 @@ import { getIngredientBySlug, getIngredientName } from "../data/ingredients";
 import AddToCartButton from "./AddToCartButton";
 import { getProductImageSrc } from "../data/products";
 
-export default function ScentCard({ scent, index, cardRef, showMedallion = false }) {
+export default function ScentCard({
+  scent,
+  index,
+  cardRef,
+  showMedallion = false,
+  medallionSize = "md",
+}) {
   const isCarousel = typeof index === "number";
+  const isSmMedallion = medallionSize === "sm";
+  const medallionPx = isSmMedallion ? 46 : 60;
+  const medallionImgPx = isSmMedallion ? 48 : 64;
 
   return (
     <article
@@ -49,16 +58,24 @@ export default function ScentCard({ scent, index, cardRef, showMedallion = false
 
       {showMedallion && !scent.isBundle && (
         <div
-          className="pointer-events-none absolute top-3 right-3 z-[2] h-[60px] w-[60px] overflow-hidden rounded-full border-2 shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
-          style={{ borderColor: scent.accentColor }}
+          className={
+            isSmMedallion
+              ? "pointer-events-none absolute top-2.5 right-2.5 z-[2] overflow-hidden rounded-full border-2 shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
+              : "pointer-events-none absolute top-3 right-3 z-[2] overflow-hidden rounded-full border-2 shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
+          }
+          style={{
+            borderColor: scent.accentColor,
+            width: medallionPx,
+            height: medallionPx,
+          }}
           aria-hidden
         >
           <Image
             src={getProductImageSrc(scent.slug)}
             alt=""
-            width={64}
-            height={64}
-            sizes="64px"
+            width={medallionImgPx}
+            height={medallionImgPx}
+            sizes={`${medallionImgPx}px`}
             className="h-full w-full scale-125 object-cover object-center"
           />
         </div>
