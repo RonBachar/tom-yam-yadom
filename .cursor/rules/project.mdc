@@ -35,7 +35,8 @@ Portable. Apply on every e-commerce project that adopts this playbook.
 ### Images
 
 - Always `next/image`, never raw `<img>`. Every image has alt text and explicit `width`/`height` (or `fill` with a positioned parent).
-- All new images are WebP. Product images share one consistent size ratio across the catalog.
+- ALL images site-wide must be WebP format. No exceptions for legacy files. This applies retroactively, not just new uploads. (Platform-required exceptions only: `icon-192.png`, `icon-512.png`, and `apple-touch-icon.png`.)
+- Product images share one consistent size ratio across the catalog.
 - Hero / LCP images get `priority` (or equivalent preload). Below-fold images lazy-load (Next.js default).
 
 ### Performance

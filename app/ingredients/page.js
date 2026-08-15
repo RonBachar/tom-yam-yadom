@@ -88,7 +88,7 @@ export default function IngredientsPage() {
                           <Image
                             src={
                               ingredient.image ||
-                              `/images/ingredients/${ingredient.slug}.jpg`
+                              `/images/ingredients/${ingredient.slug}.webp`
                             }
                             alt={getIngredientImageAlt(ingredient.slug, name)}
                             fill

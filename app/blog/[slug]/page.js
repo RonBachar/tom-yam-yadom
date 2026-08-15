@@ -95,7 +95,7 @@ export default async function BlogPostPage({ params }) {
       url: BASE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${BASE_URL}/images/logos/logo.jpg`,
+        url: `${BASE_URL}/images/logos/logo.webp`,
       },
     },
     url: `${BASE_URL}/blog/${slug}`,
@@ -114,6 +114,14 @@ export default async function BlogPostPage({ params }) {
       }
     : null;
 
+  const faqJsonLd = fm.faq
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        ...fm.faq,
+      }
+    : null;
+
   return (
     <div className="pt-32 pb-24 px-6">
       <script
@@ -124,6 +132,12 @@ export default async function BlogPostPage({ params }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+        />
+      )}
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       )}
 

@@ -115,7 +115,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-5">
               <Image
-                src="/images/logos/logo.jpg"
+                src="/images/logos/logo.webp"
                 alt="Tom Yam Yadom - Smiling Tiger"
                 width={48}
                 height={48}

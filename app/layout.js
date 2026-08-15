@@ -69,7 +69,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "Tom Yam Yadom",
   url: "https://www.tomyamyadomherbals.com",
-  logo: "https://www.tomyamyadomherbals.com/images/logos/logo.jpg",
+  logo: "https://www.tomyamyadomherbals.com/images/logos/logo.webp",
   description:
     "Premium handcrafted Thai herbal inhalers made in Koh Samui.",
   email: "info@tomyamyadomherbals.com",

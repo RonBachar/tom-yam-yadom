@@ -48,7 +48,7 @@ export default function Navbar() {
           aria-label="Tom Yam Yadom home"
         >
           <Image
-            src="/images/logos/logo.jpg"
+            src="/images/logos/logo.webp"
             alt="Tom Yam Yadom - Smiling Tiger"
             width={40}
             height={40}
