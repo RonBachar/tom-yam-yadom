@@ -226,61 +226,25 @@ export default async function ProductPage({ params }) {
         {/* Product main */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
           {/* Product image */}
-          {product.isBundle ? (
-            <div className="flex flex-col gap-4">
-              <div
-                className="relative aspect-[4/5] rounded-3xl overflow-hidden"
-                style={{
-                  border: `1px solid ${product.accentColor}50`,
-                  backgroundColor: "#1a1a1a",
-                }}
-              >
-                <Image
-                  src={getProductImageSrc("complete-ritual-set")}
-                  alt={PRODUCT_IMAGE_ALT["complete-ritual-set"]}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              <div
-                className="relative aspect-[4/5] rounded-3xl overflow-hidden"
-                style={{
-                  border: "1px solid rgba(201,148,10,0.5)",
-                  backgroundColor: "#1a1a1a",
-                }}
-              >
-                <Image
-                  src={getProductImageSrc("crown-blend")}
-                  alt={PRODUCT_IMAGE_ALT["crown-blend"]}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          ) : (
-            <div
-              className="relative aspect-[4/5] rounded-3xl overflow-hidden"
-              style={{
-                border: `1px solid ${product.accentColor}50`,
-                backgroundColor: "#1a1a1a",
-              }}
-            >
-              <Image
-                src={getProductImageSrc(product.slug)}
-                alt={
-                  PRODUCT_IMAGE_ALT[product.slug] ??
-                  `${product.name} Thai herbal inhaler`
-                }
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-                priority
-              />
-            </div>
-          )}
+          <div
+            className="relative aspect-[4/5] rounded-3xl overflow-hidden"
+            style={{
+              border: `1px solid ${product.accentColor}50`,
+              backgroundColor: "#1a1a1a",
+            }}
+          >
+            <Image
+              src={getProductImageSrc(product.slug)}
+              alt={
+                PRODUCT_IMAGE_ALT[product.slug] ??
+                `${product.name} Thai herbal inhaler`
+              }
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+              priority
+            />
+          </div>
 
           {/* Buy box */}
           <div className="flex flex-col justify-center">
@@ -561,7 +525,7 @@ export default async function ProductPage({ params }) {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {related.map((r) => (
-                <ScentCard key={r.slug} scent={r} />
+                <ScentCard key={r.slug} scent={r} showMedallion />
               ))}
             </div>
           </section>

@@ -6,7 +6,7 @@ import { getIngredientBySlug, getIngredientName } from "../data/ingredients";
 import AddToCartButton from "./AddToCartButton";
 import { getProductImageSrc } from "../data/products";
 
-export default function ScentCard({ scent, index, cardRef }) {
+export default function ScentCard({ scent, index, cardRef, showMedallion = false }) {
   const isCarousel = typeof index === "number";
 
   return (
@@ -46,6 +46,23 @@ export default function ScentCard({ scent, index, cardRef }) {
         className="absolute inset-0 z-[1]"
         aria-label={`View ${scent.name}`}
       />
+
+      {showMedallion && !scent.isBundle && (
+        <div
+          className="pointer-events-none absolute top-3 right-3 z-[2] h-[60px] w-[60px] overflow-hidden rounded-full border-2 shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
+          style={{ borderColor: scent.accentColor }}
+          aria-hidden
+        >
+          <Image
+            src={getProductImageSrc(scent.slug)}
+            alt=""
+            width={64}
+            height={64}
+            sizes="64px"
+            className="h-full w-full scale-125 object-cover object-center"
+          />
+        </div>
+      )}
 
       <div className="relative z-[2] flex flex-1 flex-col pointer-events-none">
         {/* Accent top bar */}
