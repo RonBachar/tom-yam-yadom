@@ -6,8 +6,7 @@ import Footer from "./components/Footer";
 import Smartlook from "./components/Smartlook";
 import Clarity from "./components/Clarity";
 import CookieConsent from "./components/CookieConsent";
-// Launch blocker: do not mount EngagementPopup until /privacy updates are live.
-// import EngagementPopup from "./components/EngagementPopup";
+import EngagementPopup from "./components/EngagementPopup";
 import { CartProvider } from "./context/CartContext";
 import { DEFAULT_OG_IMAGE } from "./data/siteMeta";
 
@@ -93,7 +92,7 @@ export default function RootLayout({ children }) {
         <Smartlook />
         <Clarity />
         <CookieConsent />
-        {/* <EngagementPopup /> */}
+        <EngagementPopup />
         <CartProvider>
           <AnnouncementBar />
           <Navbar />
