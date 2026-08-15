@@ -124,20 +124,7 @@ function HeroSection() {
       </div>
 
       {/* Content — fits in viewport below fixed nav */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 flex-1 flex flex-col items-center justify-center gap-2.5 sm:gap-3.5 text-center min-h-0 pt-[7.5rem] pb-5 sm:pt-28 sm:pb-6">
-        {/* Eyebrow */}
-        <div
-          className="inline-flex items-center px-3 py-1.5 rounded-full border shrink-0"
-          style={{
-            borderColor: "rgba(201,148,10,0.35)",
-            backgroundColor: "rgba(201,148,10,0.08)",
-          }}
-        >
-          <span className="text-tiger-gold text-[10px] sm:text-xs font-heading font-bold tracking-[0.16em] uppercase">
-            Handcrafted in Koh Samui · Small-Batch
-          </span>
-        </div>
-
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 flex-1 flex flex-col items-center justify-center gap-2.5 md:gap-3.5 text-center min-h-0 pt-40 pb-5 md:pt-28 md:pb-6">
         {/* Main headline */}
         <h1
           className="font-heading font-bold uppercase leading-[0.92] shrink-0"
@@ -161,7 +148,7 @@ function HeroSection() {
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center shrink-0">
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-3 justify-center shrink-0 mt-4 md:mt-0">
           <Link
             href="/products/complete-ritual-set"
             className="inline-flex items-center justify-center gap-2 bg-tiger-gold hover:bg-tiger-gold-light text-tiger-bg font-heading font-bold text-sm tracking-[0.14em] uppercase px-7 py-3 sm:px-8 sm:py-3.5 rounded-full transition-colors duration-200 cursor-pointer"
