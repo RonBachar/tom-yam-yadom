@@ -204,7 +204,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-6 pt-6 border-t border-tiger-border flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="text-tiger-muted text-xs font-sans">
+          <p className="text-tiger-muted text-xs font-sans text-center sm:text-left">
             &copy; 2024 Tom Yam Yadom. Handcrafted in Koh Samui, Thailand.
           </p>
           <p className="text-tiger-muted text-xs font-sans text-center sm:text-right">
