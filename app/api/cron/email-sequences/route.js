@@ -3,6 +3,7 @@ import { Resend } from "resend";
 import { SEQUENCE_TEMPLATES } from "../../../lib/emailTemplates/sequences";
 import {
   getAllSubscribers,
+  repairShiftedSubscriberRows,
   updateSubscriberStep,
 } from "../../../lib/googleSheets";
 import { generateToken } from "../../../lib/unsubscribeToken";
@@ -105,6 +106,39 @@ export async function GET(request) {
   }
 
   try {
+    let repaired = [];
+    let diagnostics = [];
+    let repairErrorMessage = null;
+    try {
+      const repairResult = await repairShiftedSubscriberRows();
+      repaired = repairResult.repaired;
+      diagnostics = repairResult.diagnostics;
+      if (repaired.length) {
+        console.log(
+          "[cron/email-sequences] Repaired shifted subscriber rows:",
+          repaired.map((item) => item.email)
+        );
+      }
+    } catch (repairError) {
+      repairErrorMessage =
+        repairError instanceof Error
+          ? repairError.message
+          : "Failed to repair shifted subscriber rows.";
+      console.error(
+        "[cron/email-sequences] Failed to repair shifted subscriber rows:",
+        repairError
+      );
+    }
+
+    if (new URL(request.url).searchParams.get("repairOnly") === "1") {
+      return NextResponse.json({
+        ok: !repairErrorMessage,
+        repaired,
+        diagnostics,
+        repairError: repairErrorMessage,
+      });
+    }
+
     const subscribers = await getAllSubscribers();
     const byStep = Object.fromEntries(
       Object.keys(SCHEDULE).map((stepName) => [stepName, 0])
@@ -203,6 +237,7 @@ export async function GET(request) {
       unsubscribedSkipped,
       wouldSend,
       byStep,
+      repaired,
       errors,
     });
   } catch (error) {
