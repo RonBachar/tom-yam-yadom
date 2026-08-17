@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { emailComplianceFooter } from "../../lib/emailTemplates/footer";
 import { appendSubscriberToSheet } from "../../lib/googleSheets";
@@ -161,7 +161,7 @@ export async function POST(request) {
       );
     }
 
-    void appendSubscriberToSheet(email, "website_newsletter");
+    after(() => appendSubscriberToSheet(email, "website_newsletter"));
 
     return NextResponse.json({ success: true });
   } catch (error) {

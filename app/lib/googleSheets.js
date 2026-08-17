@@ -152,6 +152,7 @@ export async function appendSubscriberToSheet(email, source) {
         values: [subscriberRowValues(email, formatDate(new Date()), source)],
       },
     });
+    console.log("[googleSheets] Subscriber appended:", email);
   } catch (error) {
     console.error("[googleSheets] Failed to append subscriber:", error);
   }
