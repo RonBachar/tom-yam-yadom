@@ -3,9 +3,11 @@ import { SHIPPING_POLICY } from "../data/policies";
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
 
-/** Google product taxonomy path for aromatherapy goods. */
-const GOOGLE_PRODUCT_CATEGORY =
-  "Health & Beauty > Health Care > Aromatherapy";
+/** Google product taxonomy ID: Health & Beauty > Personal Care. */
+const GOOGLE_PRODUCT_CATEGORY = "2915";
+
+const PRODUCT_TYPE_INHALER = "Personal Care > Aromatherapy Inhalers";
+const PRODUCT_TYPE_OIL = "Personal Care > Aromatherapy Oils";
 
 /**
  * Escape text for XML element content and attribute-safe values.
@@ -30,6 +32,10 @@ function productTitle(product) {
     return `${product.name} Herbal Oil`;
   }
   return `${product.name} Thai Herbal Inhaler`;
+}
+
+function productType(product) {
+  return product.isOil ? PRODUCT_TYPE_OIL : PRODUCT_TYPE_INHALER;
 }
 
 function buildFeed() {
@@ -71,7 +77,8 @@ function buildFeed() {
       <g:price>${formatPriceUsd(product.price)}</g:price>
       <g:brand>Tom Yam Yadom</g:brand>
       <g:condition>new</g:condition>
-      <g:google_product_category>${escapeXml(GOOGLE_PRODUCT_CATEGORY)}</g:google_product_category>
+      <g:google_product_category>${GOOGLE_PRODUCT_CATEGORY}</g:google_product_category>
+      <g:product_type>${escapeXml(productType(product))}</g:product_type>
       <g:shipping>
         <g:country>US</g:country>
         <g:service>Standard</g:service>
