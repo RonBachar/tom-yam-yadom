@@ -1,16 +1,16 @@
 export const SHIPPING_POLICY = {
   standard: {
-    price: 5.99,
+    price: 9.99,
     currency: "USD",
     transitDays: 7,
-    label: "$5.99 Standard Shipping (7 business days)",
+    label: "$9.99 Standard Shipping (7 business days)",
   },
   expedited: {
-    price: 11.99,
+    price: 13.99,
     currency: "USD",
     transitDaysMin: 1,
     transitDaysMax: 3,
-    label: "$11.99 Expedited Shipping (1-3 business days)",
+    label: "$13.99 Expedited Shipping (1-3 business days)",
   },
   freeThreshold: 50,
   handlingDaysMin: 1,

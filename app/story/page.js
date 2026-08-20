@@ -1,5 +1,5 @@
 import Link from "next/link";
-import TigerMark from "../components/TigerMark";
+import Image from "next/image";
 import { DEFAULT_OG_IMAGE } from "../data/siteMeta";
 
 const BASE_URL = "https://www.tomyamyadomherbals.com";
@@ -31,7 +31,6 @@ export default function StoryPage() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-16 text-center">
-          <TigerMark size={56} className="mx-auto mb-6" />
           <span className="inline-block text-tiger-orange text-xs font-heading font-bold tracking-[0.2em] uppercase mb-5">
             Our Story
           </span>
@@ -47,15 +46,30 @@ export default function StoryPage() {
         {/* Story content */}
         <div className="space-y-12 text-tiger-cream-dim font-sans text-lg leading-relaxed">
           <section>
-            <h2 className="font-heading font-bold text-tiger-cream text-2xl uppercase tracking-wide mb-4">
+            <h2 className="font-heading font-bold text-tiger-cream text-2xl uppercase tracking-wide mb-6">
               The Founder
             </h2>
-            <p>
-              Tyler is a professional Muay Thai fighter who has lived and trained between Thailand and the United States for over a decade. He found yadom, the compressed Thai herbal inhaler, on his first trip to Koh Samui, and it never left his fight kit.
-            </p>
-            <p className="mt-4">
-              He got tired of what was on the market: mass-produced inhalers with 30-day shelf lives, synthetic fragrance, and zero cultural connection. So he built his own.
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] gap-8 md:gap-10 items-start">
+              <div className="relative w-full rounded-2xl overflow-hidden border border-tiger-border">
+                <Image
+                  src="/images/about/tyler.webp"
+                  alt="Tyler, co-founder of Tom Yam Yadom, Muay Thai fighter"
+                  width={640}
+                  height={640}
+                  sizes="(max-width: 768px) 100vw, 380px"
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+              </div>
+              <div>
+                <p>
+                  Tyler is a professional Muay Thai fighter who has lived and trained between Thailand and the United States for over a decade. He found yadom, the compressed Thai herbal inhaler, on his first trip to Koh Samui, and it never left his fight kit.
+                </p>
+                <p className="mt-4">
+                  He got tired of what was on the market: mass-produced inhalers with 30-day shelf lives, synthetic fragrance, and zero cultural connection. So he built his own.
+                </p>
+              </div>
+            </div>
           </section>
 
           <div

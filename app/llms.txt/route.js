@@ -54,7 +54,7 @@ function buildLlmsTxt() {
     "- Common use cases: focus while working, pre-training rituals in Muay Thai, festivals, quitting smoking (nicotine-free hand-to-mouth ritual), grounding when overwhelmed",
   );
   lines.push(
-    `- Shipping: United States only. USD $${SHIPPING_POLICY.standard.price} flat rate, free shipping on orders over USD $${SHIPPING_POLICY.freeThreshold}`,
+    `- Shipping: United States only. USD $${SHIPPING_POLICY.standard.price} standard, USD $${SHIPPING_POLICY.expedited.price} expedited, free shipping on orders over USD $${SHIPPING_POLICY.freeThreshold}`,
   );
   lines.push(
     `- Returns: ${RETURN_POLICY.windowDays}-day returns on any item, ${returnShipping}, refunds within ${RETURN_POLICY.refundDays} days`,
